@@ -2,7 +2,7 @@ import React from "react";
 import AuthGuard from "./AuthGuard";
 import { SidebarNav } from "@/app/components/SidebarNav";
 
-// This layout wraps all protected routes with the PLASMINE sidebar navigation
+// This layout wraps all protected routes with the ORBITRADE sidebar navigation
 
 export default function ProtectedLayout({ children }: { children: React.ReactNode }) {
   return (

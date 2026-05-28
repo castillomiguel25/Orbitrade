@@ -177,7 +177,7 @@ export default function MovementsPage() {
                   </h1>
                   <p className="text-sm font-mono text-cosmic-gray">
                     {intl.formatMessage({ id: "pages.movements.title" })} •{' '}
-                    <span className="italic text-cyber-cyan">PLASMINE</span>
+                    <span className="italic text-cyber-cyan">ORBITRADE</span>
                   </p>
                 </div>
               </div>

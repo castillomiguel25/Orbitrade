@@ -158,25 +158,25 @@ function StatsSection() {
   }, []);
 
   const stats = [
-    { 
-      value: intl.formatMessage({ id: 'pages.home.stats.collectors.value' }), 
-      label: intl.formatMessage({ id: 'pages.home.stats.collectors.label' }), 
-      color: '#13f187' 
+    {
+      value: intl.formatMessage({ id: 'pages.home.stats.collectors.value' }),
+      label: intl.formatMessage({ id: 'pages.home.stats.collectors.label' }),
+      color: '#13f187'
     },
-    { 
-      value: intl.formatMessage({ id: 'pages.home.stats.plasma.value' }), 
-      label: intl.formatMessage({ id: 'pages.home.stats.plasma.label' }), 
-      color: '#00f5ff' 
+    {
+      value: intl.formatMessage({ id: 'pages.home.stats.plasma.value' }),
+      label: intl.formatMessage({ id: 'pages.home.stats.plasma.label' }),
+      color: '#00f5ff'
     },
-    { 
-      value: intl.formatMessage({ id: 'pages.home.stats.species.value' }), 
-      label: intl.formatMessage({ id: 'pages.home.stats.species.label' }), 
-      color: '#dc95e6' 
+    {
+      value: intl.formatMessage({ id: 'pages.home.stats.species.value' }),
+      label: intl.formatMessage({ id: 'pages.home.stats.species.label' }),
+      color: '#dc95e6'
     },
-    { 
-      value: intl.formatMessage({ id: 'pages.home.stats.uptime.value' }), 
-      label: intl.formatMessage({ id: 'pages.home.stats.uptime.label' }), 
-      color: '#c8ff00' 
+    {
+      value: intl.formatMessage({ id: 'pages.home.stats.uptime.value' }),
+      label: intl.formatMessage({ id: 'pages.home.stats.uptime.label' }),
+      color: '#c8ff00'
     },
   ];
 
@@ -258,25 +258,25 @@ function NFTCard({
   }, []);
 
   const rarityConfig = {
-    common: { 
-      color: '#13f187', 
-      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.common' }), 
-      bg: 'rgba(19, 241, 135, 0.1)' 
+    common: {
+      color: '#13f187',
+      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.common' }),
+      bg: 'rgba(19, 241, 135, 0.1)'
     },
-    rare: { 
-      color: '#00f5ff', 
-      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.rare' }), 
-      bg: 'rgba(0, 245, 255, 0.1)' 
+    rare: {
+      color: '#00f5ff',
+      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.rare' }),
+      bg: 'rgba(0, 245, 255, 0.1)'
     },
-    epic: { 
-      color: '#dc95e6', 
-      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.epic' }), 
-      bg: 'rgba(220, 149, 230, 0.1)' 
+    epic: {
+      color: '#dc95e6',
+      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.epic' }),
+      bg: 'rgba(220, 149, 230, 0.1)'
     },
-    legendary: { 
-      color: '#c8ff00', 
-      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.legendary' }), 
-      bg: 'rgba(200, 255, 0, 0.1)' 
+    legendary: {
+      color: '#c8ff00',
+      label: intl.formatMessage({ id: 'pages.home.collection.card.rarity.legendary' }),
+      bg: 'rgba(200, 255, 0, 0.1)'
     }
   };
 
@@ -794,7 +794,7 @@ function CTASection() {
 }
 
 // Main Page Component
-export default function PlasmineLanding() {
+export default function OrbitradeLanding() {
   return (
     <div className="relative bg-void-black min-h-screen">
       {/* Page Sections */}

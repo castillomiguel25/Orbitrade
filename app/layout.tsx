@@ -10,7 +10,7 @@ import { IntlProvider } from "./i18n/IntlProvider";
 import { getLocaleFromServerCookies } from "./i18n/utils/server-cookies";
 import { getSiteMetadata } from "./i18n/utils/metadata";
 
-// PLASMINE Typography - New Fonts
+// ORBITRADE Typography - New Fonts
 const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
   subsets: ["latin"],

@@ -215,7 +215,7 @@ export default function Login() {
                   backgroundClip: 'text',
                 }}
               >
-                PLASMINE
+                ORBITRADE
               </span>
             </h1>
             <p className="text-sm font-mono text-cosmic-gray">
@@ -239,7 +239,7 @@ export default function Login() {
                   border: '1px solid rgba(19, 241, 135, 0.3)',
                   boxShadow: 'inset 0 0 20px rgba(19, 241, 135, 0.05)',
                 }}
-                placeholder="commander@plasmine.io"
+                placeholder="commander@orbitrade.io"
               />
             </div>
 

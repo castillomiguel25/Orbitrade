@@ -3,8 +3,8 @@ import { cookies } from "next/headers";
 
 /**
  * Get cookie domain for cross-subdomain auth sharing.
- * When dual-domain mode is active (plasmine.io + app.plasmine.io),
- * cookies are set on ".plasmine.io" so they work on both domains.
+ * When dual-domain mode is active (orbitrade.io + app.orbitrade.io),
+ * cookies are set on ".orbitrade.io" so they work on both domains.
  */
 function getCookieDomain(): string | undefined {
   const marketingDomain = process.env.NEXT_PUBLIC_MARKETING_DOMAIN;
@@ -12,7 +12,7 @@ function getCookieDomain(): string | undefined {
 
   // Only set shared domain if both are configured (dual-domain mode)
   if (marketingDomain && appDomain) {
-    // Extract root domain: "app.plasmine.io" -> ".plasmine.io"
+    // Extract root domain: "app.orbitrade.io" -> ".orbitrade.io"
     const parts = marketingDomain.split('.');
     if (parts.length >= 2) {
       return `.${parts.slice(-2).join('.')}`;

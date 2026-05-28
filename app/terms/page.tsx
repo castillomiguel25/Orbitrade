@@ -72,7 +72,7 @@ export default function TermsPage() {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm font-mono text-cosmic-gray mb-12">
           <Link href="/" className="text-miner-green hover:text-miner-green/80 transition-colors">
-            PLASMINE
+            ORBITRADE
           </Link>
           <span className="text-cosmic-gray/40">/</span>
           <span className="text-star-white">
@@ -88,7 +88,7 @@ export default function TermsPage() {
           <p className="text-lg text-cosmic-gray font-body leading-relaxed max-w-2xl mb-6">
             {intl.formatMessage({
               id: 'pages.terms.subtitle',
-              defaultMessage: 'Legal framework and compliance requirements for PlasMine space mining fleet operations'
+              defaultMessage: 'Legal framework and compliance requirements for OrbiTrade space mining fleet operations'
             })}
           </p>
           <div
@@ -164,7 +164,7 @@ export default function TermsPage() {
           <p className="text-cosmic-gray font-body leading-relaxed text-[15px]">
             {intl.formatMessage({
               id: 'pages.terms.disclaimer.text',
-              defaultMessage: 'PLASMINE is an NFT collection and simulation game. Nothing on this platform constitutes financial advice, an investment recommendation, or a solicitation to buy or sell any asset. PLASMINE is NOT a regulated financial product, broker, or investment fund. There are no guaranteed returns of any kind. All digital assets involve risk and may lose value. You should consult a qualified financial advisor before making any decisions. Only participate with funds you can afford to lose entirely.'
+              defaultMessage: 'ORBITRADE is an NFT collection and simulation game. Nothing on this platform constitutes financial advice, an investment recommendation, or a solicitation to buy or sell any asset. ORBITRADE is NOT a regulated financial product, broker, or investment fund. There are no guaranteed returns of any kind. All digital assets involve risk and may lose value. You should consult a qualified financial advisor before making any decisions. Only participate with funds you can afford to lose entirely.'
             })}
           </p>
         </div>

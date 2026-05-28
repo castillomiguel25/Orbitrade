@@ -1,4 +1,4 @@
-# Plan de Internacionalización (i18n) - PLASMINE
+# Plan de Internacionalización (i18n) - ORBITRADE
 
 **Fecha:** 1 de Febrero, 2026  
 **Versión:** 1.0  
@@ -283,7 +283,7 @@ Ejemplos:
 ```typescript
 // pages/home.ts
 export const homeMessages = {
-  "pages.home.hero.title.line1": "PLASMINE",
+  "pages.home.hero.title.line1": "ORBITRADE",
   "pages.home.hero.title.line2": "NFT",
   "pages.home.hero.title.line3": "COLLECTION",
   "pages.home.hero.subtitle": "A collection of unique miner NFTs...",
@@ -311,7 +311,7 @@ export const homeMessages = {
   "pages.home.collection.card.dailyYield": "Daily Yield",
   "pages.home.collection.cta": "VIEW ALL COLLECTION",
   
-  "pages.home.features.badge": "WHY PLASMINE",
+  "pages.home.features.badge": "WHY ORBITRADE",
   "pages.home.features.title.part1": "BUILT FOR",
   "pages.home.features.title.part2": "COLLECTORS",
   "pages.home.features.passiveIncome.title": "Passive Income",
@@ -340,7 +340,7 @@ export const homeMessages = {
   "pages.home.howItWorks.step4.description": "Cash out anytime...",
   
   "pages.home.cta.title.part1": "READY TO JOIN THE",
-  "pages.home.cta.title.part2": "PLASMINE UNIVERSE",
+  "pages.home.cta.title.part2": "ORBITRADE UNIVERSE",
   "pages.home.cta.subtitle": "Your miner collection is waiting...",
   "pages.home.cta.button": "ENTER THE VERSE",
   "pages.home.cta.badge.noFees": "No Hidden Fees",
@@ -392,7 +392,7 @@ export const dashboardMessages = {
 export const authMessages = {
   // Login
   "pages.login.title": "Sign In",
-  "pages.login.subtitle": "Welcome back to PLASMINE",
+  "pages.login.subtitle": "Welcome back to ORBITRADE",
   "pages.login.email.label": "Email",
   "pages.login.email.placeholder": "Enter your email",
   "pages.login.password.label": "Password",
@@ -406,7 +406,7 @@ export const authMessages = {
   
   // Register
   "pages.register.title": "Create Account",
-  "pages.register.subtitle": "Join the PLASMINE community",
+  "pages.register.subtitle": "Join the ORBITRADE community",
   "pages.register.name.label": "Full Name",
   "pages.register.name.placeholder": "Enter your full name",
   "pages.register.email.label": "Email",
@@ -518,7 +518,7 @@ export const gamesMessages = {
 ```typescript
 // Antes (hardcoded en inglés)
 <h1>
-  <span>PLASMINE </span>
+  <span>ORBITRADE </span>
   <span>NFT</span>
   <span> COLLECTION</span>
 </h1>
@@ -540,7 +540,7 @@ const intl = useIntl();
 
 // Traducciones en messages:
 // EN (default):
-"pages.home.hero.title.line1": "PLASMINE",
+"pages.home.hero.title.line1": "ORBITRADE",
 "pages.home.hero.title.line2": "NFT",
 "pages.home.hero.title.line3": "COLLECTION",
 "pages.home.hero.subtitle": "A collection of unique miner NFTs on the blockchain. Metaverse-ready, and designed to generate passive plasma for their holders.",
@@ -548,7 +548,7 @@ const intl = useIntl();
 "pages.home.hero.cta.secondary": "SIGN IN",
 
 // ES:
-"pages.home.hero.title.line1": "PLASMINE",
+"pages.home.hero.title.line1": "ORBITRADE",
 "pages.home.hero.title.line2": "NFT",
 "pages.home.hero.title.line3": "COLECCIÓN",
 "pages.home.hero.subtitle": "Una colección de NFTs de mineros únicos en blockchain. Listos para el metaverso y diseñados para generar plasma pasivo para sus dueños.",
@@ -556,7 +556,7 @@ const intl = useIntl();
 "pages.home.hero.cta.secondary": "INICIAR SESIÓN",
 
 // PT:
-"pages.home.hero.title.line1": "PLASMINE",
+"pages.home.hero.title.line1": "ORBITRADE",
 "pages.home.hero.title.line2": "NFT",
 "pages.home.hero.title.line3": "COLEÇÃO",
 "pages.home.hero.subtitle": "Uma coleção de NFTs de mineradores únicos na blockchain. Pronto para o metaverso e projetado para gerar plasma passivo para seus detentores.",
@@ -564,7 +564,7 @@ const intl = useIntl();
 "pages.home.hero.cta.secondary": "ENTRAR",
 
 // IT:
-"pages.home.hero.title.line1": "PLASMINE",
+"pages.home.hero.title.line1": "ORBITRADE",
 "pages.home.hero.title.line2": "NFT",
 "pages.home.hero.title.line3": "COLLEZIONE",
 "pages.home.hero.subtitle": "Una collezione di NFT di minatori unici sulla blockchain. Pronti per il metaverso e progettati per generare plasma passivo per i loro proprietari.",
@@ -647,7 +647,7 @@ const stats = [
 - [ ] Internacionalizar botón "VIEW ALL COLLECTION"
 
 **3.1.4 - Features Section**
-- [ ] Internacionalizar badge "WHY PLASMINE"
+- [ ] Internacionalizar badge "WHY ORBITRADE"
 - [ ] Internacionalizar título "BUILT FOR COLLECTORS"
 - [ ] Internacionalizar cada feature card (título + descripción)
 
@@ -869,44 +869,44 @@ export async function generateMetadata(): Promise<Metadata> {
   // NOTA: Inglés es el idioma predeterminado
   const metadataByLocale: Record<Locale, Metadata> = {
     en: {
-      title: "PLASMINE - Miner NFT Collection",
-      description: "Collect and breed unique miner creatures. Generate cosmic plasma while your creatures evolve in the PLASMINE.",
-      keywords: ["NFT", "Miner", "Crypto", "Collection", "Breeding", "Plasma", "PLASMINE", "Metaverse"],
+      title: "ORBITRADE - Miner NFT Collection",
+      description: "Collect and breed unique miner creatures. Generate cosmic plasma while your creatures evolve in the ORBITRADE.",
+      keywords: ["NFT", "Miner", "Crypto", "Collection", "Breeding", "Plasma", "ORBITRADE", "Metaverse"],
     },
     es: {
-      title: "PLASMINE - Colección NFT de Mineros",
-      description: "Colecciona y cría criaturas mineras únicas. Genera plasma cósmico mientras tus criaturas evolucionan en PLASMINE.",
-      keywords: ["NFT", "Minero", "Cripto", "Colección", "Crianza", "Plasma", "PLASMINE", "Metaverso"],
+      title: "ORBITRADE - Colección NFT de Mineros",
+      description: "Colecciona y cría criaturas mineras únicas. Genera plasma cósmico mientras tus criaturas evolucionan en ORBITRADE.",
+      keywords: ["NFT", "Minero", "Cripto", "Colección", "Crianza", "Plasma", "ORBITRADE", "Metaverso"],
     },
     pt: {
-      title: "PLASMINE - Coleção NFT de Mineiros",
-      description: "Colecione e crie criaturas mineradoras únicas. Gere plasma cósmico enquanto suas criaturas evoluem no PLASMINE.",
-      keywords: ["NFT", "Minerador", "Cripto", "Coleção", "Criação", "Plasma", "PLASMINE", "Metaverso"],
+      title: "ORBITRADE - Coleção NFT de Mineiros",
+      description: "Colecione e crie criaturas mineradoras únicas. Gere plasma cósmico enquanto suas criaturas evoluem no ORBITRADE.",
+      keywords: ["NFT", "Minerador", "Cripto", "Coleção", "Criação", "Plasma", "ORBITRADE", "Metaverso"],
     },
     it: {
-      title: "PLASMINE - Collezione NFT di Minatori",
-      description: "Raccogli e alleva creature minerarie uniche. Genera plasma cosmico mentre le tue creature evolvono in PLASMINE.",
-      keywords: ["NFT", "Minatore", "Cripto", "Collezione", "Allevamento", "Plasma", "PLASMINE", "Metaverso"],
+      title: "ORBITRADE - Collezione NFT di Minatori",
+      description: "Raccogli e alleva creature minerarie uniche. Genera plasma cosmico mentre le tue creature evolvono in ORBITRADE.",
+      keywords: ["NFT", "Minatore", "Cripto", "Collezione", "Allevamento", "Plasma", "ORBITRADE", "Metaverso"],
     },
   };
   
   return {
     ...metadataByLocale[locale],
-    metadataBase: new URL('https://plasmine.io'),
+    metadataBase: new URL('https://orbitrade.io'),
     alternates: {
-      canonical: `https://plasmine.io/${locale}`,
+      canonical: `https://orbitrade.io/${locale}`,
       languages: {
-        'en-US': 'https://plasmine.io/en',  // Default
-        'es-ES': 'https://plasmine.io/es',
-        'pt-BR': 'https://plasmine.io/pt',
-        'it-IT': 'https://plasmine.io/it',
+        'en-US': 'https://orbitrade.io/en',  // Default
+        'es-ES': 'https://orbitrade.io/es',
+        'pt-BR': 'https://orbitrade.io/pt',
+        'it-IT': 'https://orbitrade.io/it',
       },
     },
     openGraph: {
       ...metadataByLocale[locale],
       type: "website",
       locale: locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : locale === 'it' ? 'it_IT' : 'pt_BR',
-      url: `https://plasmine.io/${locale}`,
+      url: `https://orbitrade.io/${locale}`,
     },
   };
 }
@@ -920,14 +920,14 @@ export async function generateMetadata(): Promise<Metadata> {
 ```typescript
 // messages/en/metadata.ts
 export const metadataMessages = {
-  "metadata.site.title": "PLASMINE - Miner NFT Collection",
+  "metadata.site.title": "ORBITRADE - Miner NFT Collection",
   "metadata.site.description": "Collect and breed unique miner creatures...",
   "metadata.site.keywords": "NFT, Miner, Crypto, Collection, Breeding, Plasma",
   
-  "metadata.pages.home.title": "Home | PLASMINE",
-  "metadata.pages.home.description": "Welcome to PLASMINE...",
+  "metadata.pages.home.title": "Home | ORBITRADE",
+  "metadata.pages.home.description": "Welcome to ORBITRADE...",
   
-  "metadata.pages.dashboard.title": "Dashboard | PLASMINE",
+  "metadata.pages.dashboard.title": "Dashboard | ORBITRADE",
   "metadata.pages.dashboard.description": "Manage your miners...",
   
   // ... para cada página
@@ -1083,7 +1083,7 @@ showToast.success(intl, 'notifications.success.deposit', { amount: 100 });
 
 **Ejemplo de guía:**
 ```markdown
-# Guía de Internacionalización - PLASMINE
+# Guía de Internacionalización - ORBITRADE
 
 ## Agregar una nueva traducción
 
@@ -1422,7 +1422,7 @@ Semana 4:
 ### Canales de Comunicación
 - **Slack:** #i18n-project
 - **GitHub Issues:** Label `i18n`
-- **Email:** dev-team@plasmine.io
+- **Email:** dev-team@orbitrade.io
 
 ---
 

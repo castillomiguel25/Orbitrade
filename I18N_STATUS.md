@@ -1,4 +1,4 @@
-# 🚀 PLASMINE i18n - Quick Status
+# 🚀 ORBITRADE i18n - Quick Status
 
 **Última actualización:** 1 de Febrero, 2026
 

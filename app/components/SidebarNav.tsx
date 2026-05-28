@@ -219,7 +219,7 @@ export function SidebarNav() {
                   backgroundClip: 'text',
                 }}
               >
-                PLASMINE
+                ORBITRADE
               </h1>
               <span className="text-[10px] font-mono text-cosmic-gray tracking-widest">
                 COMMAND INTERFACE
@@ -376,7 +376,7 @@ export function SidebarNav() {
           {/* Version info */}
           <div className="mt-3 text-center md:opacity-0 lg:opacity-100 group-hover:opacity-100 transition-opacity duration-300">
             <span className="text-[10px] font-mono text-cosmic-gray/50">
-              v2.0.0 • <span className="italic">PLASMINE</span>
+              v2.0.0 • <span className="italic">ORBITRADE</span>
             </span>
           </div>
         </div>

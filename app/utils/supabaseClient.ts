@@ -3,7 +3,7 @@ import { createBrowserClient } from '@supabase/ssr';
 /**
  * Get cookie options for cross-subdomain auth sharing.
  * When dual-domain mode is active, cookies need to be accessible
- * on both plasmine.io and app.plasmine.io.
+ * on both orbitrade.io and app.orbitrade.io.
  */
 function getCookieOptions() {
   const marketingDomain = process.env.NEXT_PUBLIC_MARKETING_DOMAIN;

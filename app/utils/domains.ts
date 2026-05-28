@@ -1,17 +1,17 @@
 /**
  * Domain strategy utilities for dual-domain setup.
  *
- * Domain A (Marketing/Info): plasmine.io
+ * Domain A (Marketing/Info): orbitrade.io
  *   - Landing, FAQ, How It Works, Terms, Privacy, Contact
  *   - Public content, SEO active, no login required
  *
- * Domain B (App): app.plasmine.io
+ * Domain B (App): app.orbitrade.io
  *   - Dashboard, profile, hangar, earnings, referrals
  *   - Requires auth, no SEO (robots.txt -> Disallow: /), no ads
  *
  * Environment variables:
- *   NEXT_PUBLIC_MARKETING_DOMAIN = "plasmine.io"
- *   NEXT_PUBLIC_APP_DOMAIN = "app.plasmine.io"
+ *   NEXT_PUBLIC_MARKETING_DOMAIN = "orbitrade.io"
+ *   NEXT_PUBLIC_APP_DOMAIN = "app.orbitrade.io"
  *
  * When both domains are configured, links will point cross-domain.
  * When only one domain is used (default), all links are relative.

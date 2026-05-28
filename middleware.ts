@@ -25,8 +25,8 @@ const MARKETING_PATHS = [
 // Domain configuration
 // ──────────────────────────────────────────────
 
-const MARKETING_DOMAIN = process.env.NEXT_PUBLIC_MARKETING_DOMAIN || ''; // e.g. "plasmine.io"
-const APP_DOMAIN = process.env.NEXT_PUBLIC_APP_DOMAIN || '';             // e.g. "app.plasmine.io"
+const MARKETING_DOMAIN = process.env.NEXT_PUBLIC_MARKETING_DOMAIN || ''; // e.g. "orbitrade.io"
+const APP_DOMAIN = process.env.NEXT_PUBLIC_APP_DOMAIN || '';             // e.g. "app.orbitrade.io"
 
 function getBaseDomain(domain: string): string | undefined {
   const parts = domain.split('.');
@@ -44,7 +44,7 @@ function isDualDomainMode(hostname: string): boolean {
 
 /**
  * Get shared cookie domain for cross-subdomain auth.
- * e.g. "plasmine.io" -> ".plasmine.io"
+ * e.g. "orbitrade.io" -> ".orbitrade.io"
  */
 function getSharedCookieDomain(hostname: string): string | undefined {
   if (!isDualDomainMode(hostname)) return undefined;

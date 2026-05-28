@@ -28,8 +28,8 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
   const { profile, fetchProfile } = useProfileStore();
   const [amount, setAmount] = useState<number>(plan.minPrice || plan.monto || 0);
   const [paymentSource, setPaymentSource] = useState<'sin-deposito' | 'con-deposito'>('con-deposito');
-  
-  const isVariableAmount = 
+
+  const isVariableAmount =
     (plan.minPrice !== undefined && plan.maxPrice !== undefined) ||
     plan?.id === 'spaceship' ||
     plan.titleKey === 'plans.spaceship.title' ||
@@ -84,8 +84,8 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          plan: creature, 
+        body: JSON.stringify({
+          plan: creature,
           amount,
           paymentSource // Enviamos el origen de fondos
         }),
@@ -114,9 +114,8 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-end sm:items-center justify-center backdrop-blur-sm transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`fixed inset-0 z-[9999] flex items-end sm:items-center justify-center backdrop-blur-sm transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
       style={{ background: 'rgba(0, 2, 1, 0.9)' }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -125,9 +124,8 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
       }}
     >
       <div
-        className={`relative w-full max-w-lg mx-4 sm:mx-0 transform transition-all duration-300 rounded-xl overflow-hidden ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-        }`}
+        className={`relative w-full max-w-lg mx-4 sm:mx-0 transform transition-all duration-300 rounded-xl overflow-hidden ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
         onClick={(e) => e.stopPropagation()}
         style={{
           background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.98), rgba(10, 36, 25, 0.95))',
@@ -182,7 +180,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
                   </span>
                 </h2>
                 <div className="flex items-center gap-2">
-                  <p className="text-[10px] font-mono text-cosmic-gray uppercase tracking-wider">{intl.formatMessage({ id: 'components.creatureDetail.plasmineCreature' })}</p>
+                  <p className="text-[10px] font-mono text-cosmic-gray uppercase tracking-wider">{intl.formatMessage({ id: 'components.creatureDetail.orbitradeCreature' })}</p>
                   <span
                     className="px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase"
                     style={{
@@ -299,7 +297,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
               </h3>
             </div>
             <div className="relative">
-              <select 
+              <select
                 value={paymentSource}
                 onChange={(e) => setPaymentSource(e.target.value as any)}
                 className="w-full bg-black/80 border-2 border-[#c8ff00]/30 rounded-lg px-3 py-3 text-xs text-white font-bold font-mono focus:outline-none focus:border-[#c8ff00] appearance-none cursor-pointer"

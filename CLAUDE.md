@@ -21,7 +21,7 @@ Package manager is **pnpm@9.15.9** (note: a `package-lock.json` also exists, but
 
 ## Architecture Overview
 
-Space-themed investment/farming platform ("PLASMINE") built on **Supabase** (auth, Postgres, realtime) and **TRON (TRC20)** for deposits/withdrawals.
+Space-themed investment/farming platform ("ORBITRADE") built on **Supabase** (auth, Postgres, realtime) and **TRON (TRC20)** for deposits/withdrawals.
 
 ### Space-themed route naming
 
@@ -37,10 +37,10 @@ Protected app routes use space/sci-fi names rather than literal feature names. T
 ### Dual-domain architecture (critical, non-obvious)
 
 The single deployment serves two domains, switched by hostname in `middleware.ts`:
-- **Marketing domain** (`NEXT_PUBLIC_MARKETING_DOMAIN`, e.g. `plasmine.io`) — landing, terms, privacy, how-it-works, arcade games. SEO on.
-- **App domain** (`NEXT_PUBLIC_APP_DOMAIN`, e.g. `app.plasmine.io`) — protected routes + auth pages (`/access`, `/enlist`). SEO off.
+- **Marketing domain** (`NEXT_PUBLIC_MARKETING_DOMAIN`, e.g. `orbitrade.io`) — landing, terms, privacy, how-it-works, arcade games. SEO on.
+- **App domain** (`NEXT_PUBLIC_APP_DOMAIN`, e.g. `app.orbitrade.io`) — protected routes + auth pages (`/access`, `/enlist`). SEO off.
 
-The middleware 302-redirects routes to their correct domain and shares Supabase auth cookies across subdomains (`domain=.plasmine.io`, `sameSite=lax`). Dual-domain mode is **only active when both env vars are set and hostname is not localhost** — locally everything serves from one origin, so this redirect logic is dormant. When changing route protection or auth redirects, account for both modes.
+The middleware 302-redirects routes to their correct domain and shares Supabase auth cookies across subdomains (`domain=.orbitrade.io`, `sameSite=lax`). Dual-domain mode is **only active when both env vars are set and hostname is not localhost** — locally everything serves from one origin, so this redirect logic is dormant. When changing route protection or auth redirects, account for both modes.
 
 ### Authentication Flow
 

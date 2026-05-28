@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { VALID_LOCALES, type Locale } from './i18n/utils/locales';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const marketingDomain = process.env.NEXT_PUBLIC_MARKETING_DOMAIN || 'plasmine.io';
+  const marketingDomain = process.env.NEXT_PUBLIC_MARKETING_DOMAIN || 'orbitrade.io';
   const baseUrl = `https://${marketingDomain}`;
 
   // Only public/marketing routes - protected routes live on app domain

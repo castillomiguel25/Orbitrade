@@ -37,19 +37,19 @@ export default function ContactPage() {
     {
       title: intl.formatMessage({ id: 'contact.channel.missionControl.title' }),
       description: intl.formatMessage({ id: 'contact.channel.missionControl.desc' }),
-      handle: '@PlasMine_Control',
+      handle: '@OrbiTrade_Control',
       color: '#13f187',
     },
     {
       title: intl.formatMessage({ id: 'contact.channel.businessConsortium.title' }),
       description: intl.formatMessage({ id: 'contact.channel.businessConsortium.desc' }),
-      handle: '@PlasMine_Business',
+      handle: '@OrbiTrade_Business',
       color: '#00f5ff',
     },
     {
       title: intl.formatMessage({ id: 'contact.channel.technicalSupport.title' }),
       description: intl.formatMessage({ id: 'contact.channel.technicalSupport.desc' }),
-      handle: '@PlasMine_Tech',
+      handle: '@OrbiTrade_Tech',
       color: '#dc95e6',
     }
   ];
@@ -82,7 +82,7 @@ export default function ContactPage() {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm font-mono text-cosmic-gray mb-12">
           <Link href="/" className="text-miner-green hover:text-miner-green/80 transition-colors">
-            PLASMINE
+            ORBITRADE
           </Link>
           <span className="text-cosmic-gray/40">/</span>
           <span className="text-star-white">

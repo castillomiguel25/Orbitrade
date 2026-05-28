@@ -63,7 +63,7 @@ export function Footer({ isLogged }: FooterProps) {
                     backgroundClip: 'text',
                   }}
                 >
-                  PLASMINE
+                  ORBITRADE
                 </span>
                 <span className="text-[10px] font-mono text-cosmic-gray tracking-widest">
                   MINER NFT COLLECTION
@@ -121,7 +121,7 @@ export function Footer({ isLogged }: FooterProps) {
               {intl.formatMessage({ id: 'footer.legalEntity' })}
             </h4>
             <div className="flex flex-col gap-2 text-cosmic-gray text-sm font-body">
-              <span>contact@plasmine.io</span>
+              <span>contact@orbitrade.io</span>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ export function Footer({ isLogged }: FooterProps) {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-cosmic-gray text-sm font-body">
-              © {currentYear} <span className="text-miner-green font-mono">PLASMINE</span>. {intl.formatMessage({ id: 'footer.rightsReserved' })}
+              © {currentYear} <span className="text-miner-green font-mono">ORBITRADE</span>. {intl.formatMessage({ id: 'footer.rightsReserved' })}
             </p>
 
             {/* Social Links / Status */}

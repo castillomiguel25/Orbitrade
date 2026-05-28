@@ -227,7 +227,7 @@ export function RegistroForm() {
               </span>
             </h1>
             <p className="text-sm font-mono text-cosmic-gray">
-              {intl.formatMessage({ id: 'register.title' })} • <span className="italic text-cyber-cyan">PLASMINE</span>
+              {intl.formatMessage({ id: 'register.title' })} • <span className="italic text-cyber-cyan">ORBITRADE</span>
             </p>
           </div>
 
@@ -258,7 +258,7 @@ export function RegistroForm() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg font-mono text-sm text-stellar-white placeholder-cosmic-gray/50 transition-all duration-300 focus:outline-none"
                   style={inputStyle}
-                  placeholder="commander@plasmine.io"
+                  placeholder="commander@orbitrade.io"
                 />
               </div>
 

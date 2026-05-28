@@ -188,7 +188,7 @@ export const enMessages = {
   "pages.privacy.breadcrumb": "PRIVACY PROTOCOLS",
   "pages.privacy.header.title": "PRIVACY VAULT PROTOCOLS",
   "pages.privacy.header.status": "[QUANTUM PRIVACY PROTOCOLS ACTIVE]",
-  "pages.privacy.subtitle": "PlasMine maintains the highest standards of data protection through quantum encryption protocols and military-grade security systems. Our privacy protocols ensure complete protection of all fleet operator data.",
+  "pages.privacy.subtitle": "OrbiTrade maintains the highest standards of data protection through quantum encryption protocols and military-grade security systems. Our privacy protocols ensure complete protection of all fleet operator data.",
   "pages.privacy.lastUpdated": "LAST UPDATED",
   "pages.privacy.protocol.classification": "[CLASSIFICATION: {classification}]",
   "pages.privacy.dataClassificationMatrix": "[DATA CLASSIFICATION MATRIX]",
@@ -206,7 +206,7 @@ export const enMessages = {
   "pages.privacy.protocol08": "PROTOCOL_08",
   "pages.privacy.gdpr.title": "GDPR COMPLIANCE",
   "pages.privacy.gdpr.classification": "[CLASSIFICATION: GALACTIC REGULATION]",
-  "pages.privacy.gdpr.description": "PlasMine maintains full compliance with Galactic Data Protection Regulations (GDPR) and universal privacy standards. We provide comprehensive operator control over personal data with advanced privacy rights protection.",
+  "pages.privacy.gdpr.description": "OrbiTrade maintains full compliance with Galactic Data Protection Regulations (GDPR) and universal privacy standards. We provide comprehensive operator control over personal data with advanced privacy rights protection.",
   "pages.privacy.privacySupportOnline": "[PRIVACY SUPPORT ONLINE]",
   "pages.privacy.cta.title": "PRIVACY INQUIRIES?",
   "pages.privacy.cta.classification": "[CLASSIFICATION: SUPPORT CHANNEL]",
@@ -214,9 +214,9 @@ export const enMessages = {
   "pages.privacy.cta.contactPrivacy": "CONTACT PRIVACY",
   "pages.privacy.cta.viewTerms": "FLEET REGULATIONS",
   "pages.privacy.disclaimer.title": "DATA PROTECTION NOTICE",
-  "pages.privacy.disclaimer.text": "PLASMINE is committed to protecting your personal data in compliance with the General Data Protection Regulation (GDPR) and applicable privacy laws. This policy describes what data we collect, how we use it, and your rights.",
-  "pages.privacy.disclaimer.dpo": "Data Protection Officer: contact@plasmine.io",
-  "pages.privacy.disclaimer.entity": "Data Controller: PLASMINE Project",
+  "pages.privacy.disclaimer.text": "ORBITRADE is committed to protecting your personal data in compliance with the General Data Protection Regulation (GDPR) and applicable privacy laws. This policy describes what data we collect, how we use it, and your rights.",
+  "pages.privacy.disclaimer.dpo": "Data Protection Officer: contact@orbitrade.io",
+  "pages.privacy.disclaimer.entity": "Data Controller: ORBITRADE Project",
   "pages.privacy.vaultProtocols.DATA_ACQUISITION_PROTOCOLS.title": "DATA ACQUISITION PROTOCOLS",
   "pages.privacy.vaultProtocols.DATA_ACQUISITION_PROTOCOLS.content": "We collect only essential data for fleet operations: basic identification information, authentication credentials, and contact data. All data is acquired through secure channels with 256-bit encryption.",
   "pages.privacy.vaultProtocols.INFORMATION_PROCESSING_MATRIX.title": "INFORMATION PROCESSING MATRIX",
@@ -259,12 +259,12 @@ export const enMessages = {
   "footer.about": "About",
   "footer.contact": "Contact",
   "footer.description": "Collectible NFT simulation game set in a cosmic mining metaverse.",
-  "footer.disclaimer": "PLASMINE is an NFT collection and simulation game. It does not constitute financial advice or a regulated financial product. All participation involves risk.",
+  "footer.disclaimer": "ORBITRADE is an NFT collection and simulation game. It does not constitute financial advice or a regulated financial product. All participation involves risk.",
   "footer.faq": "FAQ",
   "footer.help": "Help",
   "footer.howItWorks": "How It Works",
   "footer.joinCommunity": "Join the Community",
-  "footer.legalEntity": "PLASMINE Project",
+  "footer.legalEntity": "ORBITRADE Project",
   "footer.legalLinks": "Legal",
   "footer.privacy": "Privacy Policy",
   "footer.quickLinks": "Quick Links",
@@ -286,13 +286,13 @@ export const enMessages = {
   "login.submit": "Sign In",
   "login.title": "Sign In",
   "login.welcomeBack": "Welcome back",
-  "login.terminal.line1": "> PLASMINE_AUTH_TERMINAL v2.0.0",
+  "login.terminal.line1": "> ORBITRADE_AUTH_TERMINAL v2.0.0",
   "login.terminal.line2": "> Establishing secure connection...",
   "login.terminal.line3": "> Ready for authentication.",
   "login.commanderAccess": "Commander Access",
   "login.accessButton": "Access",
   "login.secureConnection": "Secure Connection",
-  "login.plasminNetwork": "PLASMINE Network",
+  "login.plasminNetwork": "ORBITRADE Network",
   "login.joinColony": "Join the Colony",
   "pages.about.breadcrumb": "ORIGINS SPACE MINING",
   "pages.about.cta.explore": "EXPLORE OPERATIONS",
@@ -309,7 +309,7 @@ export const enMessages = {
   "pages.about.fleet.card4.title": "UNIVERSAL ACCESS",
   "pages.about.fleet.title": "ASTRONAUT FLEET PROTOCOLS",
   "pages.about.header.protocol": "SPACE MINING PROTOCOL INITIALIZED",
-  "pages.about.header.title": "PlasMine",
+  "pages.about.header.title": "OrbiTrade",
   "pages.about.metrics.encryption.description": "Quantum-resistant security",
   "pages.about.metrics.encryption.title": "ENCRYPTION LEVEL",
   "pages.about.metrics.encryption.value": "256-BIT",
@@ -347,11 +347,11 @@ export const enMessages = {
   "pages.terms.legalSupportAvailable": "LEGAL SUPPORT AVAILABLE",
   "pages.terms.regulations.cosmicRisk.content": "Space mining operations involve inherent cosmic risks, including market volatility, quantum flux variations, and resource depletion. Operators must acknowledge these risks and only deploy resources they can afford to lose in the cosmic void.",
   "pages.terms.regulations.cosmicRisk.title": "COSMIC RISK ASSESSMENT",
-  "pages.terms.regulations.fleetEnrollment.content": "By accessing and participating in PlasMine's space mining operations, you acknowledge acceptance of these Fleet Regulations and commit to full compliance with all cosmic jurisdiction protocols. Non-compliance results in immediate fleet suspension.",
+  "pages.terms.regulations.fleetEnrollment.content": "By accessing and participating in OrbiTrade's space mining operations, you acknowledge acceptance of these Fleet Regulations and commit to full compliance with all cosmic jurisdiction protocols. Non-compliance results in immediate fleet suspension.",
   "pages.terms.regulations.fleetEnrollment.title": "FLEET ENROLLMENT PROTOCOLS",
-  "pages.terms.regulations.liabilityProtection.content": "PlasMine maintains limited liability for cosmic operational risks, technical failures, market fluctuations, or unforeseen space phenomena. Our quantum insurance covers fleet operations but not individual operator activations.",
+  "pages.terms.regulations.liabilityProtection.content": "OrbiTrade maintains limited liability for cosmic operational risks, technical failures, market fluctuations, or unforeseen space phenomena. Our quantum insurance covers fleet operations but not individual operator activations.",
   "pages.terms.regulations.liabilityProtection.title": "LIABILITY PROTECTION PROTOCOLS",
-  "pages.terms.regulations.miningOperations.content": "PlasMine operates as a decentralized space mining consortium utilizing Tron (TRC20) blockchain technology for autonomous resource extraction. Our fleet services include mining deployment, operator network expansion, and quantum performance analytics systems.",
+  "pages.terms.regulations.miningOperations.content": "OrbiTrade operates as a decentralized space mining consortium utilizing Tron (TRC20) blockchain technology for autonomous resource extraction. Our fleet services include mining deployment, operator network expansion, and quantum performance analytics systems.",
   "pages.terms.regulations.miningOperations.title": "MINING OPERATIONS FRAMEWORK",
   "pages.terms.regulations.operatorQualification.content": "Fleet operators must meet minimum age requirements (18+ Earth years) and demonstrate legal capacity for interstellar contracts. All operator credentials and biometric data must be verified through our quantum authentication systems.",
   "pages.terms.regulations.operatorQualification.title": "OPERATOR QUALIFICATION MATRIX",
@@ -366,10 +366,10 @@ export const enMessages = {
   "pages.terms.regulations.section05": "SECTION 05 RESTRICTED ACTIVITIES",
   "pages.terms.regulations.section06": "SECTION 06 LEGAL LIMITATIONS",
   "pages.terms.regulations.section07": "SECTION 07 REGULATORY UPDATES",
-  "pages.terms.subtitle": "Legal framework and compliance requirements for PlasMine space mining fleet operations",
+  "pages.terms.subtitle": "Legal framework and compliance requirements for OrbiTrade space mining fleet operations",
   "pages.terms.lastUpdated": "LAST UPDATED",
   "pages.terms.importantNotice.title": "COSMIC RISK ADVISORY",
-  "pages.terms.riskDescription": "Space mining operations are speculative and carry extreme cosmic risks. Historical returns do not guarantee future extraction success. Deploy only resources you can afford to lose in the cosmic void. The PlasMine Fleet Command assumes no responsibility for operator capital losses during mining operations. 📡",
+  "pages.terms.riskDescription": "Space mining operations are speculative and carry extreme cosmic risks. Historical returns do not guarantee future extraction success. Deploy only resources you can afford to lose in the cosmic void. The OrbiTrade Fleet Command assumes no responsibility for operator capital losses during mining operations. 📡",
   "pages.terms.legalInquiries": "LEGAL INQUIRIES?",
   "pages.terms.legalDescription": "For questions about fleet regulations or compliance requirements, contact our legal department through secure channels",
   "pages.terms.contactLegal": "CONTACT LEGAL",
@@ -378,7 +378,7 @@ export const enMessages = {
   "pages.terms.stardate": "2025.06.10 STARDATE",
   "pages.terms.supportChannel": "SUPPORT CHANNEL",
   "pages.terms.disclaimer.title": "LEGAL DISCLAIMER",
-  "pages.terms.disclaimer.text": "PLASMINE is an NFT collection and simulation game. Nothing on this platform constitutes financial advice, an investment recommendation, or a solicitation to buy or sell any asset. PLASMINE is NOT a regulated financial product, broker, or investment fund. There are no guaranteed returns of any kind. All digital assets involve risk and may lose value. You should consult a qualified financial advisor before making any decisions. Only participate with funds you can afford to lose entirely.",
+  "pages.terms.disclaimer.text": "ORBITRADE is an NFT collection and simulation game. Nothing on this platform constitutes financial advice, an investment recommendation, or a solicitation to buy or sell any asset. ORBITRADE is NOT a regulated financial product, broker, or investment fund. There are no guaranteed returns of any kind. All digital assets involve risk and may lose value. You should consult a qualified financial advisor before making any decisions. Only participate with funds you can afford to lose entirely.",
   "passwordReset.backToLogin": "Back to sign in",
   "passwordReset.email": "Email",
   "passwordReset.emailError": "Error sending email",
@@ -440,7 +440,7 @@ export const enMessages = {
   "2fa.confirmDisable": "Enter your authenticator code to disable 2FA",
   "2fa.error": "Error setting up 2FA. Please try again.",
   "pages.register.title": "REGISTRATION",
-  "pages.register.subtitle": "JOIN THE PlasMine FLEET",
+  "pages.register.subtitle": "JOIN THE OrbiTrade FLEET",
   "resetPassword.backToLogin": "Back to sign in",
   "resetPassword.confirmPassword": "Confirm password",
   "resetPassword.error": "Error updating password",
@@ -475,7 +475,7 @@ export const enMessages = {
   "plans.sporeHatchling.description": "Newly spawned creature with immense growth potential. Larva class.",
   "plans.quantumShifter.title": "Quantum Shifter",
   "plans.quantumShifter.description": "Phase-shifting entity from parallel dimensions. Dimensional class.",
- 'plans.dragon.title': 'Dragon Plan',
+  'plans.dragon.title': 'Dragon Plan',
   'plans.dragon.description': 'Unleash the Dragon’s power: higher power with cosmic abilities.',
   "plans.lunarPurr.description": "Rookie astronaut with stellar potential for space mining operations.",
   "plans.specter09.title": "Ostrich",
@@ -534,7 +534,7 @@ export const enMessages = {
   "contact.breadcrumb": "COMMUNICATION ARRAY",
   "contact.header.title": "COMM ARRAY",
   "contact.header.status": "[INTERGALACTIC COMMUNICATION ONLINE]",
-  "contact.header.subtitle": "Establish communication with PlasMine Command Center across the galaxy",
+  "contact.header.subtitle": "Establish communication with OrbiTrade Command Center across the galaxy",
   "contact.channels.title": "COMMUNICATION CHANNELS",
   "contact.channel.missionControl.title": "MISSION CONTROL",
   "contact.channel.missionControl.desc": "Primary communication channel for fleet operations and mining support",
@@ -597,7 +597,7 @@ export const enMessages = {
   "faq.quickAccess.supportFleet.protocolAccess": "[PROTOCOL ACCESS]",
   "faq.header.title": "KNOWLEDGE BASE",
   "faq.header.status": "[MINING PROTOCOLS DATABASE ONLINE]",
-  "faq.header.subtitle": "Access comprehensive mining protocols and operational procedures for PlasMine space mining operations",
+  "faq.header.subtitle": "Access comprehensive mining protocols and operational procedures for OrbiTrade space mining operations",
   "faq.module.fleet.title": "FLEET OPERATIONS",
   "faq.module.fleet.subtitle": "Basic mining protocols and fleet management",
   "faq.module.mining.title": "MINING PROTOCOLS",
@@ -612,8 +612,8 @@ export const enMessages = {
   "pages.about.fleet.card4.status": "ACTIVE",
   "pages.help.subtitle": "Comprehensive training modules for mastering space mining operations and fleet management across the galaxy.",
   "pages.help.cta.description": "Master all aspects of space mining operations with our comprehensive training programs and become an elite fleet commander.",
-  "faq.qa.fleet.q1": "What is PlasMine Space Mining Protocol?",
-  "faq.qa.fleet.a1": "PlasMine is an advanced autonomous space mining network that deploys blockchain-powered mining fleets across the galaxy. Our technology enables resource extraction from cosmic bodies while providing yield generation through Tron (TRC20) operations.",
+  "faq.qa.fleet.q1": "What is OrbiTrade Space Mining Protocol?",
+  "faq.qa.fleet.a1": "OrbiTrade is an advanced autonomous space mining network that deploys blockchain-powered mining fleets across the galaxy. Our technology enables resource extraction from cosmic bodies while providing yield generation through Tron (TRC20) operations.",
   "faq.qa.fleet.q2": "How secure are the mining operations?",
   "faq.qa.fleet.a2": "All mining operations utilize quantum-resistant blockchain technology with military-grade encryption. Our fleet employs advanced security protocols including cold storage systems and multi-signature verification for maximum protection.",
   "faq.qa.fleet.q3": "What is the minimum deployment cost?",
@@ -687,7 +687,7 @@ export const enMessages = {
   "pages.help.cta.learnMiningBasics": "[LEARN MINING BASICS]",
   "pages.help.trainingModules.operatorInitialization.title": "OPERATOR INITIALIZATION",
   "pages.help.trainingModules.operatorInitialization.description": "Basic training protocols for new space mining operators.",
-  "pages.help.trainingModules.operatorInitialization.courses.0": "How to register as a PlasMine mining operator",
+  "pages.help.trainingModules.operatorInitialization.courses.0": "How to register as a OrbiTrade mining operator",
   "pages.help.trainingModules.operatorInitialization.courses.1": "Account verification and security protocols setup",
   "pages.help.trainingModules.operatorInitialization.courses.2": "Deploying your first autonomous mining fleet",
   "pages.help.trainingModules.operatorInitialization.courses.3": "Selecting optimal mining protocols for maximum yield",
@@ -706,7 +706,7 @@ export const enMessages = {
   "pages.privacy.vaultProtocols.QUANTUM ENCRYPTION SHIELDS.title": "QUANTUM ENCRYPTION SHIELDS",
   "pages.privacy.vaultProtocols.QUANTUM ENCRYPTION SHIELDS.content": "All data is protected using military-grade quantum encryption protocols including 256-bit SSL shields, secure vault storage, and restricted access controls limiting exposure to authorized fleet personnel only.",
   "pages.privacy.vaultProtocols.DATA TRANSMISSION RESTRICTIONS.title": "DATA TRANSMISSION RESTRICTIONS",
-  "pages.privacy.vaultProtocols.DATA TRANSMISSION RESTRICTIONS.content": "We never sell or transmit operator data to external entities, except when required by galactic law enforcement or to protect fleet security interests. All data remains within secure PlasMine systems.",
+  "pages.privacy.vaultProtocols.DATA TRANSMISSION RESTRICTIONS.content": "We never sell or transmit operator data to external entities, except when required by galactic law enforcement or to protect fleet security interests. All data remains within secure OrbiTrade systems.",
   "pages.privacy.vaultProtocols.BEHAVIORAL TRACKING SYSTEMS.title": "BEHAVIORAL TRACKING SYSTEMS",
   "pages.privacy.vaultProtocols.BEHAVIORAL TRACKING SYSTEMS.content": "Fleet tracking systems monitor operator behavior patterns, preference algorithms, and platform usage analytics to optimize mining operations. Operators can disable tracking through ship console settings.",
   "pages.privacy.vaultProtocols.OPERATOR ACCESS RIGHTS.title": "OPERATOR ACCESS RIGHTS",
@@ -714,7 +714,7 @@ export const enMessages = {
   "pages.privacy.vaultProtocols.DATA RETENTION CYCLES.title": "DATA RETENTION CYCLES",
   "pages.privacy.vaultProtocols.DATA RETENTION CYCLES.content": "Operator data is retained for the duration required to maintain fleet operations and comply with cosmic legal obligations, typically 7 Earth years post-mission completion or account deactivation.",
   "pages.privacy.vaultProtocols.COMMUNICATION CHANNELS.title": "COMMUNICATION CHANNELS",
-  "pages.privacy.vaultProtocols.COMMUNICATION CHANNELS.content": "For data vault inquiries or privacy concerns, operators can establish secure communication through our encrypted channels at: privacy@PlasMine.com or via direct quantum link from mission control.",
+  "pages.privacy.vaultProtocols.COMMUNICATION CHANNELS.content": "For data vault inquiries or privacy concerns, operators can establish secure communication through our encrypted channels at: privacy@OrbiTrade.com or via direct quantum link from mission control.",
   "pages.privacy.dataCategories.BIOMETRIC DATA.title": "BIOMETRIC DATA",
   "pages.privacy.dataCategories.BIOMETRIC DATA.items.0": "Operator neural signature",
   "pages.privacy.dataCategories.BIOMETRIC DATA.items.1": "Quantum communication frequency",
@@ -738,7 +738,7 @@ export const enMessages = {
   "pages.privacy.fleetRegulations": "FLEET REGULATIONS",
   "pages.privacy.gdprCompliance.title": "GDPR COMPLIANCE",
   "pages.privacy.gdprCompliance.classification": "[CLASSIFICATION: GALACTIC REGULATION]",
-  "pages.privacy.gdprCompliance.description": "PlasMine maintains full compliance with Galactic Data Protection Regulations (GDPR) and universal privacy standards. We provide comprehensive operator control over personal data with advanced privacy rights protection.",
+  "pages.privacy.gdprCompliance.description": "OrbiTrade maintains full compliance with Galactic Data Protection Regulations (GDPR) and universal privacy standards. We provide comprehensive operator control over personal data with advanced privacy rights protection.",
   "pages.privacy.dataCategories.TECHNICAL TELEMETRY.items.3": "Mission activity logs",
   "pages.privacy.gdpr.ACCESS PROTOCOLS.title": "ACCESS PROTOCOLS",
   "pages.privacy.gdpr.ACCESS PROTOCOLS.description": "Review all stored operator data",
@@ -853,7 +853,7 @@ export const enMessages = {
   "pages.security.bestPractices.secureAccount.measures.3": "Never share your access codes with unauthorized personnel",
   "pages.security.bestPractices.safeCommunication.title": "SAFE COMMUNICATION CHANNELS",
   "pages.security.bestPractices.safeCommunication.description": "Ensure secure communication through verified channels only",
-  "pages.security.bestPractices.safeCommunication.measures.0": "Only access PlasMine through official secure channels",
+  "pages.security.bestPractices.safeCommunication.measures.0": "Only access OrbiTrade through official secure channels",
   "pages.security.bestPractices.safeCommunication.measures.1": "Verify all communication through encrypted Telegram channels",
   "pages.security.bestPractices.safeCommunication.measures.2": "Be cautious of phishing attempts and fraudulent messages",
   "pages.security.bestPractices.safeCommunication.measures.3": "Report suspicious activities to security command immediately",
@@ -892,7 +892,7 @@ export const enMessages = {
   "pages.login.secureAccessProtocol": "SECURE ACCESS PROTOCOL",
 
   "pages.dashboard.spaceCommandCenter": "SPACE FARM",
-  "pages.dashboard.quantumMiningStation": "⚡ PlasMine QUANTUM MINING STATION ⚡",
+  "pages.dashboard.quantumMiningStation": "⚡ OrbiTrade QUANTUM MINING STATION ⚡",
   "pages.dashboard.commandInterfaceActive": "COMMAND INTERFACE ACTIVE",
   "pages.dashboard.commandStandby": "◦ COMMAND STANDBY ◦",
   "pages.dashboard.quantumDataStream": "◗ QUANTUM DATA STREAM ◗",
@@ -1282,7 +1282,7 @@ export const enMessages = {
   "plans.gravityPool.title": "Gravity Pool",
   "plans.gravityPool.description": "Gravitational pool collection module with variable plasma output. Minimum 15 USDT; accepts any amount from 15 and up.",
 
-"pages.referrals.title": "Referrals",
+  "pages.referrals.title": "Referrals",
   "pages.referrals.spaceRewardTitle": "Space Reward",
   "pages.referrals.currentLevel": "Current level",
   "pages.referrals.table.level": "Level",
@@ -1359,9 +1359,9 @@ export const enMessages = {
   "pages.referrals.level5.requirements.line2": "65 active level 2 indirects",
   "pages.referrals.level5.requirements.line3": "100 active level 3 indirects and total invested ≥ {amount} USDT",
   "pages.referrals.level5.reward": "800 USDT (requestable)",
-  
+
   // Landing Page - Hero Section
-  "pages.home.hero.title.word1": "PLASMINE",
+  "pages.home.hero.title.word1": "ORBITRADE",
   "pages.home.hero.title.word2": "NFT",
   "pages.home.hero.title.word3": "COLLECTION",
   "pages.home.hero.subtitle": "A collection of unique miner NFTs on the blockchain. Metaverse-ready, and designed to generate",
@@ -1369,7 +1369,7 @@ export const enMessages = {
   "pages.home.hero.subtitle.end": "for their holders.",
   "pages.home.hero.cta.primary": "START COLLECTING",
   "pages.home.hero.cta.secondary": "SIGN IN",
-  
+
   // Landing Page - Stats Section
   "pages.home.stats.collectors.value": "15K+",
   "pages.home.stats.collectors.label": "Collectors",
@@ -1379,7 +1379,7 @@ export const enMessages = {
   "pages.home.stats.species.label": "Miner Species",
   "pages.home.stats.uptime.value": "24/7",
   "pages.home.stats.uptime.label": "Network Uptime",
-  
+
   // Landing Page - Collection Section
   "pages.home.collection.badge": "NFT COLLECTION",
   "pages.home.collection.title.part1": "CHOOSE YOUR",
@@ -1392,9 +1392,9 @@ export const enMessages = {
   "pages.home.collection.card.rarity.epic": "Epic",
   "pages.home.collection.card.rarity.legendary": "Legendary",
   "pages.home.collection.viewAll": "VIEW ALL COLLECTION",
-  
+
   // Landing Page - Features Section
-  "pages.home.features.badge": "WHY PLASMINE",
+  "pages.home.features.badge": "WHY ORBITRADE",
   "pages.home.features.title.part1": "BUILT FOR",
   "pages.home.features.title.part2": "COLLECTORS",
   "pages.home.features.passiveIncome.icon": "💎",
@@ -1409,7 +1409,7 @@ export const enMessages = {
   "pages.home.features.community.icon": "🌐",
   "pages.home.features.community.title": "Global Community",
   "pages.home.features.community.description": "Join thousands of collectors worldwide. Earn extra through referrals.",
-  
+
   // Landing Page - How It Works Section
   "pages.home.howItWorks.badge": "HOW IT WORKS",
   "pages.home.howItWorks.title.part1": "SIMPLE",
@@ -1426,10 +1426,10 @@ export const enMessages = {
   "pages.home.howItWorks.step4.number": "04",
   "pages.home.howItWorks.step4.title": "Withdraw",
   "pages.home.howItWorks.step4.description": "Transfer resources to your vault anytime.",
-  
+
   // Landing Page - CTA Section
   "pages.home.cta.title.part1": "READY TO JOIN THE",
-  "pages.home.cta.title.part2": "PLASMINE UNIVERSE",
+  "pages.home.cta.title.part2": "ORBITRADE UNIVERSE",
   "pages.home.cta.title.part3": "?",
   "pages.home.cta.subtitle": "Your miner collection is waiting. Start generating plasma today.",
   "pages.home.cta.button": "ENTER THE VERSE",
@@ -1467,15 +1467,15 @@ export const enMessages = {
   "movements.type.earning": "Earning",
   "movements.type.conversion": "Conversion",
   "movements.type.adjustment": "Adjustment",
-  
+
   // Dashboard/Command Center
   "pages.dashboard.header.title.part1": "DASHBOARD",
   "pages.dashboard.header.title.part2": "CENTER",
-  "pages.dashboard.header.operator": "PlasMine",
+  "pages.dashboard.header.operator": "OrbiTrade",
   "pages.dashboard.header.unknown": "Unknown",
   "pages.dashboard.whatsapp.community": "OFFICIAL COMMUNITY",
   "pages.dashboard.whatsapp.join": "JOIN WHATSAPP",
-  
+
   // Dashboard Stats
   "pages.dashboard.stats.balance.label": "Balance",
   "pages.dashboard.stats.balance.sublabel": "Available Balance",
@@ -1485,12 +1485,12 @@ export const enMessages = {
   "pages.dashboard.stats.incubation.sublabel": "Creatures Active",
   "pages.dashboard.stats.referrals.label": "Referrals",
   "pages.dashboard.stats.referrals.sublabel": "Members",
-  
+
   // Dashboard Actions
   "pages.dashboard.actions.deposit": "Deposit",
   "pages.dashboard.actions.withdraw": "Withdraw",
   "pages.dashboard.actions.getMining": "Get Mining",
-  
+
   // Dashboard Creatures Section
   "pages.dashboard.creatures.title.part1": "MINER",
   "pages.dashboard.creatures.title.part2": "Specimens",
@@ -1500,7 +1500,7 @@ export const enMessages = {
   "pages.dashboard.creatures.description.harvest": "harvest",
   "pages.dashboard.creatures.description.plasma": "plasma",
   "pages.dashboard.creatures.available": "Available",
-  
+
   // Creature Card
   "pages.dashboard.card.rarity.legendary": "LEGENDARY",
   "pages.dashboard.card.rarity.epic": "EPIC",
@@ -1555,7 +1555,7 @@ export const enMessages = {
   "components.topCryptos.data": "DATA",
 
   // Components - CreatureDetail
-  "components.creatureDetail.plasmineCreature": "PLASMINE CREATURE",
+  "components.creatureDetail.orbitradeCreature": "ORBITRADE CREATURE",
   "components.creatureDetail.rarity.common": "Common",
   "components.creatureDetail.rarity.rare": "Rare",
   "components.creatureDetail.rarity.epic": "Epic",
@@ -1578,33 +1578,33 @@ export const enMessages = {
   "components.creatureDetail.minimumAmount": "Minimum amount is {amount} USDT",
 
   // Metadata - Site
-  "metadata.site.title": "PLASMINE - Miner NFT Collection",
-  "metadata.site.description": "PLASMINE is a collectible NFT simulation game. Explore cosmic creatures in our metaverse. Not a financial product.",
-  "metadata.site.keywords": "NFT, Game, Simulation, Collectible, Miner, Collection, Breeding, Plasma, PLASMINE, Metaverse, Blockchain",
+  "metadata.site.title": "ORBITRADE - Miner NFT Collection",
+  "metadata.site.description": "ORBITRADE is a collectible NFT simulation game. Explore cosmic creatures in our metaverse. Not a financial product.",
+  "metadata.site.keywords": "NFT, Game, Simulation, Collectible, Miner, Collection, Breeding, Plasma, ORBITRADE, Metaverse, Blockchain",
 
   // Metadata - Pages
-  "metadata.home.title": "PLASMINE - Cosmic Miner NFT Collection",
-  "metadata.home.description": "Discover unique space miner NFTs. Start collecting, breeding and earning with PLASMINE creatures in the cosmic metaverse.",
+  "metadata.home.title": "ORBITRADE - Cosmic Miner NFT Collection",
+  "metadata.home.description": "Discover unique space miner NFTs. Start collecting, breeding and earning with ORBITRADE creatures in the cosmic metaverse.",
 
-  "metadata.dashboard.title": "Command Center | PLASMINE",
+  "metadata.dashboard.title": "Command Center | ORBITRADE",
   "metadata.dashboard.description": "Manage your miner collection, track earnings and control your cosmic empire.",
 
-  "metadata.hangar.title": "Docking Bay | PLASMINE",
+  "metadata.hangar.title": "Docking Bay | ORBITRADE",
   "metadata.hangar.description": "Deposit and withdraw your USDT. Manage your plasma reserves in the docking bay.",
 
-  "metadata.plasmaCore.title": "Quantum Harvest | PLASMINE",
+  "metadata.plasmaCore.title": "Quantum Harvest | ORBITRADE",
   "metadata.plasmaCore.description": "Claim your daily plasma resources and track your cosmic mining performance.",
 
-  "metadata.profile.title": "Pilot Profile | PLASMINE",
+  "metadata.profile.title": "Pilot Profile | ORBITRADE",
   "metadata.profile.description": "View and edit your commander profile. Track your rank and achievements.",
 
-  "metadata.referrals.title": "Alliance Program | PLASMINE",
+  "metadata.referrals.title": "Alliance Program | ORBITRADE",
   "metadata.referrals.description": "Invite new commanders and earn referral rewards. Build your cosmic alliance.",
 
-  "metadata.login.title": "Commander Access | PLASMINE",
-  "metadata.login.description": "Sign in to your PLASMINE command center.",
+  "metadata.login.title": "Commander Access | ORBITRADE",
+  "metadata.login.description": "Sign in to your ORBITRADE command center.",
 
-  "metadata.register.title": "Join the Colony | PLASMINE",
+  "metadata.register.title": "Join the Colony | ORBITRADE",
   "metadata.register.description": "Create your commander account and start your cosmic journey.",
 
   // Form Validations
@@ -1657,11 +1657,11 @@ export const enMessages = {
 
   // Promo Event - Command Center
   "promo.event.badge": "Promotion",
-  "promo.event.title": "Attention to the entire Plasmine XBT community!",
+  "promo.event.title": "Attention to the entire Orbitrade XBT community!",
   "promo.event.period.label": "Promotion period:",
   "promo.event.period.from": "From April 06",
   "promo.event.period.to": "To April 16",
-  
+
   "promo.event.rewards.30": "Activation bonus: 10% extra (credited on activation)",
   "promo.event.rewards.50": "Example A: Investment of 50 USDT ➡️ You receive 5 USDT extra.",
   "promo.event.rewards.100": "Example B: Investment of 100 USDT ➡️ You receive 10 USDT extra.",

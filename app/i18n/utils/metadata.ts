@@ -29,15 +29,15 @@ export function getSiteMetadata(locale: Locale): Metadata {
   return {
     title: formatMessage(locale, 'metadata.site.title'),
     description: formatMessage(locale, 'metadata.site.description'),
-    metadataBase: new URL('https://plasmine.io'),
+    metadataBase: new URL('https://orbitrade.io'),
     keywords: formatMessage(locale, 'metadata.site.keywords').split(', '),
-    authors: [{ name: 'PLASMINE Team' }],
+    authors: [{ name: 'ORBITRADE Team' }],
     openGraph: {
       title: formatMessage(locale, 'metadata.site.title'),
       description: formatMessage(locale, 'metadata.site.description'),
       type: 'website',
       locale: localeMap[locale],
-      url: `https://plasmine.io/${locale}`,
+      url: `https://orbitrade.io/${locale}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -45,12 +45,12 @@ export function getSiteMetadata(locale: Locale): Metadata {
       description: formatMessage(locale, 'metadata.site.description'),
     },
     alternates: {
-      canonical: `https://plasmine.io/${locale}`,
+      canonical: `https://orbitrade.io/${locale}`,
       languages: {
-        'en-US': 'https://plasmine.io/en',
-        'es-ES': 'https://plasmine.io/es',
-        'pt-BR': 'https://plasmine.io/pt',
-        'it-IT': 'https://plasmine.io/it',
+        'en-US': 'https://orbitrade.io/en',
+        'es-ES': 'https://orbitrade.io/es',
+        'pt-BR': 'https://orbitrade.io/pt',
+        'it-IT': 'https://orbitrade.io/it',
       },
     },
   };

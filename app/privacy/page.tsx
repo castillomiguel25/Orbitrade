@@ -126,7 +126,7 @@ export default function Privacy() {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm font-mono text-cosmic-gray mb-12">
           <Link href="/" className="text-miner-green hover:text-miner-green/80 transition-colors">
-            PLASMINE
+            ORBITRADE
           </Link>
           <span className="text-cosmic-gray/40">/</span>
           <span className="text-star-white">
@@ -148,13 +148,13 @@ export default function Privacy() {
           <p className="text-cosmic-gray text-sm leading-relaxed mb-3">
             {intl.formatMessage({
               id: 'pages.privacy.disclaimer.text',
-              defaultMessage: 'PLASMINE is committed to protecting your personal data in compliance with the General Data Protection Regulation (GDPR) and applicable privacy laws.'
+              defaultMessage: 'ORBITRADE is committed to protecting your personal data in compliance with the General Data Protection Regulation (GDPR) and applicable privacy laws.'
             })}
           </p>
           <div className="flex flex-col sm:flex-row gap-2 text-xs font-mono text-cosmic-gray/70">
-            <span>{intl.formatMessage({ id: 'pages.privacy.disclaimer.dpo', defaultMessage: 'Data Protection Officer: contact@plasmine.io' })}</span>
+            <span>{intl.formatMessage({ id: 'pages.privacy.disclaimer.dpo', defaultMessage: 'Data Protection Officer: contact@orbitrade.io' })}</span>
             <span className="hidden sm:inline text-cosmic-gray/30">|</span>
-            <span>{intl.formatMessage({ id: 'pages.privacy.disclaimer.entity', defaultMessage: 'Data Controller: PLASMINE Project' })}</span>
+            <span>{intl.formatMessage({ id: 'pages.privacy.disclaimer.entity', defaultMessage: 'Data Controller: ORBITRADE Project' })}</span>
           </div>
         </div>
 
@@ -254,7 +254,7 @@ export default function Privacy() {
           <p className="text-cosmic-gray font-body leading-relaxed mb-8 max-w-2xl">
             {intl.formatMessage({
               id: 'pages.privacy.gdpr.description',
-              defaultMessage: 'PlasMine maintains full compliance with data protection regulations. You have the following rights over your personal data.'
+              defaultMessage: 'OrbiTrade maintains full compliance with data protection regulations. You have the following rights over your personal data.'
             })}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

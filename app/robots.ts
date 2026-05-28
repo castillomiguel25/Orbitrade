@@ -7,7 +7,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
   const hostname = host.split(':')[0];
 
   const appDomain = process.env.NEXT_PUBLIC_APP_DOMAIN || '';
-  const marketingDomain = process.env.NEXT_PUBLIC_MARKETING_DOMAIN || 'plasmine.io';
+  const marketingDomain = process.env.NEXT_PUBLIC_MARKETING_DOMAIN || 'orbitrade.io';
 
   // On the APP domain: block ALL indexing
   if (appDomain && hostname === appDomain) {

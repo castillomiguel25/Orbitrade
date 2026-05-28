@@ -108,7 +108,7 @@ const Modal = ({
 
   return createPortal(
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* PLASMINE Void Background */}
+      {/* ORBITRADE Void Background */}
       <div
         className="fixed inset-0 transition-all duration-700 ease-out"
         onClick={handleBackdropClick}
@@ -145,16 +145,14 @@ const Modal = ({
               style={{
                 width: `${2 + Math.random() * 4}px`,
                 height: `${2 + Math.random() * 4}px`,
-                background: `radial-gradient(circle, ${
-                  ['#13f187', '#dc95e6', '#00f5ff', '#c8ff00'][i % 4]
-                }, transparent)`,
+                background: `radial-gradient(circle, ${['#13f187', '#dc95e6', '#00f5ff', '#c8ff00'][i % 4]
+                  }, transparent)`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 4}s`,
                 animationDuration: `${3 + Math.random() * 4}s`,
-                boxShadow: `0 0 ${6 + Math.random() * 10}px ${
-                  ['#13f187', '#dc95e6', '#00f5ff', '#c8ff00'][i % 4]
-                }`
+                boxShadow: `0 0 ${6 + Math.random() * 10}px ${['#13f187', '#dc95e6', '#00f5ff', '#c8ff00'][i % 4]
+                  }`
               }}
             />
           ))}

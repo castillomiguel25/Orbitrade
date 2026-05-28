@@ -1,4 +1,4 @@
-# PLASMINE
+# ORBITRADE
 
 Next.js 16 application (App Router) — NFT collection and simulation game with space-themed UI, built on Supabase + TRON (TRC20).
 
@@ -42,8 +42,8 @@ NEXT_PUBLIC_DEPOSITS_ENABLED=true
 OPENAI_API_KEY=sk-your-key
 
 # ── Dual Domain (optional, see below) ────────
-# NEXT_PUBLIC_MARKETING_DOMAIN=plasmine.io
-# NEXT_PUBLIC_APP_DOMAIN=app.plasmine.io
+# NEXT_PUBLIC_MARKETING_DOMAIN=orbitrade.io
+# NEXT_PUBLIC_APP_DOMAIN=app.orbitrade.io
 ```
 
 ---
@@ -55,23 +55,23 @@ OPENAI_API_KEY=sk-your-key
 Single Docker container, two domains, one deployment:
 
 ```
-plasmine.io       → Landing, Terms, Privacy, How It Works (SEO on)
-app.plasmine.io   → Dashboard, Hangar, Hive, auth pages  (SEO off)
+orbitrade.io       → Landing, Terms, Privacy, How It Works (SEO on)
+app.orbitrade.io   → Dashboard, Hangar, Hive, auth pages  (SEO off)
 ```
 
 The middleware detects the hostname and redirects cross-domain:
-- `plasmine.io/command-center` → 302 to `app.plasmine.io/command-center`
-- `app.plasmine.io/` → 302 to `plasmine.io/`
+- `orbitrade.io/command-center` → 302 to `app.orbitrade.io/command-center`
+- `app.orbitrade.io/` → 302 to `orbitrade.io/`
 
-Auth cookies are shared between subdomains (domain=`.plasmine.io`, sameSite=`lax`).
+Auth cookies are shared between subdomains (domain=`.orbitrade.io`, sameSite=`lax`).
 
 ### Step 1: DNS
 
 Point both domains to your DigitalOcean droplet IP:
 
 ```
-plasmine.io        A    →  <DROPLET_IP>
-app.plasmine.io    A    →  <DROPLET_IP>
+orbitrade.io        A    →  <DROPLET_IP>
+app.orbitrade.io    A    →  <DROPLET_IP>
 ```
 
 If using Cloudflare or another DNS proxy, set them to **DNS Only** (gray cloud) initially so Dokploy can issue Let's Encrypt certificates. You can enable proxy later.
@@ -92,8 +92,8 @@ Go to **Environment** tab and add:
 # Build Args (required for NEXT_PUBLIC_* at build time)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-NEXT_PUBLIC_MARKETING_DOMAIN=plasmine.io
-NEXT_PUBLIC_APP_DOMAIN=app.plasmine.io
+NEXT_PUBLIC_MARKETING_DOMAIN=orbitrade.io
+NEXT_PUBLIC_APP_DOMAIN=app.orbitrade.io
 
 # Runtime only
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
@@ -108,10 +108,10 @@ NEXT_PUBLIC_DEPOSITS_ENABLED=true
 
 In the **Domains** tab of your service:
 
-1. Add `plasmine.io`
+1. Add `orbitrade.io`
    - HTTPS: enabled (Let's Encrypt)
    - Container port: `3000`
-2. Add `app.plasmine.io`
+2. Add `app.orbitrade.io`
    - HTTPS: enabled (Let's Encrypt)
    - Container port: `3000`
 
@@ -130,14 +130,14 @@ Click **Deploy** or push to your configured branch. Dokploy will:
 
 | Check | URL | Expected |
 |---|---|---|
-| Landing | `https://plasmine.io` | Shows landing page |
-| App redirect | `https://plasmine.io/command-center` | Redirects to `app.plasmine.io/command-center` |
-| Login | `https://app.plasmine.io/access` | Shows login page |
-| Landing redirect | `https://app.plasmine.io/` | Redirects to `plasmine.io/` |
-| robots (marketing) | `https://plasmine.io/robots.txt` | Allows `/`, disallows protected paths |
-| robots (app) | `https://app.plasmine.io/robots.txt` | Disallows `/` (blocks all) |
-| Sitemap | `https://plasmine.io/sitemap.xml` | Lists only public routes |
-| Cross-domain auth | Login on `app.plasmine.io`, visit `plasmine.io` | Cookie shared, user recognized |
+| Landing | `https://orbitrade.io` | Shows landing page |
+| App redirect | `https://orbitrade.io/command-center` | Redirects to `app.orbitrade.io/command-center` |
+| Login | `https://app.orbitrade.io/access` | Shows login page |
+| Landing redirect | `https://app.orbitrade.io/` | Redirects to `orbitrade.io/` |
+| robots (marketing) | `https://orbitrade.io/robots.txt` | Allows `/`, disallows protected paths |
+| robots (app) | `https://app.orbitrade.io/robots.txt` | Disallows `/` (blocks all) |
+| Sitemap | `https://orbitrade.io/sitemap.xml` | Lists only public routes |
+| Cross-domain auth | Login on `app.orbitrade.io`, visit `orbitrade.io` | Cookie shared, user recognized |
 
 ---
 
@@ -157,14 +157,14 @@ docker compose up --build
 docker build \
   --build-arg NEXT_PUBLIC_SUPABASE_URL=https://... \
   --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=... \
-  --build-arg NEXT_PUBLIC_MARKETING_DOMAIN=plasmine.io \
-  --build-arg NEXT_PUBLIC_APP_DOMAIN=app.plasmine.io \
-  -t plasmine .
+  --build-arg NEXT_PUBLIC_MARKETING_DOMAIN=orbitrade.io \
+  --build-arg NEXT_PUBLIC_APP_DOMAIN=app.orbitrade.io \
+  -t orbitrade .
 
 docker run -p 3000:3000 \
   -e SUPABASE_SERVICE_ROLE_KEY=... \
   -e DESTINATION_WALLET=... \
-  plasmine
+  orbitrade
 ```
 
 ---

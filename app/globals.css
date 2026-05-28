@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* ===== PLASMINE - MINER NFT THEME ===== */
+/* ===== ORBITRADE - MINER NFT THEME ===== */
 /* Custom Variables */
 :root {
   /* Primary Colors */
@@ -65,7 +65,7 @@
   --font-sans: var(--font-body);
   --font-mono: var(--font-mono);
 
-  /* PLASMINE Colors */
+  /* ORBITRADE Colors */
   --color-miner-green: #13f187;
   --color-plasma-pink: #dc95e6;
   --color-plasma-purple: #a855f7;
