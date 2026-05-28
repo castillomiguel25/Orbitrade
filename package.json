@@ -1,0 +1,52 @@
+{
+  "name": "inversion",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "i18n:validate": "node scripts/validate-i18n.js",
+    "i18n:check": "node scripts/validate-i18n.js",
+    "i18n:sync": "node scripts/sync-i18n.js sync",
+    "i18n:sync:dry": "node scripts/sync-i18n.js sync --dry-run",
+    "i18n:duplicates": "node scripts/sync-i18n.js check"
+  },
+  "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.6.1",
+    "@supabase/supabase-js": "^2.49.8",
+    "next": "^16.0.8",
+    "openai": "^4.103.0",
+    "pixelarticons": "^1.8.1",
+    "qrcode.react": "^4.2.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-intl": "^7.1.11",
+    "react-nice-avatar": "^1.5.0",
+    "react-phone-input-2": "^2.15.1",
+    "sonner": "^1.7.4",
+    "tesseract.js": "^6.0.1",
+    "tronweb": "^6.0.3",
+    "uuid": "^11.1.0",
+    "zod": "^3.25.28",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@tailwindcss/oxide",
+      "sharp",
+      "tesseract.js"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Plasmine",
+  "short_name": "Plasmine",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    { "src": "/logo.jpeg", "type": "image/jpeg", "sizes": "192x192" },
+    { "src": "/logo.jpeg", "type": "image/jpeg", "sizes": "512x512" }
+  ]
+}

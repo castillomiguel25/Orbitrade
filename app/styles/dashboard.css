@@ -1,0 +1,297 @@
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+@keyframes floatAnimation {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px 0px rgba(138, 43, 226, 0.7); }
+  50% { box-shadow: 0 0 15px 5px rgba(138, 43, 226, 0.9); }
+  100% { box-shadow: 0 0 5px 0px rgba(138, 43, 226, 0.7); }
+}
+
+.neon-border {
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #8a2be2, #4e00c2, #8a2be2) 1;
+  animation: pulseGlow 2s infinite;
+}
+
+.hexagon-shape {
+  clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+}
+
+.diamond-shape {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.planet-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradientMove 4s ease-in-out infinite;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ===== Christmas Background (toggleable) ===== */
+.christmas-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* Festive base gradient + subtle stripes */
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0)),
+    repeating-linear-gradient(45deg, rgba(220,20,60,0.12) 0 12px, rgba(34,139,34,0.12) 12px 24px),
+    radial-gradient(circle at 10% 0%, rgba(220,20,60,0.25), transparent 35%),
+    radial-gradient(circle at 90% 100%, rgba(34,139,34,0.25), transparent 35%),
+    linear-gradient(135deg, #0c0c0c, #101010);
+}
+.christmas-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Snowflakes (layered radial gradients) */
+  background-image:
+    radial-gradient(2px 2px at 20% -10%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(3px 3px at 40% -20%, rgba(255,255,255,0.85), rgba(255,255,255,0)),
+    radial-gradient(1.8px 1.8px at 60% -15%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(2.5px 2.5px at 80% -25%, rgba(255,255,255,0.8), rgba(255,255,255,0));
+  animation: snowFall 18s linear infinite;
+}
+@keyframes snowFall {
+  from { transform: translateY(-10%); }
+  to { transform: translateY(110%); }
+}
+
+/* Garland lights at top */
+.xmas-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12px;
+  z-index: 1;
+  pointer-events: none;
+  animation: garlandSwing 6s ease-in-out infinite;
+}
+.xmas-light {
+  width: 12px;
+  height: 18px;
+  border-radius: 8px 8px 12px 12px;
+  box-shadow: 0 0 8px rgba(255,255,255,0.6);
+  opacity: 0.95;
+  animation: bulbGlow 2.2s ease-in-out infinite alternate;
+}
+.xmas-light:nth-child(4n+1) { background: #dc143c; box-shadow: 0 0 10px rgba(220,20,60,0.8); }
+.xmas-light:nth-child(4n+2) { background: #228b22; box-shadow: 0 0 10px rgba(34,139,34,0.8); }
+.xmas-light:nth-child(4n+3) { background: #ffd700; box-shadow: 0 0 10px rgba(255,215,0,0.8); }
+.xmas-light:nth-child(4n+4) { background: #00bfff; box-shadow: 0 0 10px rgba(0,191,255,0.8); }
+@keyframes bulbGlow {
+  from { transform: translateY(0); filter: brightness(0.9); }
+  to { transform: translateY(-3px); filter: brightness(1.2); }
+}
+@keyframes garlandSwing {
+  0%, 100% { transform: rotate(0.6deg); }
+  50% { transform: rotate(-0.6deg); }
+}
+
+/* Sparkles overlay */
+.xmas-sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 10%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.8), transparent 60%),
+    radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.8), transparent 60%);
+  animation: sparkleTwinkle 5s ease-in-out infinite;
+}
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+
+/* Candy cane edges */
+.candy-cane-left, .candy-cane-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12px;
+  z-index: 1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(135deg, #c00 0 8px, #fff 8px 16px);
+  opacity: 0.8;
+}
+.candy-cane-left { left: 0; }
+.candy-cane-right { right: 0; }
+
+/* Simple CSS tree (bottom-left) */
+.xmas-tree {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  width: 0; height: 0;
+  border-left: 36px solid transparent;
+  border-right: 36px solid transparent;
+  border-bottom: 60px solid #1f8b2a;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+.xmas-tree::before {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: -42px;
+  width: 0; height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid #2aa23a;
+}
+.xmas-tree::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: -76px;
+  width: 0; height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-bottom: 40px solid #38b24a;
+}
+.xmas-tree .trunk {
+  position: absolute;
+  left: -8px;
+  bottom: -14px;
+  width: 16px; height: 14px;
+  background: #6b4f2a;
+  border-radius: 2px;
+}
+
+/* Gift boxes (bottom-right) */
+.xmas-gifts {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+.gift {
+  width: 28px; height: 24px;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.gift::before { /* vertical ribbon */
+  content: '';
+  position: absolute;
+  left: 50%; top: 0;
+  transform: translateX(-50%);
+  width: 4px; height: 100%;
+  background: rgba(255,255,255,0.8);
+}
+.gift::after { /* horizontal ribbon */
+  content: '';
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 100%; height: 4px;
+  background: rgba(255,255,255,0.8);
+}
+.gift-red { background: #b91c1c; }
+.gift-green { background: #166534; }
+.gift-gold { background: #a16207; }
+
+/* ===== MOBILE FIXES FOR DASHBOARD ===== */
+@media (max-width: 768px) {
+  /* Disable all problematic animations on mobile */
+  *:not(.mobile-anim):not(.mobile-anim *) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Override specific dashboard animations */
+  @keyframes floatAnimation {
+    0%, 100% { opacity: 1; }
+  }
+  
+  @keyframes gradientMove {
+    0%, 100% { opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 1; }
+  }
+  
+  /* Ensure no horizontal scroll in dashboard */
+  main {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Fix for absolute positioned elements */
+  .absolute {
+    /* max-width: 100vw !important; */
+    /* left: 0 !important; */
+    /* right: 0 !important; */
+  }
+  
+  /* Disable transform animations that cause scroll issues */
+  [style*="transform"] {
+    transform: none !important;
+  }
+  
+  /* Fix for quantum particles and scan lines */
+  [style*="translate"] {
+    transform: none !important;
+  }
+
+  /* Ajuste de tamaño de títulos en dashboard para mobile */
+  h1.text-4xl, .text-4xl {
+    font-size: 1.6rem !important; /* ~32px */
+    line-height: 2.25rem !important;
+  }
+  h2.text-2xl, .text-2xl {
+    font-size: 1rem !important; /* ~24px */
+    line-height: 2rem !important;
+  }
+  h3.text-xl, .text-xl {
+    font-size: 0.75rem !important; /* ~18px */
+    line-height: 1.75rem !important;
+  }
+} 

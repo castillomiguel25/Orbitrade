@@ -1,0 +1,1 @@
+ALTER TABLE profiles ADD COLUMN zrvs_balance numeric DEFAULT 0; 
