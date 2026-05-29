@@ -20,21 +20,21 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
       icon: '📡',
       title: intl.formatMessage({ id: 'components.referralHowItWorks.transmitRecruitmentCode' }),
       description: intl.formatMessage({ id: 'components.referralHowItWorks.transmitRecruitmentCodeDesc' }),
-      color: '#13f187',
+      color: '#F5A524',
     },
     {
       id: 2,
       icon: '🚀',
       title: intl.formatMessage({ id: 'components.referralHowItWorks.allianceRegistration' }),
       description: intl.formatMessage({ id: 'components.referralHowItWorks.allianceRegistrationDesc' }),
-      color: '#dc95e6',
+      color: '#E6E8EC',
     },
     {
       id: 3,
       icon: '⚡',
       title: intl.formatMessage({ id: 'components.referralHowItWorks.level1Commission' }, { percentage: porcentajeNivel1 }),
       description: intl.formatMessage({ id: 'components.referralHowItWorks.level1CommissionDesc' }),
-      color: '#13f187',
+      color: '#F5A524',
       badge: intl.formatMessage({ id: 'components.referralHowItWorks.directRewards' }),
     },
     {
@@ -42,7 +42,7 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
       icon: '🌌',
       title: intl.formatMessage({ id: 'components.referralHowItWorks.level2Commission' }, { percentage: porcentajeNivel2 }),
       description: intl.formatMessage({ id: 'components.referralHowItWorks.level2CommissionDesc' }),
-      color: '#00f5ff',
+      color: '#7C8AA0',
       badge: intl.formatMessage({ id: 'components.referralHowItWorks.networkRewards' }),
     },
     {
@@ -50,7 +50,7 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
       icon: '🛰️',
       title: intl.formatMessage({ id: 'components.referralHowItWorks.level3Commission' }, { percentage: porcentajeNivel3 }),
       description: intl.formatMessage({ id: 'components.referralHowItWorks.level3CommissionDesc' }),
-      color: '#dc95e6',
+      color: '#E6E8EC',
       badge: intl.formatMessage({ id: 'components.referralHowItWorks.deepNetworkRewards' }),
     },
   ];
@@ -61,21 +61,21 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
       <div
         className="relative p-5 rounded-xl overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.95), rgba(10, 36, 25, 0.9))',
-          border: '1px solid rgba(19, 241, 135, 0.3)',
+          background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.95), rgba(22, 26, 33, 0.9))',
+          border: '1px solid rgba(245, 165, 36, 0.3)',
         }}
       >
         {/* Corner brackets */}
-        <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-miner-green/50 rounded-tl" />
-        <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-miner-green/50 rounded-tr" />
+        <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-amber-500/50 rounded-tl" />
+        <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-amber-500/50 rounded-tr" />
 
         <div className="text-center">
           <div className="inline-flex items-center gap-3 mb-3">
             <div
               className="w-12 h-12 rounded-xl flex items-center justify-center"
               style={{
-                background: 'linear-gradient(135deg, rgba(19, 241, 135, 0.3), rgba(19, 241, 135, 0.1))',
-                border: '1px solid rgba(19, 241, 135, 0.4)',
+                background: 'linear-gradient(135deg, rgba(245, 165, 36, 0.3), rgba(245, 165, 36, 0.1))',
+                border: '1px solid rgba(245, 165, 36, 0.4)',
               }}
             >
               <span className="text-2xl">⚙️</span>
@@ -84,7 +84,7 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
               <span
                 className="italic"
                 style={{
-                  background: 'linear-gradient(135deg, #13f187, #00f5ff)',
+                  background: 'linear-gradient(135deg, #F5A524, #7C8AA0)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -92,16 +92,16 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
               >
                 Alliance
               </span>{' '}
-              <span className="text-stellar-white font-light">
+              <span className="text-[#E6E8EC] font-light">
                 {intl.formatMessage({ id: 'components.referralHowItWorks.allianceExpansionProtocol' })}
               </span>
             </h2>
           </div>
           <div
             className="w-full h-[1px] mb-3"
-            style={{ background: 'linear-gradient(90deg, transparent, #13f187, transparent)' }}
+            style={{ background: 'linear-gradient(90deg, transparent, #F5A524, transparent)' }}
           />
-          <p className="font-mono text-xs text-miner-green/70 max-w-2xl mx-auto">
+          <p className="font-mono text-xs text-amber-400/70 max-w-2xl mx-auto">
             {intl.formatMessage({ id: 'components.referralHowItWorks.executeMissionSequence' })}
           </p>
         </div>
@@ -114,7 +114,7 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
             key={step.id}
             className="relative p-4 rounded-xl overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.95), rgba(10, 36, 25, 0.9))',
+              background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.95), rgba(22, 26, 33, 0.9))',
               border: `1px solid ${step.color}30`,
             }}
           >
@@ -173,7 +173,7 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
                   <div className="w-16 h-[2px]" style={{ background: `linear-gradient(90deg, ${step.color}, transparent)` }} />
                 </div>
 
-                <p className="font-mono text-xs text-cosmic-gray leading-relaxed mb-3">{step.description}</p>
+                <p className="font-mono text-xs text-[#7C8AA0] leading-relaxed mb-3">{step.description}</p>
 
                 {/* Status & Badge */}
                 <div className="flex items-center gap-3 flex-wrap">
@@ -211,8 +211,8 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
       <div
         className="relative p-5 rounded-xl overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.95), rgba(10, 36, 25, 0.9))',
-          border: '1px solid rgba(220, 149, 230, 0.3)',
+          background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.95), rgba(22, 26, 33, 0.9))',
+          border: '1px solid rgba(230, 232, 236, 0.3)',
         }}
       >
         {/* Corner brackets */}
@@ -222,14 +222,14 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
         {/* Header */}
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-2 mb-2">
-            <span className="text-plasma-pink text-lg">📋</span>
-            <span className="font-mono text-xs text-plasma-pink uppercase tracking-wider">
+            <span className="text-[#E6E8EC] text-lg">📋</span>
+            <span className="font-mono text-xs text-[#E6E8EC] uppercase tracking-wider">
               {intl.formatMessage({ id: 'components.referralHowItWorks.missionBriefing' })}
             </span>
           </div>
           <div
             className="w-full h-[1px]"
-            style={{ background: 'linear-gradient(90deg, transparent, #dc95e6, transparent)' }}
+            style={{ background: 'linear-gradient(90deg, transparent, #E6E8EC, transparent)' }}
           />
         </div>
 
@@ -239,12 +239,12 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
             {
               title: intl.formatMessage({ id: 'components.referralHowItWorks.automaticEarnings' }),
               description: intl.formatMessage({ id: 'components.referralHowItWorks.automaticEarningsDesc' }),
-              color: '#00f5ff',
+              color: '#7C8AA0',
             },
             {
               title: intl.formatMessage({ id: 'components.referralHowItWorks.unlimitedExpansion' }),
               description: intl.formatMessage({ id: 'components.referralHowItWorks.unlimitedExpansionDesc' }),
-              color: '#dc95e6',
+              color: '#E6E8EC',
             },
             {
               title: intl.formatMessage({ id: 'components.referralHowItWorks.tripleCommissionSystem' }),
@@ -252,12 +252,12 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
                 { id: 'components.referralHowItWorks.tripleCommissionSystemDesc' },
                 { level1: porcentajeNivel1, level2: porcentajeNivel2, level3: porcentajeNivel3 }
               ),
-              color: '#13f187',
+              color: '#F5A524',
             },
             {
               title: intl.formatMessage({ id: 'components.referralHowItWorks.secureProtocol' }),
               description: intl.formatMessage({ id: 'components.referralHowItWorks.secureProtocolDesc' }),
-              color: '#c8ff00',
+              color: '#F5A524',
             },
           ].map((item, index) => (
             <div
@@ -284,15 +284,15 @@ export const ReferralHowItWorks: React.FC<ReferralHowItWorksProps> = ({
         <div
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full"
           style={{
-            background: 'linear-gradient(135deg, rgba(19, 241, 135, 0.15), rgba(0, 245, 255, 0.1))',
-            border: '1px solid rgba(19, 241, 135, 0.3)',
+            background: 'linear-gradient(135deg, rgba(245, 165, 36, 0.15), rgba(124, 138, 160, 0.1))',
+            border: '1px solid rgba(245, 165, 36, 0.3)',
           }}
         >
           <div
             className="w-2 h-2 rounded-full animate-pulse"
-            style={{ backgroundColor: '#13f187', boxShadow: '0 0 8px #13f187' }}
+            style={{ backgroundColor: '#F5A524', boxShadow: '0 0 8px #F5A524' }}
           />
-          <span className="font-mono text-xs text-miner-green tracking-wider">
+          <span className="font-mono text-xs text-amber-400 tracking-wider">
             {intl.formatMessage({ id: 'components.referralHowItWorks.allianceExpansionSystemsReady' })}
           </span>
         </div>

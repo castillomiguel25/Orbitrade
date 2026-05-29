@@ -1,7 +1,7 @@
 'use client';
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { IntlProvider as ReactIntlProvider } from 'react-intl';
-import { esMessages, enMessages, itMessages, ptMessages } from './messages';
+import { esMessages, enMessages } from './messages';
 import {
   type Locale,
   getLocaleWithFallback,
@@ -19,8 +19,6 @@ const IntlContext = createContext<IntlContextType | undefined>(undefined);
 const messages: Record<Locale, any> = {
   en: enMessages,
   es: esMessages,
-  pt: ptMessages,
-  it: itMessages,
 };
 
 export function IntlProvider({ children }: { children: ReactNode }) {

@@ -1,6 +1,8 @@
-# ORBITRADE
+# Orbitrade
 
-Next.js 16 application (App Router) — NFT collection and simulation game with space-themed UI, built on Supabase + TRON (TRC20).
+Next.js 16 (App Router) yield-generation platform built on **Supabase** (auth, Postgres) and **TRON (TRC20)** for deposits and withdrawals. Users deposit USDT, acquire generation installations, and receive daily yield distributions.
+
+> **Not a regulated financial product.** Participation involves risk.
 
 ## Quick Start
 
@@ -12,18 +14,21 @@ pnpm dev                      # http://localhost:3000
 
 ## Commands
 
-| Command      | Description                      |
-|--------------|----------------------------------|
-| `pnpm dev`   | Development server (Turbopack)   |
-| `pnpm build` | Production build                 |
-| `pnpm start` | Start production server          |
-| `pnpm lint`  | Run Next.js linting              |
+| Command                | Description                              |
+|------------------------|------------------------------------------|
+| `pnpm dev`             | Development server (Turbopack)           |
+| `pnpm build`           | Production build                         |
+| `pnpm start`           | Start production server                  |
+| `pnpm test`            | Run unit tests (Vitest)                  |
+| `pnpm typecheck`       | TypeScript type check                    |
+| `pnpm i18n:validate`   | Verify locale keys are in sync           |
+| `pnpm i18n:sync`       | Sync missing keys across locales         |
 
 ---
 
 ## Environment Variables
 
-Create a `.env.local` file with the following variables:
+Create a `.env.local` file:
 
 ```env
 # ── Supabase ──────────────────────────────────
@@ -32,16 +37,19 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 
 # ── TRON / Wallet ─────────────────────────────
-NEXT_PUBLIC_WALLET=your-trc20-wallet-address
+NEXT_PUBLIC_WALLET=your-trc20-deposit-wallet-address
 DESTINATION_WALLET=your-trc20-destination-wallet
 
 # ── Features ──────────────────────────────────
 NEXT_PUBLIC_DEPOSITS_ENABLED=true
 
-# ── OpenAI (text extraction) ──────────────────
+# ── OpenAI (OCR proof extraction) ─────────────
 OPENAI_API_KEY=sk-your-key
 
-# ── Dual Domain (optional, see below) ────────
+# ── Single domain (default) ───────────────────
+# Leave unset to run everything on one domain.
+
+# ── Dual domain (optional) ────────────────────
 # NEXT_PUBLIC_MARKETING_DOMAIN=orbitrade.io
 # NEXT_PUBLIC_APP_DOMAIN=app.orbitrade.io
 ```
@@ -52,18 +60,16 @@ OPENAI_API_KEY=sk-your-key
 
 ### Architecture
 
-Single Docker container, two domains, one deployment:
+Single Docker container, optionally two domains, one deployment:
 
 ```
-orbitrade.io       → Landing, Terms, Privacy, How It Works (SEO on)
-app.orbitrade.io   → Dashboard, Hangar, Hive, auth pages  (SEO off)
+orbitrade.io      → Landing, Terms, Privacy, FAQ, Contact  (SEO on)
+app.orbitrade.io  → Dashboard, Deposits, Withdrawals, auth (SEO off)
 ```
 
-The middleware detects the hostname and redirects cross-domain:
-- `orbitrade.io/command-center` → 302 to `app.orbitrade.io/command-center`
-- `app.orbitrade.io/` → 302 to `orbitrade.io/`
+The middleware detects the hostname and redirects cross-domain. Auth cookies are shared between subdomains (`domain=.orbitrade.io`, `sameSite=lax`).
 
-Auth cookies are shared between subdomains (domain=`.orbitrade.io`, sameSite=`lax`).
+Dual-domain mode only activates when both `NEXT_PUBLIC_MARKETING_DOMAIN` and `NEXT_PUBLIC_APP_DOMAIN` are set and the hostname is not `localhost`. By default the app runs on a single domain.
 
 ### Step 1: DNS
 
@@ -74,7 +80,7 @@ orbitrade.io        A    →  <DROPLET_IP>
 app.orbitrade.io    A    →  <DROPLET_IP>
 ```
 
-If using Cloudflare or another DNS proxy, set them to **DNS Only** (gray cloud) initially so Dokploy can issue Let's Encrypt certificates. You can enable proxy later.
+Set DNS to **DNS Only** (no proxy) initially so Dokploy can issue Let's Encrypt certs.
 
 ### Step 2: Dokploy Service
 
@@ -84,81 +90,43 @@ If using Cloudflare or another DNS proxy, set them to **DNS Only** (gray cloud) 
 4. Dockerfile path: `./Dockerfile`
 5. Exposed port: `3000`
 
-### Step 3: Environment Variables in Dokploy
+### Step 3: Environment Variables
 
-Go to **Environment** tab and add:
+In Dokploy's **Environment** tab, add all variables from `.env.example`. Mark `NEXT_PUBLIC_*` vars as **Build Args** — they must be inlined at `next build` time.
 
-```env
-# Build Args (required for NEXT_PUBLIC_* at build time)
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-NEXT_PUBLIC_MARKETING_DOMAIN=orbitrade.io
-NEXT_PUBLIC_APP_DOMAIN=app.orbitrade.io
+### Step 4: Domains
 
-# Runtime only
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-DESTINATION_WALLET=your-trc20-wallet
-OPENAI_API_KEY=sk-your-key
-NEXT_PUBLIC_DEPOSITS_ENABLED=true
-```
+In the **Domains** tab:
 
-> **Important**: In Dokploy, variables prefixed with `NEXT_PUBLIC_` must also be configured as **Build Args** so they are inlined during `next build`. In Dokploy's environment settings, mark these as "Build" type.
-
-### Step 4: Domains in Dokploy
-
-In the **Domains** tab of your service:
-
-1. Add `orbitrade.io`
-   - HTTPS: enabled (Let's Encrypt)
-   - Container port: `3000`
-2. Add `app.orbitrade.io`
-   - HTTPS: enabled (Let's Encrypt)
-   - Container port: `3000`
+1. Add `orbitrade.io` → HTTPS enabled, port `3000`
+2. Add `app.orbitrade.io` → HTTPS enabled, port `3000`
 
 Dokploy uses Traefik internally to route both domains to the same container.
 
 ### Step 5: Deploy
 
-Click **Deploy** or push to your configured branch. Dokploy will:
-
-1. Pull the repo
-2. Run `docker build` with your build args
-3. Start the container on port 3000
-4. Configure Traefik routing + SSL for both domains
+Push to your configured branch or click **Deploy**. Dokploy will build the Docker image with your build args, start the container, and configure SSL.
 
 ### Step 6: Verify
 
 | Check | URL | Expected |
 |---|---|---|
-| Landing | `https://orbitrade.io` | Shows landing page |
-| App redirect | `https://orbitrade.io/command-center` | Redirects to `app.orbitrade.io/command-center` |
-| Login | `https://app.orbitrade.io/access` | Shows login page |
-| Landing redirect | `https://app.orbitrade.io/` | Redirects to `orbitrade.io/` |
-| robots (marketing) | `https://orbitrade.io/robots.txt` | Allows `/`, disallows protected paths |
-| robots (app) | `https://app.orbitrade.io/robots.txt` | Disallows `/` (blocks all) |
-| Sitemap | `https://orbitrade.io/sitemap.xml` | Lists only public routes |
-| Cross-domain auth | Login on `app.orbitrade.io`, visit `orbitrade.io` | Cookie shared, user recognized |
-
----
-
-## Single Domain Mode (Fallback)
-
-If you don't set `NEXT_PUBLIC_MARKETING_DOMAIN` and `NEXT_PUBLIC_APP_DOMAIN`, the app works exactly as before on a single domain. No cross-domain redirects, all routes served from one host. The dual-domain setup is fully opt-in.
+| Landing | `https://orbitrade.io` | Landing page |
+| Login | `https://app.orbitrade.io/access` | Login page |
+| Dashboard (auth required) | `https://app.orbitrade.io/dashboard` | Redirects to `/access` if logged out |
+| Sitemap | `https://orbitrade.io/sitemap.xml` | Public routes only |
 
 ---
 
 ## Docker (Local)
 
 ```bash
-# Build and run locally
 docker compose up --build
 
-# Or with explicit env vars
+# Or manual build + run
 docker build \
   --build-arg NEXT_PUBLIC_SUPABASE_URL=https://... \
   --build-arg NEXT_PUBLIC_SUPABASE_ANON_KEY=... \
-  --build-arg NEXT_PUBLIC_MARKETING_DOMAIN=orbitrade.io \
-  --build-arg NEXT_PUBLIC_APP_DOMAIN=app.orbitrade.io \
   -t orbitrade .
 
 docker run -p 3000:3000 \
@@ -173,36 +141,65 @@ docker run -p 3000:3000 \
 
 ```
 app/
-├── (protected)/        # Routes requiring authentication
-│   ├── AuthGuard.tsx   # Client-side auth + 30min idle timeout
-│   ├── command-center/ # Dashboard
-│   ├── hangar/         # NFT collection
-│   ├── hive/           # Referral network
-│   └── ...
-├── api/                # Server-side API routes (rate-limited)
-├── components/         # Shared UI components
-├── hooks/              # Custom React hooks
-├── i18n/messages/      # Internationalization (en, es, pt, it)
-├── store/              # Zustand state stores
+├── (protected)/          # Authenticated routes (AppNav, AuthGuard)
+│   ├── dashboard/        # KPIs: installed capacity, daily production, balance
+│   ├── production/       # Active installations + earnings claim
+│   ├── deposits/         # USDT deposit (TXID on-chain + OCR fallback)
+│   ├── withdrawals/      # Withdrawal requests + key verification
+│   ├── history/          # Unified transaction + balance history
+│   ├── partners/         # 3-level referral network (6/3/1%)
+│   └── account/          # Profile & security settings
+├── api/                  # Server API routes (rate-limited, auth-gated)
+├── components/           # Shared UI (Button, Card, Input, Modal, AppNav…)
+├── constants/            # withdrawal.ts, referral.ts
+├── hooks/                # useDeposits, useEarnings, useWithdrawals…
+├── i18n/messages/        # Locales: en (base), es
+├── modules/
+│   ├── plans/            # 2-tier plan catalog + purchase validation
+│   ├── production/       # Pure earnings math (dailyProduction, accruedEarnings)
+│   ├── referrals/        # computeReferralPayouts (6/3/1)
+│   ├── deposit-confirmation/ # TXID on-chain + OCR fallback
+│   └── withdrawals/      # Withdrawal key verification + balance check
+├── store/                # Zustand: useUserStore, useProfileStore
 ├── utils/
-│   ├── domains.ts      # Dual-domain URL helpers
-│   ├── rateLimit.ts    # In-memory rate limiter
-│   ├── supabase/       # Supabase server client
-│   └── supabaseClient.ts # Supabase browser client
-├── robots.ts           # Dynamic robots.txt (per hostname)
-├── sitemap.ts          # Sitemap (marketing domain only)
-├── terms/              # Legal terms page + disclaimer
-└── privacy/            # Privacy policy + GDPR notice
-middleware.ts           # Auth + dual-domain routing
-Dockerfile              # Multi-stage production build
-docker-compose.yml      # Local/production orchestration
+│   ├── domains.ts        # Dual-domain URL helpers
+│   ├── rateLimit.ts      # In-memory rate limiter
+│   └── supabase/         # Server + admin Supabase clients
+├── robots.ts             # Dynamic robots.txt per hostname
+└── sitemap.ts            # Sitemap (marketing domain only)
+middleware.ts             # Auth guard + dual-domain routing + HTTPS redirect
+tests/                    # Vitest unit tests (plans, production, referrals)
+Dockerfile                # Multi-stage production build
+docker-compose.yml        # Local/production orchestration
+SPEC.md                   # Full transformation spec and architecture decisions
 ```
 
-## Security Features
+## Plans
 
-- **CSP headers** (no `unsafe-eval`)
-- **Rate limiting** on critical API routes (validate-deposits: 5/min, withdrawals: 3/min, transactions: 10/min)
-- **Session timeout**: Auto-logout after 30 minutes of inactivity
-- **Error sanitization**: Internal errors logged server-side, generic messages to client
+Two tiers, both repeatable (no single-purchase limit):
+
+| Tier | ID | Min | Max | Yield/day | Duration |
+|------|----|-----|-----|-----------|----------|
+| Entry | `plan-entry` | TBD | TBD | TBD% | 365 days |
+| Industrial | `plan-industrial` | TBD | TBD | TBD% | 365 days |
+
+Numbers are defined in `app/modules/plans/index.ts` and are TBD by the owner.
+
+## Partners (Referrals)
+
+3-level referral program:
+
+| Level | Commission |
+|-------|-----------|
+| Level 1 | 6% |
+| Level 2 | 3% |
+| Level 3 | 1% |
+
+## Security
+
+- **CSP headers** (no `unsafe-eval`), HSTS, `X-Frame-Options: DENY`, `nosniff`
+- **Rate limiting** on sensitive routes (deposits: 5/min, withdrawals: 3/min)
+- **Withdrawal key** as second factor for all payouts
+- **Session timeout**: auto-logout after 30 minutes of inactivity
+- **TXID on-chain verification** for all deposits; OCR fallback available
 - **HTTPS enforcement** via middleware
-- **HSTS**, **X-Frame-Options: DENY**, **X-Content-Type-Options: nosniff**

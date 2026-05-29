@@ -67,13 +67,13 @@ export const EarningsHistoryTable: React.FC<EarningsHistoryTableProps> = ({ hist
                       {item.plan}
                     </td>
                     <td className="px-4 py-4 text-right">
-                      <span className="text-[#13f187] font-mono font-bold text-sm">
+                      <span className="text-[#F5A524] font-mono font-bold text-sm">
                         +{item.ganancia}
                       </span>
                     </td>
                     <td className="px-4 py-4 text-center">
                       {item.reclamado ? (
-                        <span className="text-xs font-mono text-[#13f187]">
+                        <span className="text-xs font-mono text-[#F5A524]">
                           {intl.formatMessage({ id: 'components.earningsHistoryTable.extracted' })}
                         </span>
                       ) : (

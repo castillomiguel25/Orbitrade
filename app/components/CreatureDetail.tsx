@@ -15,10 +15,10 @@ interface CreatureDetailProps {
 
 // Get rarity based on monto
 const getRarity = (monto: number): { nameKey: string; color: string; glow: string } => {
-  if (monto >= 5000) return { nameKey: 'components.creatureDetail.rarity.legendary', color: '#c8ff00', glow: 'rgba(200, 255, 0, 0.5)' };
-  if (monto >= 1000) return { nameKey: 'components.creatureDetail.rarity.epic', color: '#dc95e6', glow: 'rgba(220, 149, 230, 0.5)' };
-  if (monto >= 500) return { nameKey: 'components.creatureDetail.rarity.rare', color: '#00f5ff', glow: 'rgba(0, 245, 255, 0.5)' };
-  return { nameKey: 'components.creatureDetail.rarity.common', color: '#13f187', glow: 'rgba(19, 241, 135, 0.5)' };
+  if (monto >= 5000) return { nameKey: 'components.creatureDetail.rarity.legendary', color: '#F5A524', glow: 'rgba(245, 165, 36, 0.5)' };
+  if (monto >= 1000) return { nameKey: 'components.creatureDetail.rarity.epic', color: '#E6E8EC', glow: 'rgba(230, 232, 236, 0.5)' };
+  if (monto >= 500) return { nameKey: 'components.creatureDetail.rarity.rare', color: '#7C8AA0', glow: 'rgba(124, 138, 160, 0.5)' };
+  return { nameKey: 'components.creatureDetail.rarity.common', color: '#F5A524', glow: 'rgba(245, 165, 36, 0.5)' };
 };
 
 export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
@@ -32,9 +32,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
   const isVariableAmount =
     (plan.minPrice !== undefined && plan.maxPrice !== undefined) ||
     plan?.id === 'spaceship' ||
-    plan.titleKey === 'plans.spaceship.title' ||
-    plan?.id === 'galaxian' ||
-    plan.titleKey === 'plans.galaxian.title';
+    plan.titleKey === 'plans.spaceship.title';
 
   const rarity = getRarity(plan.minPrice || plan.monto || 0);
 
@@ -116,7 +114,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
     <div
       className={`fixed inset-0 z-[9999] flex items-end sm:items-center justify-center backdrop-blur-sm transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0'
         }`}
-      style={{ background: 'rgba(0, 2, 1, 0.9)' }}
+      style={{ background: 'rgba(14, 17, 22, 0.9)' }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           handleClose();
@@ -128,7 +126,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
           }`}
         onClick={(e) => e.stopPropagation()}
         style={{
-          background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.98), rgba(10, 36, 25, 0.95))',
+          background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.98), rgba(22, 26, 33, 0.95))',
           border: `1px solid ${rarity.color}40`,
           boxShadow: `0 0 40px ${rarity.glow}`,
         }}
@@ -143,7 +141,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
         <div
           className="relative p-4 sm:p-5 border-b"
           style={{
-            background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(10, 36, 25, 0.8))',
+            background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.9), rgba(22, 26, 33, 0.8))',
             borderColor: `${rarity.color}30`,
           }}
         >
@@ -170,7 +168,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
                   <span
                     className="italic"
                     style={{
-                      background: `linear-gradient(135deg, ${rarity.color}, #00f5ff)`,
+                      background: `linear-gradient(135deg, ${rarity.color}, #7C8AA0)`,
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent',
                       backgroundClip: 'text',
@@ -180,7 +178,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
                   </span>
                 </h2>
                 <div className="flex items-center gap-2">
-                  <p className="text-[10px] font-mono text-cosmic-gray uppercase tracking-wider">{intl.formatMessage({ id: 'components.creatureDetail.orbitradeCreature' })}</p>
+                  <p className="text-[10px] font-mono text-[#7C8AA0] uppercase tracking-wider">{intl.formatMessage({ id: 'components.creatureDetail.orbitradeCreature' })}</p>
                   <span
                     className="px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase"
                     style={{
@@ -217,30 +215,30 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
             <div
               className="relative p-3 sm:p-4 rounded-xl text-center overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, rgba(19, 241, 135, 0.1), rgba(19, 241, 135, 0.05))',
-                border: '1px solid rgba(19, 241, 135, 0.3)',
+                background: 'linear-gradient(135deg, rgba(245, 165, 36, 0.1), rgba(245, 165, 36, 0.05))',
+                border: '1px solid rgba(245, 165, 36, 0.3)',
               }}
             >
-              <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-miner-green/50 rounded-tl" />
-              <PixelIcon name="wallet" className="text-miner-green w-5 h-5 mx-auto mb-2" />
-              <p className="text-[10px] font-mono text-miner-green/70 uppercase tracking-wider mb-1">{intl.formatMessage({ id: 'components.creatureDetail.plasmaCost' })}</p>
-              <p className="text-xl font-display font-bold text-miner-green">{amount}</p>
-              <p className="text-[10px] font-mono text-miner-green/60">{intl.formatMessage({ id: 'components.creatureDetail.usdt' })}</p>
+              <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-amber-500/50 rounded-tl" />
+              <PixelIcon name="wallet" className="text-amber-400 w-5 h-5 mx-auto mb-2" />
+              <p className="text-[10px] font-mono text-amber-400/70 uppercase tracking-wider mb-1">{intl.formatMessage({ id: 'components.creatureDetail.plasmaCost' })}</p>
+              <p className="text-xl font-display font-bold text-amber-400">{amount}</p>
+              <p className="text-[10px] font-mono text-amber-400/60">{intl.formatMessage({ id: 'components.creatureDetail.usdt' })}</p>
             </div>
 
             {/* Duration */}
             <div
               className="relative p-3 sm:p-4 rounded-xl text-center overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, rgba(220, 149, 230, 0.1), rgba(220, 149, 230, 0.05))',
-                border: '1px solid rgba(220, 149, 230, 0.3)',
+                background: 'linear-gradient(135deg, rgba(230, 232, 236, 0.1), rgba(230, 232, 236, 0.05))',
+                border: '1px solid rgba(230, 232, 236, 0.3)',
               }}
             >
               <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-plasma-pink/50 rounded-tl" />
-              <PixelIcon name="clock" className="text-plasma-pink w-5 h-5 mx-auto mb-2" />
-              <p className="text-[10px] font-mono text-plasma-pink/70 uppercase tracking-wider mb-1">{intl.formatMessage({ id: 'components.creatureDetail.incubation' })}</p>
-              <p className="text-xl font-display font-bold text-plasma-pink">{plan.duracionDias}</p>
-              <p className="text-[10px] font-mono text-plasma-pink/60">{intl.formatMessage({ id: 'components.creatureDetail.cycles' })}</p>
+              <PixelIcon name="clock" className="text-[#E6E8EC] w-5 h-5 mx-auto mb-2" />
+              <p className="text-[10px] font-mono text-[#E6E8EC]/70 uppercase tracking-wider mb-1">{intl.formatMessage({ id: 'components.creatureDetail.incubation' })}</p>
+              <p className="text-xl font-display font-bold text-[#E6E8EC]">{plan.duracionDias}</p>
+              <p className="text-[10px] font-mono text-[#E6E8EC]/60">{intl.formatMessage({ id: 'components.creatureDetail.cycles' })}</p>
             </div>
           </div>
 
@@ -249,14 +247,14 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
             <div
               className="relative p-4 rounded-xl overflow-hidden"
               style={{
-                background: 'linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(0, 245, 255, 0.03))',
-                border: '1px solid rgba(0, 245, 255, 0.3)',
+                background: 'linear-gradient(135deg, rgba(124, 138, 160, 0.08), rgba(124, 138, 160, 0.03))',
+                border: '1px solid rgba(124, 138, 160, 0.3)',
               }}
             >
               <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-cyber-cyan/50 rounded-tl" />
               <div className="flex items-center gap-2 mb-3">
-                <PixelIcon name="settings" className="text-cyber-cyan w-4 h-4" />
-                <h3 className="text-xs font-display font-bold text-cyber-cyan uppercase tracking-wider">
+                <PixelIcon name="settings" className="text-[#7C8AA0] w-4 h-4" />
+                <h3 className="text-xs font-display font-bold text-[#7C8AA0] uppercase tracking-wider">
                   {intl.formatMessage({ id: 'components.creatureDetail.plasmaInvestment' })}
                 </h3>
               </div>
@@ -269,10 +267,10 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
                     step={1}
                     value={amount}
                     onChange={(e) => setAmount(Number(e.target.value))}
-                    className="flex-1 bg-deep-space/60 border border-cyber-cyan/30 rounded-lg px-3 py-2 text-stellar-white font-mono focus:outline-none focus:border-cyber-cyan transition-colors"
+                    className="flex-1 bg-deep-space/60 border border-cyber-cyan/30 rounded-lg px-3 py-2 text-[#E6E8EC] font-mono focus:outline-none focus:border-cyber-cyan transition-colors"
                   />
                 </div>
-                <div className="text-[10px] text-cosmic-gray font-mono flex justify-between">
+                <div className="text-[10px] text-[#7C8AA0] font-mono flex justify-between">
                   <span>{intl.formatMessage({ id: 'components.creatureDetail.min' })}: {plan.minPrice || plan.monto} {intl.formatMessage({ id: 'components.creatureDetail.usdt' })}</span>
                   {plan.maxPrice && <span>Max: {plan.maxPrice} {intl.formatMessage({ id: 'components.creatureDetail.usdt' })}</span>}
                 </div>
@@ -284,15 +282,15 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
           <div
             className="relative p-4 rounded-xl overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(200, 255, 0, 0.1), rgba(200, 255, 0, 0.05))',
-              border: '1px solid rgba(200, 255, 0, 0.3)',
-              boxShadow: '0 0 15px rgba(200, 255, 0, 0.1)'
+              background: 'linear-gradient(135deg, rgba(245, 165, 36, 0.1), rgba(245, 165, 36, 0.05))',
+              border: '1px solid rgba(245, 165, 36, 0.3)',
+              boxShadow: '0 0 15px rgba(245, 165, 36, 0.1)'
             }}
           >
-            <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-[#c8ff00]/50 rounded-tl" />
+            <div className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-[#F5A524]/50 rounded-tl" />
             <div className="flex items-center gap-2 mb-3">
               <span className="text-sm">💳</span>
-              <h3 className="text-xs font-display font-bold text-[#c8ff00] uppercase tracking-wider">
+              <h3 className="text-xs font-display font-bold text-[#F5A524] uppercase tracking-wider">
                 MÉTODO DE PAGO
               </h3>
             </div>
@@ -300,7 +298,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
               <select
                 value={paymentSource}
                 onChange={(e) => setPaymentSource(e.target.value as any)}
-                className="w-full bg-black/80 border-2 border-[#c8ff00]/30 rounded-lg px-3 py-3 text-xs text-white font-bold font-mono focus:outline-none focus:border-[#c8ff00] appearance-none cursor-pointer"
+                className="w-full bg-black/80 border-2 border-[#F5A524]/30 rounded-lg px-3 py-3 text-xs text-white font-bold font-mono focus:outline-none focus:border-[#F5A524] appearance-none cursor-pointer"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23c8ff00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
                   backgroundRepeat: 'no-repeat',
@@ -318,7 +316,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
           <div
             className="relative p-4 rounded-xl overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.8), rgba(10, 36, 25, 0.7))',
+              background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.8), rgba(22, 26, 33, 0.7))',
               border: `1px solid ${rarity.color}30`,
             }}
           >
@@ -334,11 +332,11 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-[10px] font-mono text-cosmic-gray uppercase mb-1">{intl.formatMessage({ id: 'components.creatureDetail.dailyYield' })}</p>
+                <p className="text-[10px] font-mono text-[#7C8AA0] uppercase mb-1">{intl.formatMessage({ id: 'components.creatureDetail.dailyYield' })}</p>
                 <p
                   className="font-mono text-sm font-bold"
                   style={{
-                    background: `linear-gradient(135deg, ${rarity.color}, #00f5ff)`,
+                    background: `linear-gradient(135deg, ${rarity.color}, #7C8AA0)`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -348,11 +346,11 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-mono text-cosmic-gray uppercase mb-1">{intl.formatMessage({ id: 'components.creatureDetail.totalReturn' })}</p>
+                <p className="text-[10px] font-mono text-[#7C8AA0] uppercase mb-1">{intl.formatMessage({ id: 'components.creatureDetail.totalReturn' })}</p>
                 <p
                   className="font-mono text-sm font-bold"
                   style={{
-                    background: `linear-gradient(135deg, ${rarity.color}, #00f5ff)`,
+                    background: `linear-gradient(135deg, ${rarity.color}, #7C8AA0)`,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -367,7 +365,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
           {/* Acquire Button */}
           <Button
             onClick={() => handleInvest(plan)}
-            variant="cosmic"
+            variant="primary"
             className="w-full flex items-center justify-center gap-3 py-4 font-display font-bold text-base sm:text-lg tracking-wider"
           >
             <span className="text-lg">🧬</span>
@@ -394,29 +392,29 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
           </div> */}
 
           {/* Status Bar */}
-          <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-cosmic-gray">
+          <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-[#7C8AA0]">
             <div className="flex items-center gap-1.5">
               <div
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{ backgroundColor: '#13f187', boxShadow: '0 0 4px #13f187' }}
+                style={{ backgroundColor: '#F5A524', boxShadow: '0 0 4px #F5A524' }}
               />
-              <span className="text-miner-green">{intl.formatMessage({ id: 'components.creatureDetail.ready' })}</span>
+              <span className="text-amber-400">{intl.formatMessage({ id: 'components.creatureDetail.ready' })}</span>
             </div>
             <div className="w-px h-3" style={{ background: 'rgba(255,255,255,0.2)' }} />
             <div className="flex items-center gap-1.5">
               <div
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{ backgroundColor: '#00f5ff', boxShadow: '0 0 4px #00f5ff', animationDelay: '0.5s' }}
+                style={{ backgroundColor: '#7C8AA0', boxShadow: '0 0 4px #7C8AA0', animationDelay: '0.5s' }}
               />
-              <span className="text-cyber-cyan">{intl.formatMessage({ id: 'components.creatureDetail.quantumStable' })}</span>
+              <span className="text-[#7C8AA0]">{intl.formatMessage({ id: 'components.creatureDetail.quantumStable' })}</span>
             </div>
             <div className="w-px h-3" style={{ background: 'rgba(255,255,255,0.2)' }} />
             <div className="flex items-center gap-1.5">
               <div
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
-                style={{ backgroundColor: '#dc95e6', boxShadow: '0 0 4px #dc95e6', animationDelay: '1s' }}
+                style={{ backgroundColor: '#E6E8EC', boxShadow: '0 0 4px #E6E8EC', animationDelay: '1s' }}
               />
-              <span className="text-plasma-pink">{intl.formatMessage({ id: 'components.creatureDetail.online' })}</span>
+              <span className="text-[#E6E8EC]">{intl.formatMessage({ id: 'components.creatureDetail.online' })}</span>
             </div>
           </div>
         </div>

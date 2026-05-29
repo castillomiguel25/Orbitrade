@@ -5,6 +5,14 @@ import { useRouter } from "next/navigation";
 import { useIntl } from 'react-intl';
 import { toast } from "sonner";
 import { supabase } from '../utils/supabaseClient';
+import { Button } from '../components/Button';
+import Link from 'next/link';
+
+const AMBER = '#F5A524';
+const GRAPHITE = '#0E1116';
+const SURFACE = '#161A21';
+const MUTED = '#7C8AA0';
+const TEXT = '#E6E8EC';
 
 export default function ResetPasswordPage() {
   const [newPassword, setNewPassword] = useState("");
@@ -12,15 +20,6 @@ export default function ResetPasswordPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const intl = useIntl();
-
-  const handleResetPassword = async () => {
-    const { error } = await supabase.auth.updateUser({
-      password: newPassword,
-    });
-    if (error) {
-      throw error;
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,64 +37,102 @@ export default function ResetPasswordPage() {
     setIsLoading(true);
 
     try {
-      await handleResetPassword();
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      if (error) throw error;
+
       toast.success(intl.formatMessage({ id: 'resetPassword.success' }));
-      setTimeout(() => {
-        router.push("/access");
-      }, 2000);
-    } catch (error: any) {
-      console.error('Error:', error);
-      toast.error(error.message || intl.formatMessage({ id: 'resetPassword.error' }));
+      setTimeout(() => router.push("/access"), 2000);
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : '';
+      toast.error(msg || intl.formatMessage({ id: 'resetPassword.error' }));
     } finally {
       setIsLoading(false);
     }
   };
 
+  const inputCls = "w-full px-4 py-3 rounded-lg text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30";
+  const inputStyle = { background: GRAPHITE, border: '1px solid rgba(255,255,255,0.1)', color: TEXT };
+
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 to-indigo-950">
-      <div className="w-full max-w-md">
-        <form onSubmit={handleSubmit} className="p-8 rounded-xl shadow-lg space-y-6">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-red-300 text-center">
-            {intl.formatMessage({ id: 'resetPassword.title' })}
-          </h1>
-          
-          <div className="space-y-4">
+    <div
+      style={{ background: GRAPHITE, minHeight: '100vh' }}
+      className="flex items-center justify-center px-4 py-12"
+    >
+      <div className="w-full max-w-sm">
+        {/* Brand */}
+        <div className="text-center mb-8">
+          <div style={{ color: AMBER }} className="text-2xl font-bold tracking-widest uppercase mb-1">
+            ORBITRADE
+          </div>
+        </div>
+
+        {/* Form card */}
+        <form
+          onSubmit={handleSubmit}
+          style={{ background: SURFACE, border: '1px solid rgba(255,255,255,0.06)' }}
+          className="p-8 rounded-xl space-y-5"
+        >
+          <div>
+            <h2 style={{ color: TEXT }} className="text-lg font-semibold mb-1">
+              {intl.formatMessage({ id: 'resetPassword.title' })}
+            </h2>
+          </div>
+
+          <div>
+            <label style={{ color: MUTED }} className="block text-xs font-medium tracking-wider uppercase mb-2">
+              {intl.formatMessage({ id: 'resetPassword.newPassword' })}
+            </label>
             <input
               type="password"
-              placeholder={intl.formatMessage({ id: 'resetPassword.newPassword' })}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 text-white px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-500"
-              required
-              minLength={6}
-            />
-
-            <input
-              type="password"
-              placeholder={intl.formatMessage({ id: 'resetPassword.confirmPassword' })}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 text-white px-3 py-2 rounded-md focus:ring-2 focus:ring-blue-500"
+              className={inputCls}
+              style={inputStyle}
+              placeholder="••••••••••••"
               required
               minLength={6}
             />
           </div>
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-gradient-to-r from-blue-700 to-red-700 hover:from-blue-600 hover:to-red-600 text-white font-semibold py-2 px-4 rounded-md transition-all duration-300 disabled:opacity-50"
-          >
-            {isLoading ? intl.formatMessage({ id: 'resetPassword.updating' }) : intl.formatMessage({ id: 'resetPassword.submit' })}
-          </button>
+          <div>
+            <label style={{ color: MUTED }} className="block text-xs font-medium tracking-wider uppercase mb-2">
+              {intl.formatMessage({ id: 'resetPassword.confirmPassword' })}
+            </label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className={inputCls}
+              style={inputStyle}
+              placeholder="••••••••••••"
+              required
+              minLength={6}
+            />
+          </div>
 
-          <div className="text-center">
-            <a href="/access" className="text-sm text-blue-400 hover:underline">
-              {intl.formatMessage({ id: 'resetPassword.backToLogin' })}
-            </a>
+          <Button
+            type="submit"
+            variant="primary"
+            size="lg"
+            fullWidth
+            loading={isLoading}
+          >
+            {isLoading
+              ? intl.formatMessage({ id: 'resetPassword.updating' })
+              : intl.formatMessage({ id: 'resetPassword.submit' })}
+          </Button>
+
+          <div className="text-center pt-1">
+            <Link
+              href="/access"
+              style={{ color: MUTED }}
+              className="text-sm hover:opacity-80 transition-opacity"
+            >
+              ← {intl.formatMessage({ id: 'resetPassword.backToLogin' })}
+            </Link>
           </div>
         </form>
       </div>
-    </main>
+    </div>
   );
 }

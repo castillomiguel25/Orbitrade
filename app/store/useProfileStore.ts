@@ -27,11 +27,7 @@ export type Profile = {
   wallet?: string | null;
   withdrawalkey?: string | null;
   withdrawals_amount?: number;
-  tickets?: number;
-  points?: number;
-  trc20conversion?: number;
   flujo?: number;
-  rango?: number; 
   // ...agrega todos los campos que necesites
 } | null;
 

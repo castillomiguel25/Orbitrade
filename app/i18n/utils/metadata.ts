@@ -2,14 +2,10 @@ import { Metadata } from 'next';
 import type { Locale } from './locales';
 import { enMessages } from '../messages/en';
 import { esMessages } from '../messages/es';
-import { ptMessages } from '../messages/pt';
-import { itMessages } from '../messages/it';
 
-const messages: Record<Locale, typeof enMessages> = {
+const messages: Record<Locale, Record<string, string>> = {
   en: enMessages,
   es: esMessages,
-  pt: ptMessages,
-  it: itMessages,
 };
 
 type MessageId = keyof typeof enMessages;
@@ -22,8 +18,6 @@ export function getSiteMetadata(locale: Locale): Metadata {
   const localeMap: Record<Locale, string> = {
     en: 'en_US',
     es: 'es_ES',
-    pt: 'pt_BR',
-    it: 'it_IT',
   };
 
   return {
@@ -49,8 +43,6 @@ export function getSiteMetadata(locale: Locale): Metadata {
       languages: {
         'en-US': 'https://orbitrade.io/en',
         'es-ES': 'https://orbitrade.io/es',
-        'pt-BR': 'https://orbitrade.io/pt',
-        'it-IT': 'https://orbitrade.io/it',
       },
     },
   };

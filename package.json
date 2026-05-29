@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
     "i18n:validate": "node scripts/validate-i18n.js",
     "i18n:check": "node scripts/validate-i18n.js",
     "i18n:sync": "node scripts/sync-i18n.js sync",
@@ -39,12 +42,15 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^3"
   },
   "packageManager": "pnpm@9.15.9",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@tailwindcss/oxide",
+      "esbuild",
       "sharp",
       "tesseract.js"
     ]

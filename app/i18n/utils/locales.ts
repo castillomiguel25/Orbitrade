@@ -1,9 +1,9 @@
-export type Locale = 'en' | 'es' | 'pt' | 'it';
+export type Locale = 'en' | 'es';
 
-export const DEFAULT_LOCALE: Locale = 'en';
+export const DEFAULT_LOCALE: Locale = 'es';
 
 // Valid locales array for cleaner validation (ordered by priority)
-export const VALID_LOCALES: readonly Locale[] = ['en', 'es', 'pt', 'it'] as const;
+export const VALID_LOCALES: readonly Locale[] = ['en', 'es'] as const;
 
 // Helper function to validate locale
 export const isValidLocale = (locale: string | undefined): locale is Locale => {

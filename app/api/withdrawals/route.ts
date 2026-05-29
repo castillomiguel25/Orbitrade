@@ -4,6 +4,7 @@ import { createClient } from "../../utils/supabase/server";
 import { v4 as uuidv4 } from "uuid";
 import { WITHDRAWAL_MIN_AMOUNT, WITHDRAWAL_FEE_PERCENT } from "@/app/constants/withdrawal";
 import { checkRateLimit, RATE_LIMITS } from "../../utils/rateLimit";
+import { verifyWithdrawalKey } from "@/app/modules/withdrawals";
 
 export const runtime = "nodejs";
 
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
   }
 
   const body = await request.json();
-  const { amount, trc20address, network } = body;
+  const { amount, trc20address, network, claveRetiro } = body;
 
   const userId = user.id;
   const userEmail = user.email;
@@ -53,15 +54,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: `Monto mínimo de retiro: ${minAmount} USDT` }, { status: 400 });
   }
 
-  // Obtener el balance actual del usuario y el flujo
+  // Obtener el balance actual del usuario, flujo y clave de retiro
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
-    .select("trc20balance, flujo")
+    .select("trc20balance, flujo, withdrawalkey")
     .eq("id", userId)
     .single();
 
   if (profileError || !profile) {
     return NextResponse.json({ error: "No se pudo obtener el perfil" }, { status: 500 });
+  }
+
+  // Verify withdrawal key before touching balance
+  if (!verifyWithdrawalKey(claveRetiro || '', profile.withdrawalkey || '')) {
+    return NextResponse.json({ error: "invalid_withdrawal_key" }, { status: 403 });
   }
 
   const currentBalance = parseFloat(profile.trc20balance);

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useUserStore } from "@/app/store/useUserStore";
 import { useIntl } from "react-intl";
 import { useState, useEffect } from "react";
+import { LanguageSelector } from "./LanguageSelector";
 
 export function Header({ isLogged }: { isLogged?: boolean }) {
   const { user, isLoading, clearUser } = useUserStore();
@@ -16,9 +17,7 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
   const logged = isLogged || !!user;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -29,152 +28,57 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
     router.refresh();
   };
 
+  // Never show public header when logged in
+  if (logged) return null;
+
   if (isLoading && typeof isLogged !== 'boolean') {
     return (
       <header className="w-full flex items-center justify-between px-6 py-4 bg-transparent relative z-50">
-        {/* Logo Skeleton */}
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-miner-green/10 animate-pulse" />
-          <div className="w-28 h-6 rounded bg-miner-green/10 animate-pulse hidden sm:block" />
-        </div>
-        {/* Actions Skeleton */}
-        <div className="flex items-center gap-4">
-          <div className="w-24 h-10 rounded-lg bg-miner-green/10 animate-pulse" />
-        </div>
+        <div className="w-28 h-6 rounded bg-[#161A21] animate-pulse" />
+        <div className="w-24 h-9 rounded-lg bg-[#161A21] animate-pulse" />
       </header>
     );
   }
 
   return (
     <header
-      className={`w-full flex items-center justify-between px-4 sm:px-6 py-3 relative z-50 transition-all duration-500 ${
-        scrolled ? 'bg-void-black/80 backdrop-blur-xl' : 'bg-transparent'
+      className={`w-full flex items-center justify-between px-4 sm:px-6 py-3 relative z-50 transition-all duration-300 ${
+        scrolled ? 'bg-[#0E1116]/90 backdrop-blur-xl border-b border-[#7C8AA0]/10' : 'bg-transparent'
       }`}
-      style={{
-        borderBottom: scrolled ? '1px solid rgba(19, 241, 135, 0.15)' : 'none',
-        boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(19, 241, 135, 0.05)' : 'none'
-      }}
     >
-      {/* Logo & Branding */}
-      <Link href={logged ? "/command-center" : "/"} className="flex items-center gap-3 group">
+      {/* Brand */}
+      <Link href={logged ? "/dashboard" : "/"} className="flex items-center gap-2">
+        <div className="w-7 h-7 flex items-center justify-center rounded-md bg-amber-500/15 border border-amber-500/25">
+          <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+          </svg>
+        </div>
+        <span className="font-semibold text-sm text-[#E6E8EC] tracking-wide hidden sm:block">ORBITRADE</span>
       </Link>
 
-      {/* Navigation Actions */}
-      <div className="flex items-center gap-3 sm:gap-4">
+      {/* Actions */}
+      <div className="flex items-center gap-2 sm:gap-3">
+        <LanguageSelector dropDirection="down" />
+
         {!logged ? (
-          <div className="flex gap-2 sm:gap-3 items-center">
-            {/* Register Button */}
-            <Link href="/enlist">
-              <Button
-                variant="primary"
-                size="sm"
-                className="hidden sm:flex"
-              >
-                <span className="flex items-center gap-2">
-                  <span>🛸</span>
-                  {intl.formatMessage({ id: 'header.startNow' })}
-                </span>
+          <>
+            <Link href="/enlist" className="hidden sm:block">
+              <Button variant="primary" size="sm">
+                {intl.formatMessage({ id: 'header.startNow' })}
               </Button>
             </Link>
-
-            {/* Login Button */}
             <Link href="/access">
-              <Button
-                variant="outline"
-                size="sm"
-              >
-                <span className="flex items-center gap-2">
-                  <span>👾</span>
-                  {intl.formatMessage({ id: 'header.login' })}
-                </span>
+              <Button variant="outline" size="sm">
+                {intl.formatMessage({ id: 'header.login' })}
               </Button>
             </Link>
-          </div>
+          </>
         ) : (
-          <div className="flex items-center gap-3 sm:gap-4">
-            {/* Status Indicator */}
-            <div
-              className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg"
-              style={{
-                background: 'rgba(10, 10, 15, 0.6)',
-                border: '1px solid rgba(19, 241, 135, 0.3)',
-                backdropFilter: 'blur(10px)'
-              }}
-            >
-              <div
-                className="w-2 h-2 rounded-full animate-pulse"
-                style={{
-                  backgroundColor: '#13f187',
-                  boxShadow: '0 0 8px #13f187'
-                }}
-              />
-              <span className="text-xs font-mono font-semibold text-miner-green tracking-wider">
-                CONNECTED
-              </span>
-            </div>
-
-            {/* Dashboard Link (mobile) */}
-            <Link href="/command-center" className="md:hidden">
-              <Button
-                variant="ghost"
-                size="sm"
-              >
-                <span>🎛️</span>
-              </Button>
-            </Link>
-
-            {/* Logout Button */}
-            <Button
-              onClick={handleLogout}
-              variant="danger"
-              size="sm"
-            >
-              <span className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                  />
-                </svg>
-                <span className="hidden sm:inline">
-                  {intl.formatMessage({ id: 'header.logout' })}
-                </span>
-              </span>
-            </Button>
-          </div>
+          <Button onClick={handleLogout} variant="ghost" size="sm">
+            {intl.formatMessage({ id: 'header.logout' })}
+          </Button>
         )}
       </div>
-
-      {/* Decorative scan line */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-[1px] pointer-events-none"
-        style={{
-          background: 'linear-gradient(90deg, transparent, rgba(19, 241, 135, 0.5), transparent)',
-          opacity: scrolled ? 0.8 : 0.3,
-          animation: 'minerScanHorizontal 4s ease-in-out infinite'
-        }}
-      />
-
-      {/* Custom animation */}
-      <style jsx>{`
-        @keyframes minerScanHorizontal {
-          0%, 100% {
-            opacity: 0.3;
-            transform: scaleX(0.5);
-          }
-          50% {
-            opacity: 0.8;
-            transform: scaleX(1);
-          }
-        }
-      `}</style>
     </header>
   );
 }

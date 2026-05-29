@@ -31,17 +31,17 @@ const WithdrawHistoryTable: React.FC<WithdrawHistoryTableProps> = ({ historialRe
     switch (status) {
       case 'Completado':
         return {
-          bg: 'rgba(19, 241, 135, 0.1)',
-          border: 'rgba(19, 241, 135, 0.3)',
-          color: '#13f187',
-          dot: '#13f187',
+          bg: 'rgba(245, 165, 36, 0.1)',
+          border: 'rgba(245, 165, 36, 0.3)',
+          color: '#F5A524',
+          dot: '#F5A524',
         };
       case 'Procesando':
         return {
-          bg: 'rgba(200, 255, 0, 0.1)',
-          border: 'rgba(200, 255, 0, 0.3)',
-          color: '#c8ff00',
-          dot: '#c8ff00',
+          bg: 'rgba(245, 165, 36, 0.1)',
+          border: 'rgba(245, 165, 36, 0.3)',
+          color: '#F5A524',
+          dot: '#F5A524',
         };
       default:
         return {
@@ -56,11 +56,11 @@ const WithdrawHistoryTable: React.FC<WithdrawHistoryTableProps> = ({ historialRe
   const getNetworkColor = (network: string) => {
     switch (network.toUpperCase()) {
       case 'APTOS':
-        return '#00f5ff';
+        return '#7C8AA0';
       case 'TRC20':
-        return '#dc95e6';
+        return '#E6E8EC';
       default:
-        return '#13f187';
+        return '#F5A524';
     }
   };
 
@@ -70,8 +70,8 @@ const WithdrawHistoryTable: React.FC<WithdrawHistoryTableProps> = ({ historialRe
         <div
           className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center"
           style={{
-            background: 'rgba(220, 149, 230, 0.1)',
-            border: '1px solid rgba(220, 149, 230, 0.3)',
+            background: 'rgba(230, 232, 236, 0.1)',
+            border: '1px solid rgba(230, 232, 236, 0.3)',
           }}
         >
           <span className="text-4xl">📭</span>
@@ -232,14 +232,14 @@ const WithdrawHistoryTable: React.FC<WithdrawHistoryTableProps> = ({ historialRe
         <div
           className="text-center p-4 rounded-xl"
           style={{
-            background: 'rgba(220, 149, 230, 0.08)',
-            border: '1px solid rgba(220, 149, 230, 0.2)',
+            background: 'rgba(230, 232, 236, 0.08)',
+            border: '1px solid rgba(230, 232, 236, 0.2)',
           }}
         >
           <div className="text-gray-500 font-mono text-[10px] uppercase tracking-wider mb-1">
             {intl.formatMessage({ id: 'components.withdrawHistoryTable.total' })}
           </div>
-          <div className="text-plasma-pink font-mono text-xl font-bold">
+          <div className="text-[#E6E8EC] font-mono text-xl font-bold">
             {historialRetiros.length}
           </div>
         </div>
@@ -247,14 +247,14 @@ const WithdrawHistoryTable: React.FC<WithdrawHistoryTableProps> = ({ historialRe
         <div
           className="text-center p-4 rounded-xl"
           style={{
-            background: 'rgba(19, 241, 135, 0.08)',
-            border: '1px solid rgba(19, 241, 135, 0.2)',
+            background: 'rgba(245, 165, 36, 0.08)',
+            border: '1px solid rgba(245, 165, 36, 0.2)',
           }}
         >
           <div className="text-gray-500 font-mono text-[10px] uppercase tracking-wider mb-1">
             {intl.formatMessage({ id: 'components.withdrawHistoryTable.completed' })}
           </div>
-          <div className="text-miner-green font-mono text-xl font-bold">
+          <div className="text-amber-400 font-mono text-xl font-bold">
             {historialRetiros.filter(r => r.estado === 'Completado').length}
           </div>
         </div>
@@ -262,14 +262,14 @@ const WithdrawHistoryTable: React.FC<WithdrawHistoryTableProps> = ({ historialRe
         <div
           className="text-center p-4 rounded-xl"
           style={{
-            background: 'rgba(200, 255, 0, 0.08)',
-            border: '1px solid rgba(200, 255, 0, 0.2)',
+            background: 'rgba(245, 165, 36, 0.08)',
+            border: '1px solid rgba(245, 165, 36, 0.2)',
           }}
         >
           <div className="text-gray-500 font-mono text-[10px] uppercase tracking-wider mb-1">
             {intl.formatMessage({ id: 'components.withdrawHistoryTable.processing' })}
           </div>
-          <div className="text-bio-yellow font-mono text-xl font-bold">
+          <div className="text-amber-400 font-mono text-xl font-bold">
             {historialRetiros.filter(r => r.estado === 'Procesando').length}
           </div>
         </div>

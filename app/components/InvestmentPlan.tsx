@@ -183,13 +183,12 @@ export function InvestmentPlan({
         </div>
 
         <Button 
-          variant="cosmic" 
+          variant="primary" 
           className="w-full transform transition-all duration-300 font-bold tracking-wider"
           style={{ 
             clipPath: "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px)",
             transform: hover ? "translateY(-2px)" : "translateY(0)",
           }}
-          glowing={hover}
           onClick={onClick}
         >
           <span className="flex items-center justify-center gap-2">

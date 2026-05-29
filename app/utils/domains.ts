@@ -6,7 +6,7 @@
  *   - Public content, SEO active, no login required
  *
  * Domain B (App): app.orbitrade.io
- *   - Dashboard, profile, hangar, earnings, referrals
+ *   - Dashboard, production, deposits, withdrawals, history, partners, account
  *   - Requires auth, no SEO (robots.txt -> Disallow: /), no ads
  *
  * Environment variables:
@@ -40,7 +40,7 @@ export function getMarketingUrl(path: string): string {
 }
 
 /**
- * Get the URL for an app page (dashboard, profile, hangar, etc.)
+ * Get the URL for an app page (dashboard, production, deposits, etc.)
  * If NEXT_PUBLIC_APP_DOMAIN is set, returns absolute URL.
  * Otherwise, returns relative path (single-domain mode).
  */
