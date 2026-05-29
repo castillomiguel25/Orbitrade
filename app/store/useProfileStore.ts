@@ -28,7 +28,6 @@ export type Profile = {
   withdrawalkey?: string | null;
   withdrawals_amount?: number;
   flujo?: number;
-  rango?: number; 
   // ...agrega todos los campos que necesites
 } | null;
 

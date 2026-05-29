@@ -11,8 +11,8 @@ const PROTECTED_PATHS = [
   // New flat routes
   '/dashboard', '/production', '/deposits', '/withdrawals', '/history', '/partners', '/account',
   // Legacy routes (kept until fully retired; redirected below)
-  '/command-center', '/commander', '/hangar', '/extraction', '/plasma-core',
-  '/armada', '/hive', '/datalog', '/simulation', '/ledger',
+  '/command-center', '/commander', '/plasma-core',
+  '/hive', '/datalog', '/ledger',
 ];
 
 // Legacy → new route redirects (302)

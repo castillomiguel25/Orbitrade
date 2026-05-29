@@ -409,7 +409,7 @@ export const ClaimCrystal: React.FC<ClaimCrystalProps> = ({
                   <span className="text-stellar-white font-light">Controls</span>
                 </h4>
 
-                <Link href="/hangar?tab=withdrawals" className="block">
+                <Link href="/withdrawals" className="block">
                   <Button
                     variant="primary"
                     className="w-full py-3 font-mono tracking-wider"

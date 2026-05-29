@@ -3,7 +3,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useIntl } from 'react-intl';
 import { toast } from 'sonner';
 import { Button } from '@/app/components/Button';
@@ -54,41 +53,16 @@ function CreatureCard({
   };
 
   const config = getRarity(creature.minPrice || creature.monto || 0);
-  const { profile } = useProfileStore();
-  const rankMap: Record<string, number> = {
-    'plan-17': 6,
-    'plan-20': 6,
-    'plan-23': 1,
-    'zyx-drone': 1,
-    'vortex-hunter': 2,
-    'nebula-sentinel': 3,
-    'plasma-wraith': 4,
-    'crimson-overlord': 5,
-  };
-  const requiredRank = rankMap[String(creature.id || '').toLowerCase()] || 1;
-  const isUnlockedByRank = (profile?.rango ?? 1) >= requiredRank;
 
   return (
     <button
-      onClick={() => {
-        if (isUnlockedByRank) {
-          onClick();
-        } else {
-          toast.info(
-            intl.formatMessage(
-              { id: 'notifications.info.planLockedRankRequired' },
-              { requiredRank }
-            )
-          );
-        }
-      }}
+      onClick={onClick}
       className={`
         relative group w-full
         transition-all duration-500 ease-out
         rounded-2xl overflow-hidden
         aspect-[3/4]
-        ${isSelected ? 'scale-[1.03] z-20' : (isUnlockedByRank ? 'hover:scale-[1.02]' : '')}
-        ${isUnlockedByRank ? '' : 'cursor-not-allowed'}
+        ${isSelected ? 'scale-[1.03] z-20' : 'hover:scale-[1.02]'}
       `}
       style={{
         border: `2px solid ${isSelected ? config.main : `${config.main}40`}`,
@@ -97,33 +71,12 @@ function CreatureCard({
           : '0 8px 30px rgba(0, 0, 0, 0.4)',
       }}
     >
-      {/* LOCKED OVERLAY */}
-      {!isUnlockedByRank && (
-        <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/50 backdrop-blur-[2px]">
-          <div className="relative w-32 h-32 animate-[pulse_3s_ease-in-out_infinite] drop-shadow-[0_0_25px_rgba(220,38,38,0.6)]">
-            <div className="absolute inset-0 animate-[bounce_3s_infinite]">
-              <Image
-                src="/block.png"
-                alt="Locked"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <div className="mt-4 px-4 py-1.5 bg-black/80 rounded-full border border-red-500/40 backdrop-blur-md shadow-[0_0_15px_rgba(220,38,38,0.2)]">
-            <span className="text-[10px] sm:text-xs font-mono font-bold text-red-400 tracking-[0.2em] uppercase">
-              RANK {requiredRank} REQUIRED
-            </span>
-          </div>
-        </div>
-      )}
-
       {/* FULL BLEED CREATURE IMAGE */}
       <div className="absolute inset-0">
         <img
           src={creature.imagePath}
           alt={creature.altText}
-          className={`w-full h-full object-cover transition-all duration-700 ${!isUnlockedByRank ? 'grayscale brightness-[0.4]' : ''}`}
+          className="w-full h-full object-cover transition-all duration-700"
           style={{
             transform: isSelected ? 'scale(1.1)' : 'scale(1)',
           }}

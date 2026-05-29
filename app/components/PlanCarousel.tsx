@@ -117,7 +117,7 @@ export function PlanCarousel({ plans, onSelectPlan }: MiningModuleCarouselProps)
 
   const handlePlanAction = () => {
     if (!isPlanActive) {
-      router.push('/hangar');
+      router.push('/deposits');
     } else {
       onSelectPlan(currentPlan);
     }

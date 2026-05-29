@@ -8,7 +8,7 @@ export function useDeposits(user: { id: string; email: string } | null) {
   const intl = useIntl();
   const [rawDeposits, setRawDeposits] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const { fetchProfile, profile } = useProfileStore();
+  const { fetchProfile } = useProfileStore();
   const [txidExtractFailCount, setTxidExtractFailCount] = useState(0);
   const [showManualTxidInput, setShowManualTxidInput] = useState(false);
 
@@ -37,16 +37,6 @@ export function useDeposits(user: { id: string; email: string } | null) {
     txid: string;
     cerrarModal: () => void;
   }) => {
-    // Validar límite de Rango 1 antes de enviar
-    const amount = parseFloat(montoDeposito);
-    const userRank = profile?.rango ?? 1;
-    const currentFrozen = profile?.frozenbalance ?? 0;
-    
-    if (userRank === 1 && (currentFrozen + amount) > 800) {
-      showToast.error(intl, 'notifications.error.rank1LimitExceeded');
-      return;
-    }
-
     try {
       const response = await fetch('/api/validate-deposits', {
         method: 'POST',

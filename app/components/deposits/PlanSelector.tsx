@@ -1,8 +1,5 @@
 import { useIntl } from 'react-intl';
-import Image from 'next/image';
 import { InvestmentPlanType } from '@/app/types/investmentPlan';
-import { useProfileStore } from '@/app/store/useProfileStore';
-import { showToast } from '@/app/utils/toast';
 
 interface PlanSelectorProps {
   investmentPlans: InvestmentPlanType[];
@@ -12,8 +9,7 @@ interface PlanSelectorProps {
 
 export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPlan }: PlanSelectorProps) {
   const intl = useIntl();
-  const { profile } = useProfileStore();
-  
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -32,67 +28,27 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 max-h-[400px] overflow-y-auto custom-scrollbar pr-2">
         {investmentPlans.map((plan) => {
           const isSelected = planSeleccionado === plan.id;
-          const rankMap: Record<string, number> = {
-            'plan-17': 6,
-            'plan-20': 6,
-            'plan-23': 1,
-            'zyx-drone': 1,
-            'vortex-hunter': 2,
-            'nebula-sentinel': 3,
-            'plasma-wraith': 4,
-            'crimson-overlord': 5,
-          };
-          const requiredRank = rankMap[String(plan.id || '').toLowerCase()] || 1;
-          const userRank = profile?.rango ?? 1;
-          const isUnlocked = userRank >= requiredRank;
           const minYield = plan.minPrice ? (plan.minPrice * plan.rendimiento / 100).toFixed(2) : null;
           const maxYield = plan.maxPrice ? (plan.maxPrice * plan.rendimiento / 100).toFixed(2) : null;
           const dailyYield = ((plan.monto || 0) * plan.rendimiento / 100).toFixed(2);
-          
+
           return (
             <div
               key={plan.id}
-              className={`relative ${isUnlocked ? 'cursor-pointer' : 'cursor-not-allowed'} group transition-all duration-500 transform ${isUnlocked ? 'hover:scale-[1.02]' : ''} ${
+              className={`relative cursor-pointer group transition-all duration-500 transform hover:scale-[1.02] ${
                 isSelected ? 'scale-[1.02]' : ''
               }`}
-              onClick={() => {
-                if (isUnlocked) {
-                  seleccionarPlan(plan.id);
-                } else {
-                  showToast.info(intl, 'notifications.info.planLockedRankRequired', { requiredRank });
-                }
-              }}
+              onClick={() => seleccionarPlan(plan.id)}
             >
-              {/* Locked Overlay */}
-              {!isUnlocked && (
-                <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[1px] rounded-2xl border border-red-500/30">
-                  <div className="relative w-24 h-24 animate-[pulse_3s_ease-in-out_infinite] drop-shadow-[0_0_25px_rgba(239,68,68,0.6)]">
-                    <div className="absolute inset-0 animate-[bounce_3s_infinite]">
-                      <Image
-                        src="/block.png"
-                        alt="Locked"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-4 px-3 py-1 bg-black/60 rounded-full border border-red-500/40 backdrop-blur-md">
-                    <span className="text-[10px] font-mono font-bold text-red-400 tracking-widest uppercase">
-                      LOCKED • RANK {requiredRank}
-                    </span>
-                  </div>
-                </div>
-              )}
-
               {/* Quantum Energy Field */}
               <div className={`absolute -inset-2 rounded-2xl blur-lg transition-all duration-500 ${
-                isSelected 
-                  ? 'bg-gradient-to-r from-green-500/40 to-cyan-500/40 animate-pulse' 
+                isSelected
+                  ? 'bg-gradient-to-r from-green-500/40 to-cyan-500/40 animate-pulse'
                   : 'bg-gradient-to-r from-green-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100'
               }`} />
-              
+
               {/* Module Card */}
-              <div className={`relative rounded-2xl backdrop-blur-sm border transition-all duration-500 overflow-hidden ${!isUnlocked ? 'opacity-40 grayscale' : ''} ${
+              <div className={`relative rounded-2xl backdrop-blur-sm border transition-all duration-500 overflow-hidden ${
                 isSelected 
                   ? 'border-green-500/60 shadow-2xl shadow-green-500/30' 
                   : 'border-slate-700/50 hover:border-green-500/30'

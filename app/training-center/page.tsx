@@ -77,25 +77,25 @@ export default function HelpPage() {
       title: intl.formatMessage({ id: 'pages.help.quickAccess.validateDeployment.title' }),
       description: intl.formatMessage({ id: 'pages.help.quickAccess.validateDeployment.description' }),
       icon: '🔍',
-      link: '/hangar'
+      link: '/deposits'
     },
     {
       title: intl.formatMessage({ id: 'pages.help.quickAccess.claimResources.title' }),
       description: intl.formatMessage({ id: 'pages.help.quickAccess.claimResources.description' }),
       icon: '💰',
-      link: '/plasma-core'
+      link: '/production'
     },
     {
       title: intl.formatMessage({ id: 'pages.help.quickAccess.fleetReferrals.title' }),
       description: intl.formatMessage({ id: 'pages.help.quickAccess.fleetReferrals.description' }),
       icon: '👥',
-      link: '/armada'
+      link: '/partners'
     },
     {
       title: intl.formatMessage({ id: 'pages.help.quickAccess.cargoTransport.title' }),
       description: intl.formatMessage({ id: 'pages.help.quickAccess.cargoTransport.description' }),
       icon: '🚀',
-      link: '/extraction'
+      link: '/withdrawals'
     }
   ];
 
