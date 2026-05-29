@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '../utils/supabaseClient';
 import { toast } from 'sonner';
@@ -9,34 +9,21 @@ import { useIntl } from 'react-intl';
 import Link from 'next/link';
 import { TotpVerifyModal } from '../components/TotpVerifyModal';
 
+const AMBER = '#F5A524';
+const GRAPHITE = '#0E1116';
+const SURFACE = '#161A21';
+const MUTED = '#7C8AA0';
+const TEXT = '#E6E8EC';
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [terminalText, setTerminalText] = useState('');
   const [showMfaModal, setShowMfaModal] = useState(false);
   const [mfaError, setMfaError] = useState<string | null>(null);
   const [mfaLoading, setMfaLoading] = useState(false);
   const router = useRouter();
   const intl = useIntl();
-
-  // Terminal typing effect
-  useEffect(() => {
-    const line1 = intl.formatMessage({ id: 'login.terminal.line1' });
-    const line2 = intl.formatMessage({ id: 'login.terminal.line2' });
-    const line3 = intl.formatMessage({ id: 'login.terminal.line3' });
-    const text = `${line1}\n${line2}\n${line3}`;
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setTerminalText(text.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 30);
-    return () => clearInterval(interval);
-  }, [intl]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +34,7 @@ export default function Login() {
     }
 
     setIsLoading(true);
-    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
       toast.error(intl.formatMessage({ id: 'login.invalidCredentials' }));
@@ -55,7 +42,6 @@ export default function Login() {
       return;
     }
 
-    // Check if MFA is required
     const { data: factorsData } = await supabase.auth.mfa.listFactors();
     const hasVerifiedTotp = factorsData?.totp?.some((f: { status: string }) => f.status === 'verified');
 
@@ -65,7 +51,7 @@ export default function Login() {
     } else {
       toast.success(intl.formatMessage({ id: 'login.welcomeBack' }));
       setIsLoading(false);
-      router.push('/command-center');
+      router.push('/dashboard');
     }
   };
 
@@ -90,7 +76,7 @@ export default function Login() {
       if (verifyError) throw verifyError;
 
       toast.success(intl.formatMessage({ id: 'login.welcomeBack' }));
-      router.push('/command-center');
+      router.push('/dashboard');
     } catch {
       setMfaError(intl.formatMessage({ id: '2fa.invalidCode' }));
     } finally {
@@ -104,234 +90,116 @@ export default function Login() {
     supabase.auth.signOut();
   };
 
+  const inputCls = "w-full px-4 py-3 rounded-lg text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30";
+  const inputStyle = {
+    background: GRAPHITE,
+    border: '1px solid rgba(255,255,255,0.1)',
+    color: TEXT,
+  };
+
   return (
     <div
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #000201 0%, #0a0a0f 50%, #0a2419 100%)',
-      }}
+      style={{ background: GRAPHITE, minHeight: '100vh' }}
+      className="flex items-center justify-center px-4 py-12"
     >
-      {/* Animated background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Nebula effects */}
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-20"
-          style={{
-            background: 'radial-gradient(circle, rgba(19, 241, 135, 0.4), transparent 70%)',
-            filter: 'blur(80px)',
-            animation: 'float 8s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15"
-          style={{
-            background: 'radial-gradient(circle, rgba(220, 149, 230, 0.4), transparent 70%)',
-            filter: 'blur(60px)',
-            animation: 'float 10s ease-in-out infinite reverse',
-          }}
-        />
-
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(19, 241, 135, 0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(19, 241, 135, 0.03) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px',
-          }}
-        />
-
-        {/* Floating particles */}
-        {[...Array(15)].map((_, i) => (
+      <div className="w-full max-w-sm">
+        {/* Logo / Brand */}
+        <div className="text-center mb-8">
           <div
-            key={i}
-            className="absolute w-1 h-1 rounded-full animate-pulse"
-            style={{
-              left: `${5 + (i * 6.5) % 90}%`,
-              top: `${10 + (i * 8) % 80}%`,
-              backgroundColor: i % 2 === 0 ? '#13f187' : '#dc95e6',
-              boxShadow: `0 0 10px ${i % 2 === 0 ? '#13f187' : '#dc95e6'}`,
-              animationDelay: `${i * 0.4}s`,
-              opacity: 0.6,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-md mx-4">
-        {/* Terminal header */}
-        <div
-          className="mb-4 p-3 rounded-t-xl font-mono text-xs text-miner-green/70"
-          style={{
-            background: 'rgba(10, 10, 15, 0.9)',
-            borderTop: '1px solid rgba(19, 241, 135, 0.3)',
-            borderLeft: '1px solid rgba(19, 241, 135, 0.3)',
-            borderRight: '1px solid rgba(19, 241, 135, 0.3)',
-          }}
-        >
-          <pre className="whitespace-pre-wrap">{terminalText}<span className="animate-pulse">_</span></pre>
+            style={{ color: AMBER }}
+            className="text-2xl font-bold tracking-widest uppercase mb-1"
+          >
+            ORBITRADE
+          </div>
+          <div style={{ color: MUTED }} className="text-sm">
+            {intl.formatMessage({ id: 'login.commanderAccess' })}
+          </div>
         </div>
 
-        {/* Login form */}
+        {/* Form card */}
         <form
           onSubmit={handleLogin}
-          className="relative p-8 rounded-2xl overflow-hidden"
-          style={{
-            background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.95), rgba(10, 36, 25, 0.9))',
-            border: '1px solid rgba(19, 241, 135, 0.3)',
-            boxShadow: '0 0 60px rgba(19, 241, 135, 0.15), inset 0 0 40px rgba(19, 241, 135, 0.03)',
-          }}
+          style={{ background: SURFACE, border: '1px solid rgba(255,255,255,0.06)' }}
+          className="p-8 rounded-xl space-y-5"
         >
-          {/* Corner brackets */}
-          <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-miner-green rounded-tl" />
-          <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-miner-green rounded-tr" />
-          <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-miner-green rounded-bl" />
-          <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-miner-green rounded-br" />
-
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(19, 241, 135, 0.2), rgba(0, 245, 255, 0.1))',
-                  border: '1px solid rgba(19, 241, 135, 0.4)',
-                  boxShadow: '0 0 20px rgba(19, 241, 135, 0.3)',
-                }}
-              >
-                <span className="text-2xl">💻</span>
-              </div>
-            </div>
-            <h1 className="text-2xl font-display font-bold tracking-wider mb-2">
-              <span
-                className="italic font-light"
-                style={{
-                  background: 'linear-gradient(135deg, #13f187, #00f5ff)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                ORBITRADE
-              </span>
-            </h1>
-            <p className="text-sm font-mono text-cosmic-gray">
-              {intl.formatMessage({ id: 'login.title' })} • <span className="italic text-plasma-pink">{intl.formatMessage({ id: 'login.commanderAccess' })}</span>
-            </p>
+          <div>
+            <label style={{ color: MUTED }} className="block text-xs font-medium tracking-wider uppercase mb-2">
+              {intl.formatMessage({ id: 'login.email' })}
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={inputCls}
+              style={inputStyle}
+              placeholder="you@example.com"
+            />
           </div>
 
-          {/* Form fields */}
-          <div className="space-y-5">
-            <div>
-              <label className="block text-xs font-mono text-miner-green mb-2 tracking-wider uppercase">
-                {intl.formatMessage({ id: 'login.email' })}
-              </label>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg font-mono text-sm text-stellar-white placeholder-cosmic-gray/50 transition-all duration-300 focus:outline-none"
-                style={{
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  border: '1px solid rgba(19, 241, 135, 0.3)',
-                  boxShadow: 'inset 0 0 20px rgba(19, 241, 135, 0.05)',
-                }}
-                placeholder="commander@orbitrade.io"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-mono text-miner-green mb-2 tracking-wider uppercase">
-                {intl.formatMessage({ id: 'login.password' })}
-              </label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg font-mono text-sm text-stellar-white placeholder-cosmic-gray/50 transition-all duration-300 focus:outline-none"
-                style={{
-                  background: 'rgba(0, 0, 0, 0.5)',
-                  border: '1px solid rgba(19, 241, 135, 0.3)',
-                  boxShadow: 'inset 0 0 20px rgba(19, 241, 135, 0.05)',
-                }}
-                placeholder="••••••••••••"
-              />
-            </div>
+          <div>
+            <label style={{ color: MUTED }} className="block text-xs font-medium tracking-wider uppercase mb-2">
+              {intl.formatMessage({ id: 'login.password' })}
+            </label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={inputCls}
+              style={inputStyle}
+              placeholder="••••••••••••"
+            />
           </div>
 
-          {/* Submit button */}
-          <div className="mt-8 space-y-4">
+          <div className="pt-1">
             <Button
               type="submit"
               variant="primary"
               size="lg"
               fullWidth
               loading={isLoading}
-              className="font-display tracking-wider"
             >
-              <span className="flex items-center justify-center gap-2">
-                <span>💻</span>
-                <span>
-                  <span className="font-bold">{intl.formatMessage({ id: 'login.accessButton' })}</span>{' '}
-                </span>
-              </span>
+              {intl.formatMessage({ id: 'login.accessButton' })}
             </Button>
-
-            <div className="text-center">
-              <Link
-                href="/password-reset"
-                className="text-sm font-mono text-cosmic-gray hover:text-plasma-pink transition-colors duration-300"
-              >
-                {intl.formatMessage({ id: 'login.forgotPassword' })}
-              </Link>
-            </div>
           </div>
 
-          {/* Register link */}
-          <div
-            className="mt-6 pt-6 text-center"
-            style={{ borderTop: '1px solid rgba(19, 241, 135, 0.15)' }}
-          >
-            <p className="text-sm font-mono text-cosmic-gray mb-2">
-              {intl.formatMessage({ id: 'login.noAccount' })}
-            </p>
+          <div className="text-center">
             <Link
-              href="/enlist"
-              className="inline-flex items-center gap-2 text-sm font-display font-bold text-cyber-cyan hover:text-miner-green transition-colors duration-300"
+              href="/password-reset"
+              style={{ color: MUTED }}
+              className="text-sm hover:opacity-80 transition-opacity"
             >
-              <span>👾</span>
-              <span>
-                {intl.formatMessage({ id: 'login.joinColony' })}
-              </span>
+              {intl.formatMessage({ id: 'login.forgotPassword' })}
             </Link>
           </div>
-
-          {/* Scan line effect */}
-          <div
-            className="absolute bottom-0 left-0 right-0 h-[2px] pointer-events-none"
-            style={{
-              background: 'linear-gradient(90deg, transparent, #13f187, transparent)',
-              animation: 'scanHorizontal 4s ease-in-out infinite',
-            }}
-          />
         </form>
 
-        {/* Status indicator */}
-        <div
-          className="mt-4 flex items-center justify-center gap-2 text-xs font-mono text-cosmic-gray"
-        >
+        {/* Sign up link */}
+        <div className="mt-5 text-center">
+          <span style={{ color: MUTED }} className="text-sm">
+            {intl.formatMessage({ id: 'login.noAccount' })}
+            {' '}
+          </span>
+          <Link
+            href="/enlist"
+            style={{ color: AMBER }}
+            className="text-sm font-semibold hover:opacity-80 transition-opacity"
+          >
+            {intl.formatMessage({ id: 'login.joinColony' })}
+          </Link>
+        </div>
+
+        {/* Status */}
+        <div className="mt-6 flex items-center justify-center gap-2">
           <div
-            className="w-2 h-2 rounded-full animate-pulse"
-            style={{ backgroundColor: '#13f187', boxShadow: '0 0 8px #13f187' }}
+            className="w-1.5 h-1.5 rounded-full"
+            style={{ background: '#22c55e' }}
           />
-          <span>{intl.formatMessage({ id: 'login.secureConnection' })} • <span className="italic text-miner-green">{intl.formatMessage({ id: 'login.plasminNetwork' })}</span></span>
+          <span style={{ color: MUTED }} className="text-xs">
+            {intl.formatMessage({ id: 'login.secureConnection' })} · {intl.formatMessage({ id: 'login.plasminNetwork' })}
+          </span>
         </div>
       </div>
 
-      {/* 2FA Verification Modal */}
       <TotpVerifyModal
         open={showMfaModal}
         onVerify={handleMfaVerify}
@@ -339,18 +207,6 @@ export default function Login() {
         loading={mfaLoading}
         error={mfaError}
       />
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0) scale(1); }
-          50% { transform: translateY(-20px) scale(1.05); }
-        }
-        @keyframes scanHorizontal {
-          0%, 100% { opacity: 0.3; transform: scaleX(0.5); }
-          50% { opacity: 1; transform: scaleX(1); }
-        }
-      `}</style>
     </div>
   );
 }
