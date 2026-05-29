@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useIntl } from "react-intl";
-import { investmentPlans } from "./constants/investmentPlans";
+import { getPlans } from "./modules/plans";
 
 const AMBER = '#F5A524';
 const GRAPHITE = '#0E1116';
@@ -101,8 +101,7 @@ function PlansSection() {
   const router = useRouter();
   const intl = useIntl();
 
-  const entryPlan = investmentPlans[0];
-  const premiumPlan = investmentPlans[1];
+  const [entryPlan, premiumPlan] = getPlans();
 
   const plans = [
     {
