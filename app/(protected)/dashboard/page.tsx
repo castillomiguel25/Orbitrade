@@ -18,16 +18,15 @@ function PlanCard({
 }) {
   const intl = useIntl();
   const isIndustrial = plan.tier === "industrial";
-  const accentColor = isIndustrial ? "#F5A524" : "#22c55e";
-  const accentAlpha = isIndustrial ? "rgba(245,165,36,0.08)" : "rgba(34,197,94,0.06)";
-  const accentBorder = isIndustrial ? "rgba(245,165,36,0.2)" : "rgba(34,197,94,0.18)";
+  const accentColor = isIndustrial ? "#F5A524" : "#7C8AA0";
+  const accentAlpha = isIndustrial ? "rgba(245,165,36,0.08)" : "rgba(124,138,160,0.06)";
+  const accentBorder = isIndustrial ? "rgba(245,165,36,0.22)" : "rgba(124,138,160,0.18)";
 
   return (
     <button
       onClick={onClick}
-      className="w-full text-left rounded-xl p-5 transition-all duration-200 hover:scale-[1.01] active:scale-[0.99]"
+      className="w-full text-left rounded-xl overflow-hidden transition-all duration-200 hover:scale-[1.01] active:scale-[0.99] relative"
       style={{
-        background: "#161A21",
         border: `1px solid ${accentBorder}`,
         boxShadow: `0 4px 16px rgba(0,0,0,0.4)`,
       }}
@@ -38,6 +37,24 @@ function PlanCard({
         (e.currentTarget as HTMLElement).style.boxShadow = `0 4px 16px rgba(0,0,0,0.4)`;
       }}
     >
+      {/* Background image with dark overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${plan.imagePath})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(135deg, rgba(14,17,22,0.93) 0%, rgba(22,26,33,0.88) 100%)",
+        }}
+      />
+
+      {/* Content sits above overlay */}
+      <div className="relative z-10 p-5">
       {/* Tier badge */}
       <div
         className="inline-block text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded mb-3"
@@ -78,6 +95,7 @@ function PlanCard({
       >
         Instalar →
       </div>
+      </div>{/* end relative z-10 */}
     </button>
   );
 }
