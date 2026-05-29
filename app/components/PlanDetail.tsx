@@ -40,7 +40,7 @@ export function PlanDetail({ plan, onClose }: MiningModuleDetailProps) {
   // Monto variable a invertir: mínimo el definido en el plan (plan.monto o plan.minPrice)
   const [amount, setAmount] = useState<number>(plan.minPrice || plan.monto || 0);
   const isVariablePrice = (plan.minPrice !== undefined && plan.maxPrice !== undefined);
-  const isSpaceship = (plan?.id === 'spaceship') || (plan.titleKey === 'plans.spaceship.title') || (plan?.id === 'galaxian') || (plan.titleKey === 'plans.galaxian.title');
+  const isSpaceship = (plan?.id === 'spaceship') || (plan.titleKey === 'plans.spaceship.title');
   const showAmountInput = isVariablePrice || isSpaceship;
 
   useEffect(() => {

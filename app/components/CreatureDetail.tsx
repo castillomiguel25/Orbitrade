@@ -32,9 +32,7 @@ export function CreatureDetail({ plan, onClose }: CreatureDetailProps) {
   const isVariableAmount =
     (plan.minPrice !== undefined && plan.maxPrice !== undefined) ||
     plan?.id === 'spaceship' ||
-    plan.titleKey === 'plans.spaceship.title' ||
-    plan?.id === 'galaxian' ||
-    plan.titleKey === 'plans.galaxian.title';
+    plan.titleKey === 'plans.spaceship.title';
 
   const rarity = getRarity(plan.minPrice || plan.monto || 0);
 

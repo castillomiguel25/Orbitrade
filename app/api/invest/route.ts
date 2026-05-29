@@ -318,34 +318,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "¡Plan activado exitosamente!" });
   }
 
-  // Compra única por usuario para ciertos planes
-  const singlePurchaseIds = new Set(['dragon', 'galaxian', 'plan-28']);
-
-  const planIdNormalized = String(plan.id || '').toLowerCase();
-  if (singlePurchaseIds.has(planIdNormalized)) {
-    const { data: existingDeposits, error: depositsError } = await supabase
-      .from("deposits")
-      .select("id, plan_nombre")
-      .eq("user_id", userId);
-
-    if (depositsError) {
-      return NextResponse.json({ error: "Error validando compras previas" }, { status: 500 });
-    }
-
-    const normalize = (s: any) => String(s || '').toLowerCase().trim();
-    const alreadyPurchased = (existingDeposits || []).some((d: any) => {
-      const name = normalize(d.plan_nombre);
-      if (planIdNormalized === 'galaxian') return name === 'galaxian';
-      if (planIdNormalized === 'dragon') return name === 'dragon' || name === 'plan dragón';
-      if (planIdNormalized === 'plan-28') return name === 'plan 2.8%';
-      return false;
-    });
-
-    if (alreadyPurchased) {
-      return NextResponse.json({ error: "Este plan es compra única por usuario" }, { status: 409 });
-    }
-  }
-
   // Verificar saldo suficiente (Siempre descontamos de trc20balance según instrucción)
   if (currentBalance < monto) {
     return NextResponse.json({ 

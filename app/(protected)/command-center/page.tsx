@@ -280,7 +280,6 @@ function CreatureCard({
 export default function Dashboard() {
   const [selectedPlan, setSelectedPlan] = useState<null | InvestmentPlanType>(null);
   const { profile } = useProfileStore();
-  const [blockedPlanIds, setBlockedPlanIds] = useState<Set<string>>(new Set());
   const [currentTime, setCurrentTime] = useState('');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isPromoOpen, setIsPromoOpen] = useState(false);
@@ -324,36 +323,12 @@ export default function Dashboard() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Detect purchased plans
-  useEffect(() => {
-    const fetchUserDeposits = async () => {
-      try {
-        const res = await fetch('/api/deposits');
-        const json = await res.json();
-        if (!res.ok) return;
-        const deposits = (json.deposits || []) as Array<{ plan_nombre?: string }>;
-        const toLower = (s: unknown) => String(s || '').toLowerCase().trim();
-        const purchased = new Set<string>();
-        for (const d of deposits) {
-          const name = toLower(d.plan_nombre);
-          if (name === 'galaxian') purchased.add('galaxian');
-          if (name === 'dragon' || name === 'plan dragón') purchased.add('dragon');
-        }
-        setBlockedPlanIds(purchased);
-      } catch {
-        // Silent fail
-      }
-    };
-    fetchUserDeposits();
-  }, []);
 
   if (!profile) return null;
 
-  // Filter available plans
-  const availablePlans = investmentPlans.filter((p) => {
-    if (['galaxian_scout', 'galaxian_fighter', 'galaxian_destroyer'].includes(String(p.id))) return false;
-    return !blockedPlanIds.has(String(p.id));
-  });
+  const availablePlans = investmentPlans.filter((p) =>
+    !['galaxian_scout', 'galaxian_fighter', 'galaxian_destroyer'].includes(String(p.id))
+  );
 
   return (
     <div

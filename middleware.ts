@@ -28,8 +28,7 @@ const AUTH_PATHS = ['/access', '/enlist'];
 
 // Marketing/public pages (live on MARKETING domain)
 const MARKETING_PATHS = [
-  '/', '/how-it-works', '/terms', '/privacy', '/contact',
-  '/tetris', '/galaxian', '/help'
+  '/', '/how-it-works', '/terms', '/privacy', '/contact', '/help'
 ];
 
 // ──────────────────────────────────────────────

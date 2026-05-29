@@ -12,8 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/terms',
     '/privacy',
     '/contact',
-    '/tetris',
-    '/galaxian',
   ];
 
   // Generate sitemap entries for each route in each language
