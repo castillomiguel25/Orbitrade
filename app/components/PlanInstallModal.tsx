@@ -62,9 +62,9 @@ export function PlanInstallModal({ plan, onClose }: PlanInstallModalProps) {
   }
 
   const isIndustrial = plan.tier === "industrial";
-  const accentColor = isIndustrial ? "#F5A524" : "#22c55e";
-  const accentAlpha = isIndustrial ? "rgba(245,165,36,0.15)" : "rgba(34,197,94,0.12)";
-  const accentBorder = isIndustrial ? "rgba(245,165,36,0.3)" : "rgba(34,197,94,0.25)";
+  const accentColor = isIndustrial ? "#F5A524" : "#7C8AA0";
+  const accentAlpha = isIndustrial ? "rgba(245,165,36,0.12)" : "rgba(124,138,160,0.10)";
+  const accentBorder = isIndustrial ? "rgba(245,165,36,0.28)" : "rgba(124,138,160,0.22)";
 
   const dailyIncome = (amount * plan.rendimiento) / 100;
   const totalReturn = (dailyIncome * plan.duracionDias).toFixed(0);
@@ -92,16 +92,28 @@ export function PlanInstallModal({ plan, onClose }: PlanInstallModalProps) {
 
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b" style={{ borderColor: accentBorder }}>
-          <div>
+          <div className="flex items-center gap-3">
             <div
-              className="inline-block text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded mb-1"
-              style={{ background: accentAlpha, color: accentColor, border: `1px solid ${accentBorder}` }}
+              className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0"
+              style={{ border: `1px solid ${accentBorder}` }}
             >
-              {intl.formatMessage({ id: `pages.dashboard.catalog.tier.${plan.tier}` })}
+              <img
+                src={plan.imagePath}
+                alt=""
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h2 className="text-base font-semibold text-bone-white">
-              {intl.formatMessage({ id: plan.titleKey })}
-            </h2>
+            <div>
+              <div
+                className="inline-block text-[10px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 rounded mb-1"
+                style={{ background: accentAlpha, color: accentColor, border: `1px solid ${accentBorder}` }}
+              >
+                {intl.formatMessage({ id: `pages.dashboard.catalog.tier.${plan.tier}` })}
+              </div>
+              <h2 className="text-base font-semibold text-bone-white">
+                {intl.formatMessage({ id: plan.titleKey })}
+              </h2>
+            </div>
           </div>
           <button
             onClick={close}

@@ -111,6 +111,7 @@ function PlansSection() {
       maxInvest: `$${entryPlan.maxPrice}`,
       duration: `${entryPlan.duracionDias}`,
       highlighted: false,
+      imagePath: entryPlan.imagePath,
     },
     {
       badge: intl.formatMessage({ id: 'pages.home.plans.industrial.badge' }),
@@ -119,6 +120,7 @@ function PlansSection() {
       maxInvest: `$${premiumPlan.maxPrice}`,
       duration: `${premiumPlan.duracionDias}`,
       highlighted: true,
+      imagePath: premiumPlan.imagePath,
     },
   ];
 
@@ -150,8 +152,24 @@ function PlansSection() {
                   ? '1px solid rgba(245,165,36,0.35)'
                   : `1px solid ${BORDER}`,
               }}
-              className="rounded-xl p-6"
+              className="rounded-xl overflow-hidden"
             >
+              {/* Plan image */}
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={plan.imagePath}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(to bottom, transparent 40%, rgba(22,26,33,0.95) 100%)',
+                  }}
+                />
+              </div>
+
+              <div className="p-6">
               <div className="mb-4">
                 <span
                   style={{
@@ -191,6 +209,7 @@ function PlansSection() {
               >
                 {intl.formatMessage({ id: 'pages.home.plans.cta' })}
               </button>
+              </div>
             </div>
           ))}
         </div>

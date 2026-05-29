@@ -9,6 +9,7 @@ export interface Plan {
   minPrice: number;
   maxPrice: number;
   duracionDias: number;
+  imagePath: string;
 }
 
 export interface PurchaseValidation {
@@ -27,6 +28,7 @@ const PLANS: readonly Plan[] = [
     minPrice: 20,       // TBD
     maxPrice: 499,      // TBD
     duracionDias: 365,
+    imagePath: '/orbitrade-plan-entry.png',
   },
   {
     id: 'plan-industrial',
@@ -37,6 +39,7 @@ const PLANS: readonly Plan[] = [
     minPrice: 500,      // TBD
     maxPrice: 5000,     // TBD
     duracionDias: 365,
+    imagePath: '/orbitrade-plan-industrial.png',
   },
 ];
 

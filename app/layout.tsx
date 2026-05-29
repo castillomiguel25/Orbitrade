@@ -48,14 +48,27 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${inter.variable} font-body min-h-screen bg-graphite text-bone-white flex flex-col overflow-x-hidden`}
-        style={{ background: '#0E1116' }}
+        className={`${inter.variable} font-body min-h-screen text-bone-white flex flex-col overflow-x-hidden`}
+        style={{
+          background: '#0E1116',
+          backgroundImage: 'url(/orbitrade-background.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          backgroundAttachment: 'fixed',
+        }}
       >
+        {/* Dark overlay so content stays legible over the background */}
+        <div
+          className="fixed inset-0 pointer-events-none z-0"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(14,17,22,0.82) 0%, rgba(14,17,22,0.93) 50%, rgba(14,17,22,0.98) 100%)',
+          }}
+        />
         <IntlProvider>
           {/* Public Header — only for unauthenticated visitors */}
           {!isLogged && <Header isLogged={false} />}
 
-          <main className="flex-1 relative z-10 min-h-0">{children}</main>
+          <main className="flex-1 relative z-10 min-h-0 isolation-auto">{children}</main>
 
           {/* Public Footer — only for unauthenticated visitors */}
           {!isLogged && <Footer isLogged={false} />}
