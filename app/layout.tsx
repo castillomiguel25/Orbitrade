@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata, Viewport } from "next";
-import { Rajdhani, Inter, Fira_Code } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { Header } from "./components/Header";
@@ -10,26 +10,11 @@ import { IntlProvider } from "./i18n/IntlProvider";
 import { getLocaleFromServerCookies } from "./i18n/utils/server-cookies";
 import { getSiteMetadata } from "./i18n/utils/metadata";
 
-// ORBITRADE Typography - New Fonts
-const rajdhani = Rajdhani({
-  variable: "--font-rajdhani",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
-});
-
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
+  weight: ["300", "400", "500", "600", "700"],
 });
-
-const firaCode = Fira_Code({
-  variable: "--font-fira-code",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"]
-});
-
-
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocaleFromServerCookies();
@@ -41,8 +26,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#000201" },
-    { media: "(prefers-color-scheme: dark)", color: "#000201" },
+    { media: "(prefers-color-scheme: light)", color: "#0E1116" },
+    { media: "(prefers-color-scheme: dark)", color: "#0E1116" },
   ],
 };
 
@@ -56,50 +41,47 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang={initialLocale} className="antialiased">
       <head>
-        {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000201" />
+        <meta name="theme-color" content="#0E1116" />
         <link rel="apple-touch-icon" href="/logo.png" />
-        <link rel="apple-touch-icon" sizes="512x512" href="/logo.png" />
-        {/* Preconnect to Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
-        className={`${rajdhani.variable} ${inter.variable} ${firaCode.variable} font-body min-h-screen bg-void text-star-white flex flex-col overflow-x-hidden`}
+        className={`${inter.variable} font-body min-h-screen bg-graphite text-bone-white flex flex-col overflow-x-hidden`}
+        style={{ background: '#0E1116' }}
       >
-        {/* Miner Background Layers */}
-        <div className="fixed inset-0 bg-miner z-0" />
-        <div className="fixed inset-0 bg-nebula-glow z-0 pointer-events-none" />
-        <div className="fixed inset-0 bg-miner-particles z-0 pointer-events-none opacity-30" />
-
         <IntlProvider>
-          <Header isLogged={isLogged} />
+          {/* Public Header — only for unauthenticated visitors */}
+          {!isLogged && <Header isLogged={false} />}
+
           <main className="flex-1 relative z-10 min-h-0">{children}</main>
-          <Footer isLogged={isLogged} />
+
+          {/* Public Footer — only for unauthenticated visitors */}
+          {!isLogged && <Footer isLogged={false} />}
+
           <Toaster
             position="top-center"
             richColors
             theme="dark"
             toastOptions={{
               style: {
-                background: 'rgba(8, 8, 12, 0.95)',
-                border: '1px solid rgba(255, 255, 255, 0.05)',
-                color: '#ffffff',
+                background: 'rgba(22, 26, 33, 0.97)',
+                border: '1px solid rgba(124, 138, 160, 0.15)',
+                color: '#E6E8EC',
                 backdropFilter: 'blur(16px)',
-                fontFamily: 'var(--font-rajdhani)',
-                fontSize: '1rem',
-                borderRadius: '12px',
-                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.4)',
-                padding: '16px',
+                fontSize: '0.9375rem',
+                borderRadius: '10px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+                padding: '14px 16px',
               },
               classNames: {
-                success: '!border-l-4 !border-l-[#13f187] !bg-gradient-to-r !from-[rgba(19,241,135,0.1)] !to-transparent',
-                error: '!border-l-4 !border-l-[#ef4444] !bg-gradient-to-r !from-[rgba(239,68,68,0.1)] !to-transparent',
-                warning: '!border-l-4 !border-l-[#ff6b35] !bg-gradient-to-r !from-[rgba(255,107,53,0.1)] !to-transparent',
-                info: '!border-l-4 !border-l-[#00f5ff] !bg-gradient-to-r !from-[rgba(0,245,255,0.1)] !to-transparent',
-                title: 'font-bold tracking-wide',
-                description: 'text-gray-300',
+                success: '!border-l-4 !border-l-[#22c55e]',
+                error: '!border-l-4 !border-l-[#ef4444]',
+                warning: '!border-l-4 !border-l-[#F5A524]',
+                info: '!border-l-4 !border-l-[#7C8AA0]',
+                title: 'font-semibold tracking-wide',
+                description: 'text-[#7C8AA0]',
               },
             }}
           />

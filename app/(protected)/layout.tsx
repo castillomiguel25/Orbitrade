@@ -1,21 +1,15 @@
 import React from "react";
 import AuthGuard from "./AuthGuard";
-import { SidebarNav } from "@/app/components/SidebarNav";
-
-// This layout wraps all protected routes with the ORBITRADE sidebar navigation
+import { AppNav } from "@/app/components/AppNav";
 
 export default function ProtectedLayout({ children }: { children: React.ReactNode }) {
   return (
     <AuthGuard>
-      <div className="min-h-screen flex">
-        {/* Sidebar Navigation */}
-        <SidebarNav />
-
-        {/* Main Content Area - with left margin to account for sidebar */}
-        <main className="flex-1 md:ml-20 lg:ml-[280px] transition-all duration-500">
-          {children}
-        </main>
+      <AppNav />
+      {/* pt-14: top-nav height on desktop. pb-20: bottom-bar height on mobile. */}
+      <div className="min-h-screen md:pt-14 pb-20 md:pb-0">
+        {children}
       </div>
     </AuthGuard>
   );
-} 
+}

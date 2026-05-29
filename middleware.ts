@@ -8,9 +8,20 @@ import { createServerClient } from '@supabase/ssr';
 
 // Routes that live on the APP domain (require auth)
 const PROTECTED_PATHS = [
+  // New flat routes
+  '/dashboard', '/production', '/deposits', '/withdrawals', '/history', '/partners', '/account',
+  // Legacy routes (kept until fully retired; redirected below)
   '/command-center', '/commander', '/hangar', '/extraction', '/plasma-core',
-  '/armada', '/hive', '/datalog', '/simulation', '/ledger'
+  '/armada', '/hive', '/datalog', '/simulation', '/ledger',
 ];
+
+// Legacy → new route redirects (302)
+const LEGACY_REDIRECTS: Record<string, string> = {
+  '/command-center': '/dashboard',
+  '/plasma-core': '/production',
+  '/hive': '/partners',
+  '/commander': '/account',
+};
 
 // Auth pages (live on APP domain but don't require auth)
 const AUTH_PATHS = ['/access', '/enlist'];
@@ -125,6 +136,17 @@ export async function middleware(req: NextRequest) {
     return res;
   }
 
+  // Legacy route redirects — fire before auth check so old bookmarks work
+  for (const [legacy, target] of Object.entries(LEGACY_REDIRECTS)) {
+    if (pathname === legacy || pathname.startsWith(`${legacy}/`)) {
+      const rest = pathname.slice(legacy.length);
+      return NextResponse.redirect(
+        new URL(`${target}${rest}${req.nextUrl.search}`, req.url),
+        { status: 302 }
+      );
+    }
+  }
+
   // ──────────────────────────────────────────
   // Dual-domain routing
   // ──────────────────────────────────────────
@@ -189,8 +211,8 @@ export async function middleware(req: NextRequest) {
     // Logged in + on auth page or landing -> redirect to dashboard
     if (user && (isAuthPath(pathname) || pathname === '/')) {
       const dashboardUrl = dualDomainMode
-        ? `https://${APP_DOMAIN}/command-center`
-        : '/command-center';
+        ? `https://${APP_DOMAIN}/dashboard`
+        : '/dashboard';
       return NextResponse.redirect(new URL(dashboardUrl, req.url));
     }
   }
