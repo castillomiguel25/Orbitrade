@@ -58,10 +58,10 @@ export function NavBar() {
 
   const getColorConfig = (color: string) => {
     const colors = {
-      miner: { main: '#13f187', rgb: '19, 241, 135' },
-      plasma: { main: '#dc95e6', rgb: '220, 149, 230' },
-      cyber: { main: '#00f5ff', rgb: '0, 245, 255' },
-      bio: { main: '#c8ff00', rgb: '200, 255, 0' },
+      miner: { main: '#F5A524', rgb: '19, 241, 135' },
+      plasma: { main: '#E6E8EC', rgb: '220, 149, 230' },
+      cyber: { main: '#7C8AA0', rgb: '0, 245, 255' },
+      bio: { main: '#F5A524', rgb: '200, 255, 0' },
     };
     return colors[color as keyof typeof colors] || colors.miner;
   };
@@ -74,9 +74,9 @@ export function NavBar() {
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 backdrop-blur-xl"
-          style={{ background: 'linear-gradient(to top, rgba(0, 2, 1, 0.98), rgba(10, 10, 15, 0.95), transparent)' }}
+          style={{ background: 'linear-gradient(to top, rgba(14, 17, 22, 0.98), rgba(14, 17, 22, 0.95), transparent)' }}
         />
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(19, 241, 135, 0.4), transparent)' }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(245, 165, 36, 0.4), transparent)' }} />
       </div>
 
       {/* Main Container */}
@@ -84,9 +84,9 @@ export function NavBar() {
         <div
           className="flex items-center gap-2 px-2 py-2 rounded-2xl"
           style={{
-            background: 'rgba(10, 10, 15, 0.8)',
-            border: '1px solid rgba(19, 241, 135, 0.2)',
-            boxShadow: '0 0 30px rgba(19, 241, 135, 0.1)',
+            background: 'rgba(14, 17, 22, 0.8)',
+            border: '1px solid rgba(245, 165, 36, 0.2)',
+            boxShadow: '0 0 30px rgba(245, 165, 36, 0.1)',
           }}
         >
           {/* Nav Items */}

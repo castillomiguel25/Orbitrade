@@ -134,13 +134,13 @@ export default function CommanderPage() {
   };
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden bg-void-black">
+    <div className="min-h-screen text-white relative overflow-hidden bg-[#0E1116]">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at top, #0d1117 0%, #000000 70%)' }} />
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[250px] opacity-20"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(19, 241, 135, 0.15) 0%, transparent 70%)', filter: 'blur(60px)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(245, 165, 36, 0.15) 0%, transparent 70%)', filter: 'blur(60px)' }}
         />
       </div>
 
@@ -150,7 +150,7 @@ export default function CommanderPage() {
             <div>
               <h1 className="text-2xl lg:text-3xl font-display font-black tracking-wider">
                 <span className="text-white">Security</span>{' '}
-                <span className="text-plasma-pink">Center</span>
+                <span className="text-[#E6E8EC]">Center</span>
               </h1>
               <p className="text-gray-500 font-mono text-xs mt-1">
                  {intl.formatMessage({ id: 'pages.profile.commanderBio' })} - Security
@@ -278,7 +278,7 @@ export default function CommanderPage() {
 
             {mfaLoading ? (
               <div className="text-center py-4">
-                <div className="w-6 h-6 border-2 border-miner-green border-t-transparent rounded-full animate-spin mx-auto" />
+                <div className="w-6 h-6 border-2 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto" />
               </div>
             ) : !mfaEnabled && !enrolling ? (
               <div className="space-y-4">
@@ -294,7 +294,7 @@ export default function CommanderPage() {
                 </div>
                 <Button
                   onClick={handleEnroll}
-                  className="w-full py-3 font-mono tracking-wider bg-miner-green/20 text-miner-green hover:bg-miner-green/30 border border-miner-green/30 rounded-xl transition-colors font-bold"
+                  className="w-full py-3 font-mono tracking-wider bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 border border-amber-500/30 rounded-xl transition-colors font-bold"
                 >
                   <div className="flex items-center justify-center gap-2">
                     <span className="font-bold">{intl.formatMessage({ id: '2fa.enable' })}</span>
@@ -312,7 +312,7 @@ export default function CommanderPage() {
                   {intl.formatMessage({ id: '2fa.scanQrCode' })}
                 </p>
                 <div>
-                  <label className="block text-xs font-mono text-miner-green mb-2 tracking-wider uppercase">
+                  <label className="block text-xs font-mono text-amber-400 mb-2 tracking-wider uppercase">
                     {intl.formatMessage({ id: '2fa.enterCode' })}
                   </label>
                   <input
@@ -322,7 +322,7 @@ export default function CommanderPage() {
                     maxLength={6}
                     value={verifyCode}
                     onChange={(e) => setVerifyCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                    className="w-full bg-black border border-white/20 text-white px-4 py-4 rounded-xl focus:outline-none focus:border-miner-green font-mono text-2xl text-center tracking-[0.5em]"
+                    className="w-full bg-black border border-white/20 text-white px-4 py-4 rounded-xl focus:outline-none focus:border-amber-500 font-mono text-2xl text-center tracking-[0.5em]"
                     placeholder={intl.formatMessage({ id: '2fa.codePlaceholder' })}
                     autoFocus
                   />
@@ -339,7 +339,7 @@ export default function CommanderPage() {
                     type="submit"
                     disabled={verifyCode.length !== 6}
                     loading={verifyLoading}
-                    className={`flex-1 py-3 font-mono tracking-wider rounded-xl transition-colors font-bold ${verifyCode.length === 6 ? 'bg-miner-green text-black hover:bg-miner-green/90' : 'bg-gray-800 text-gray-500'}`}
+                    className={`flex-1 py-3 font-mono tracking-wider rounded-xl transition-colors font-bold ${verifyCode.length === 6 ? 'bg-amber-500 text-black hover:bg-amber-500/90' : 'bg-gray-800 text-gray-500'}`}
                   >
                     {intl.formatMessage({ id: '2fa.verifyCode' })}
                   </Button>
@@ -347,12 +347,12 @@ export default function CommanderPage() {
               </form>
             ) : mfaEnabled && !showDisable ? (
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-3 rounded-xl border border-miner-green/20">
+                <div className="flex items-center justify-between p-3 rounded-xl border border-amber-500/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-miner-green/10 rounded-full flex items-center justify-center border border-miner-green/20">
-                      <span className="text-miner-green font-mono text-xs">✓</span>
+                    <div className="w-8 h-8 bg-amber-500/10 rounded-full flex items-center justify-center border border-amber-500/20">
+                      <span className="text-amber-400 font-mono text-xs">✓</span>
                     </div>
-                    <span className="text-miner-green font-mono text-sm">
+                    <span className="text-amber-400 font-mono text-sm">
                       {intl.formatMessage({ id: '2fa.enabled' })}
                     </span>
                   </div>

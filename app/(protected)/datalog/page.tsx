@@ -29,11 +29,11 @@ function formatType(intl: ReturnType<typeof useIntl>, t: Movement["type"]) {
 
 function getTypeColor(t: Movement["type"]) {
   const colors: Record<Movement["type"], { bg: string; text: string; border: string }> = {
-    deposit: { bg: 'rgba(19, 241, 135, 0.15)', text: '#13f187', border: 'rgba(19, 241, 135, 0.4)' },
-    invest: { bg: 'rgba(220, 149, 230, 0.15)', text: '#dc95e6', border: 'rgba(220, 149, 230, 0.4)' },
+    deposit: { bg: 'rgba(245, 165, 36, 0.15)', text: '#F5A524', border: 'rgba(245, 165, 36, 0.4)' },
+    invest: { bg: 'rgba(230, 232, 236, 0.15)', text: '#E6E8EC', border: 'rgba(230, 232, 236, 0.4)' },
     withdraw: { bg: 'rgba(239, 68, 68, 0.15)', text: '#ef4444', border: 'rgba(239, 68, 68, 0.4)' },
-    earning: { bg: 'rgba(0, 245, 255, 0.15)', text: '#00f5ff', border: 'rgba(0, 245, 255, 0.4)' },
-    conversion: { bg: 'rgba(200, 255, 0, 0.15)', text: '#c8ff00', border: 'rgba(200, 255, 0, 0.4)' },
+    earning: { bg: 'rgba(124, 138, 160, 0.15)', text: '#7C8AA0', border: 'rgba(124, 138, 160, 0.4)' },
+    conversion: { bg: 'rgba(245, 165, 36, 0.15)', text: '#F5A524', border: 'rgba(245, 165, 36, 0.4)' },
     adjustment: { bg: 'rgba(255, 255, 255, 0.1)', text: '#ffffff', border: 'rgba(255, 255, 255, 0.2)' },
   };
   return colors[t] || colors.adjustment;
@@ -63,15 +63,15 @@ export default function MovementsPage() {
   }, []);
 
   const cardStyle = {
-    background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(10, 36, 25, 0.8))',
-    border: '1px solid rgba(19, 241, 135, 0.2)',
+    background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.9), rgba(22, 26, 33, 0.8))',
+    border: '1px solid rgba(245, 165, 36, 0.2)',
   };
 
   return (
     <div
       className="min-h-screen text-white relative overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #000201 0%, #0a0a0f 50%, #0a2419 100%)',
+        background: 'linear-gradient(180deg, #0E1116 0%, #0a0a0f 50%, #0a2419 100%)',
       }}
     >
       {/* Animated background */}
@@ -80,7 +80,7 @@ export default function MovementsPage() {
         <div
           className="absolute top-1/3 right-1/4 w-96 h-96 rounded-full opacity-20"
           style={{
-            background: 'radial-gradient(circle, rgba(0, 245, 255, 0.4), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(124, 138, 160, 0.4), transparent 70%)',
             filter: 'blur(80px)',
             animation: 'float 12s ease-in-out infinite',
           }}
@@ -88,7 +88,7 @@ export default function MovementsPage() {
         <div
           className="absolute bottom-1/4 left-1/3 w-80 h-80 rounded-full opacity-15"
           style={{
-            background: 'radial-gradient(circle, rgba(19, 241, 135, 0.4), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(245, 165, 36, 0.4), transparent 70%)',
             filter: 'blur(60px)',
             animation: 'float 10s ease-in-out infinite reverse',
           }}
@@ -99,8 +99,8 @@ export default function MovementsPage() {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(0, 245, 255, 0.02) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 245, 255, 0.02) 1px, transparent 1px)
+              linear-gradient(rgba(124, 138, 160, 0.02) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(124, 138, 160, 0.02) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
           }}
@@ -114,8 +114,8 @@ export default function MovementsPage() {
             style={{
               left: `${5 + (i * 7) % 90}%`,
               top: `${10 + (i * 8) % 80}%`,
-              backgroundColor: i % 3 === 0 ? '#13f187' : i % 3 === 1 ? '#00f5ff' : '#dc95e6',
-              boxShadow: `0 0 10px ${i % 3 === 0 ? '#13f187' : i % 3 === 1 ? '#00f5ff' : '#dc95e6'}`,
+              backgroundColor: i % 3 === 0 ? '#F5A524' : i % 3 === 1 ? '#7C8AA0' : '#E6E8EC',
+              boxShadow: `0 0 10px ${i % 3 === 0 ? '#F5A524' : i % 3 === 1 ? '#7C8AA0' : '#E6E8EC'}`,
               animationDelay: `${i * 0.3}s`,
               opacity: 0.5,
             }}
@@ -130,15 +130,15 @@ export default function MovementsPage() {
           <div
             className="relative p-6 rounded-2xl overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(10, 36, 25, 0.8))',
-              border: '1px solid rgba(0, 245, 255, 0.2)',
-              boxShadow: '0 0 40px rgba(0, 245, 255, 0.1)',
+              background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.9), rgba(22, 26, 33, 0.8))',
+              border: '1px solid rgba(124, 138, 160, 0.2)',
+              boxShadow: '0 0 40px rgba(124, 138, 160, 0.1)',
             }}
           >
             {/* Corner brackets */}
             <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-cyber-cyan rounded-tl" />
-            <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-miner-green rounded-tr" />
-            <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-miner-green rounded-bl" />
+            <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-amber-500 rounded-tr" />
+            <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-amber-500 rounded-bl" />
             <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-cyber-cyan rounded-br" />
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
@@ -148,14 +148,14 @@ export default function MovementsPage() {
                 <div
                   className="relative w-14 h-14 rounded-xl flex items-center justify-center"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(0, 245, 255, 0.2), rgba(19, 241, 135, 0.1))',
-                    border: '1px solid rgba(0, 245, 255, 0.4)',
-                    boxShadow: '0 0 25px rgba(0, 245, 255, 0.3)',
+                    background: 'linear-gradient(135deg, rgba(124, 138, 160, 0.2), rgba(245, 165, 36, 0.1))',
+                    border: '1px solid rgba(124, 138, 160, 0.4)',
+                    boxShadow: '0 0 25px rgba(124, 138, 160, 0.3)',
                   }}
                 >
                   <span className="text-3xl">📋</span>
                   <div
-                    className="absolute inset-0 rounded-xl border-2 border-dashed border-miner-green/30 animate-spin"
+                    className="absolute inset-0 rounded-xl border-2 border-dashed border-amber-500/30 animate-spin"
                     style={{ animationDuration: '20s' }}
                   />
                 </div>
@@ -165,7 +165,7 @@ export default function MovementsPage() {
                     <span
                       className="italic"
                       style={{
-                        background: 'linear-gradient(135deg, #00f5ff, #13f187)',
+                        background: 'linear-gradient(135deg, #7C8AA0, #F5A524)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         backgroundClip: 'text',
@@ -173,11 +173,11 @@ export default function MovementsPage() {
                     >
                       Operations
                     </span>{' '}
-                    <span className="text-stellar-white font-light">Log</span>
+                    <span className="text-[#E6E8EC] font-light">Log</span>
                   </h1>
-                  <p className="text-sm font-mono text-cosmic-gray">
+                  <p className="text-sm font-mono text-[#7C8AA0]">
                     {intl.formatMessage({ id: "pages.movements.title" })} •{' '}
-                    <span className="italic text-cyber-cyan">ORBITRADE</span>
+                    <span className="italic text-[#7C8AA0]">ORBITRADE</span>
                   </p>
                 </div>
               </div>
@@ -187,18 +187,18 @@ export default function MovementsPage() {
                 <div className="flex items-center gap-2">
                   <div
                     className="w-2 h-2 rounded-full animate-pulse"
-                    style={{ backgroundColor: '#00f5ff', boxShadow: '0 0 8px #00f5ff' }}
+                    style={{ backgroundColor: '#7C8AA0', boxShadow: '0 0 8px #7C8AA0' }}
                   />
-                  <span className="text-xs font-mono text-cyber-cyan uppercase tracking-wider">
+                  <span className="text-xs font-mono text-[#7C8AA0] uppercase tracking-wider">
                     {movements.length} Records
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div
                     className="w-2 h-2 rounded-full animate-pulse"
-                    style={{ backgroundColor: '#13f187', boxShadow: '0 0 8px #13f187', animationDelay: '0.5s' }}
+                    style={{ backgroundColor: '#F5A524', boxShadow: '0 0 8px #F5A524', animationDelay: '0.5s' }}
                   />
-                  <span className="text-xs font-mono text-miner-green uppercase tracking-wider">
+                  <span className="text-xs font-mono text-amber-400 uppercase tracking-wider">
                     Synced
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export default function MovementsPage() {
             <div
               className="absolute bottom-0 left-0 right-0 h-[2px] pointer-events-none"
               style={{
-                background: 'linear-gradient(90deg, transparent, #00f5ff, transparent)',
+                background: 'linear-gradient(90deg, transparent, #7C8AA0, transparent)',
                 animation: 'scanHorizontal 4s ease-in-out infinite',
               }}
             />
@@ -221,30 +221,30 @@ export default function MovementsPage() {
           className="relative rounded-2xl overflow-hidden"
           style={cardStyle}
         >
-          <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-miner-green rounded-tl" />
-          <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-miner-green rounded-tr" />
+          <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-amber-500 rounded-tl" />
+          <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-amber-500 rounded-tr" />
 
           {/* Desktop Table */}
           <div className="hidden md:block overflow-x-auto">
             <table className="min-w-full">
               <thead>
-                <tr style={{ background: 'rgba(19, 241, 135, 0.1)' }}>
-                  <th className="px-4 py-4 text-left text-sm font-mono font-semibold text-miner-green">
+                <tr style={{ background: 'rgba(245, 165, 36, 0.1)' }}>
+                  <th className="px-4 py-4 text-left text-sm font-mono font-semibold text-amber-400">
                     {intl.formatMessage({ id: "movements.table.date" })}
                   </th>
-                  <th className="px-4 py-4 text-left text-sm font-mono font-semibold text-miner-green">
+                  <th className="px-4 py-4 text-left text-sm font-mono font-semibold text-amber-400">
                     {intl.formatMessage({ id: "movements.table.type" })}
                   </th>
-                  <th className="px-4 py-4 text-right text-sm font-mono font-semibold text-miner-green">
+                  <th className="px-4 py-4 text-right text-sm font-mono font-semibold text-amber-400">
                     {intl.formatMessage({ id: "movements.table.previous" })}
                   </th>
-                  <th className="px-4 py-4 text-right text-sm font-mono font-semibold text-miner-green">
+                  <th className="px-4 py-4 text-right text-sm font-mono font-semibold text-amber-400">
                     {intl.formatMessage({ id: "movements.table.amount" })}
                   </th>
-                  <th className="px-4 py-4 text-right text-sm font-mono font-semibold text-miner-green">
+                  <th className="px-4 py-4 text-right text-sm font-mono font-semibold text-amber-400">
                     {intl.formatMessage({ id: "movements.table.new" })}
                   </th>
-                  <th className="px-4 py-4 text-left text-sm font-mono font-semibold text-miner-green">
+                  <th className="px-4 py-4 text-left text-sm font-mono font-semibold text-amber-400">
                     {intl.formatMessage({ id: "movements.table.note" })}
                   </th>
                 </tr>
@@ -254,8 +254,8 @@ export default function MovementsPage() {
                   <tr>
                     <td className="px-4 py-6 text-center" colSpan={6}>
                       <div className="flex items-center justify-center gap-3">
-                        <div className="w-5 h-5 border-2 border-miner-green border-t-transparent rounded-full animate-spin" />
-                        <span className="text-cosmic-gray font-mono">
+                        <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+                        <span className="text-[#7C8AA0] font-mono">
                           {intl.formatMessage({ id: "movements.loading" })}
                         </span>
                       </div>
@@ -267,7 +267,7 @@ export default function MovementsPage() {
                     <td className="px-4 py-8 text-center" colSpan={6}>
                       <div className="flex flex-col items-center gap-2">
                         <span className="text-4xl opacity-50">📭</span>
-                        <span className="text-cosmic-gray font-mono">
+                        <span className="text-[#7C8AA0] font-mono">
                           {intl.formatMessage({ id: "movements.empty" })}
                         </span>
                       </div>
@@ -282,7 +282,7 @@ export default function MovementsPage() {
                     <tr
                       key={m.id}
                       className="border-t transition-colors hover:bg-white/5"
-                      style={{ borderColor: 'rgba(19, 241, 135, 0.1)' }}
+                      style={{ borderColor: 'rgba(245, 165, 36, 0.1)' }}
                     >
                       <td className="px-4 py-3 text-sm font-mono text-white/80">
                         {date.toLocaleString()}
@@ -302,13 +302,13 @@ export default function MovementsPage() {
                       <td className="px-4 py-3 text-sm text-right font-mono text-white/70">
                         {m.previous_balance.toFixed(2)} USDT
                       </td>
-                      <td className="px-4 py-3 text-sm text-right font-mono font-bold" style={{ color: m.amount >= 0 ? '#13f187' : '#ef4444' }}>
+                      <td className="px-4 py-3 text-sm text-right font-mono font-bold" style={{ color: m.amount >= 0 ? '#F5A524' : '#ef4444' }}>
                         {m.amount >= 0 ? "+" : ""}{m.amount.toFixed(2)} USDT
                       </td>
                       <td className="px-4 py-3 text-sm text-right font-mono text-white/90">
                         {m.new_balance.toFixed(2)} USDT
                       </td>
-                      <td className="px-4 py-3 text-sm font-mono text-cosmic-gray">
+                      <td className="px-4 py-3 text-sm font-mono text-[#7C8AA0]">
                         {m.note || "-"}
                       </td>
                     </tr>
@@ -322,8 +322,8 @@ export default function MovementsPage() {
           <div className="md:hidden p-4 space-y-4">
             {loading && (
               <div className="flex items-center justify-center gap-3 py-8">
-                <div className="w-5 h-5 border-2 border-miner-green border-t-transparent rounded-full animate-spin" />
-                <span className="text-cosmic-gray font-mono">
+                <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
+                <span className="text-[#7C8AA0] font-mono">
                   {intl.formatMessage({ id: "movements.loading" })}
                 </span>
               </div>
@@ -331,7 +331,7 @@ export default function MovementsPage() {
             {!loading && movements.length === 0 && (
               <div className="flex flex-col items-center gap-2 py-8">
                 <span className="text-4xl opacity-50">📭</span>
-                <span className="text-cosmic-gray font-mono">
+                <span className="text-[#7C8AA0] font-mono">
                   {intl.formatMessage({ id: "movements.empty" })}
                 </span>
               </div>
@@ -346,7 +346,7 @@ export default function MovementsPage() {
                   className="rounded-xl p-4 relative overflow-hidden"
                   style={{
                     background: 'rgba(0, 0, 0, 0.3)',
-                    border: '1px solid rgba(19, 241, 135, 0.2)',
+                    border: '1px solid rgba(245, 165, 36, 0.2)',
                   }}
                 >
                   {/* Type indicator bar */}
@@ -366,7 +366,7 @@ export default function MovementsPage() {
                     >
                       {typeLabel}
                     </span>
-                    <span className="text-xs font-mono text-cosmic-gray">
+                    <span className="text-xs font-mono text-[#7C8AA0]">
                       {date.toLocaleString()}
                     </span>
                   </div>
@@ -387,7 +387,7 @@ export default function MovementsPage() {
                       </span>
                       <span
                         className="text-sm font-mono font-bold"
-                        style={{ color: m.amount >= 0 ? '#13f187' : '#ef4444' }}
+                        style={{ color: m.amount >= 0 ? '#F5A524' : '#ef4444' }}
                       >
                         {m.amount >= 0 ? "+" : ""}{m.amount.toFixed(2)} USDT
                       </span>
@@ -404,7 +404,7 @@ export default function MovementsPage() {
 
                     {m.note && (
                       <div className="pt-2 border-t border-white/10">
-                        <span className="text-xs font-mono text-cosmic-gray">
+                        <span className="text-xs font-mono text-[#7C8AA0]">
                           {m.note}
                         </span>
                       </div>

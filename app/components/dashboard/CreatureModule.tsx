@@ -12,13 +12,13 @@ interface CreatureModuleProps {
 // Get rarity based on investment amount
 const getRarity = (monto: number): { name: string; color: string; glow: string } => {
   if (monto >= 150) {
-    return { name: 'LEGENDARY', color: '#c8ff00', glow: 'rgba(200, 255, 0, 0.7)' };
+    return { name: 'LEGENDARY', color: '#F5A524', glow: 'rgba(245, 165, 36, 0.7)' };
   } else if (monto >= 100) {
-    return { name: 'EPIC', color: '#dc95e6', glow: 'rgba(220, 149, 230, 0.7)' };
+    return { name: 'EPIC', color: '#E6E8EC', glow: 'rgba(230, 232, 236, 0.7)' };
   } else if (monto >= 50) {
-    return { name: 'RARE', color: '#00f5ff', glow: 'rgba(0, 245, 255, 0.7)' };
+    return { name: 'RARE', color: '#7C8AA0', glow: 'rgba(124, 138, 160, 0.7)' };
   }
-  return { name: 'COMMON', color: '#13f187', glow: 'rgba(19, 241, 135, 0.7)' };
+  return { name: 'COMMON', color: '#F5A524', glow: 'rgba(245, 165, 36, 0.7)' };
 };
 
 export const CreatureModule: React.FC<CreatureModuleProps> = ({
@@ -64,9 +64,9 @@ export const CreatureModule: React.FC<CreatureModuleProps> = ({
           style={{
             background: `linear-gradient(
               0deg,
-              rgba(0, 2, 1, 0.98) 0%,
-              rgba(0, 2, 1, 0.85) 20%,
-              rgba(10, 36, 25, 0.4) 50%,
+              rgba(14, 17, 22, 0.98) 0%,
+              rgba(14, 17, 22, 0.85) 20%,
+              rgba(22, 26, 33, 0.4) 50%,
               transparent 70%
             )`,
           }}
@@ -76,7 +76,7 @@ export const CreatureModule: React.FC<CreatureModuleProps> = ({
         <div
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse at center top, transparent 50%, rgba(0, 2, 1, 0.6) 100%)',
+            background: 'radial-gradient(ellipse at center top, transparent 50%, rgba(14, 17, 22, 0.6) 100%)',
           }}
         />
 
@@ -135,7 +135,7 @@ export const CreatureModule: React.FC<CreatureModuleProps> = ({
             <div
               className="flex-1 text-center py-2.5 rounded-xl"
               style={{
-                background: 'rgba(0, 2, 1, 0.6)',
+                background: 'rgba(14, 17, 22, 0.6)',
                 border: `1px solid ${rarity.color}40`,
                 backdropFilter: 'blur(4px)',
               }}
@@ -155,15 +155,15 @@ export const CreatureModule: React.FC<CreatureModuleProps> = ({
             <div
               className="flex-1 text-center py-2.5 rounded-xl"
               style={{
-                background: 'rgba(0, 2, 1, 0.6)',
-                border: '1px solid rgba(19, 241, 135, 0.4)',
+                background: 'rgba(14, 17, 22, 0.6)',
+                border: '1px solid rgba(245, 165, 36, 0.4)',
                 backdropFilter: 'blur(4px)',
               }}
             >
               <div className="text-[10px] font-mono text-gray-400 uppercase tracking-wider mb-1">
                 Daily
               </div>
-              <div className="font-mono text-lg font-bold text-miner-green">
+              <div className="font-mono text-lg font-bold text-amber-400">
                 +{plan.rendimiento}%
               </div>
             </div>
@@ -173,7 +173,7 @@ export const CreatureModule: React.FC<CreatureModuleProps> = ({
           <div
             className="flex items-center justify-center gap-2 py-2 rounded-lg"
             style={{
-              background: isActive ? `${rarity.color}15` : 'rgba(0, 2, 1, 0.4)',
+              background: isActive ? `${rarity.color}15` : 'rgba(14, 17, 22, 0.4)',
               border: `1px solid ${isActive ? rarity.color : 'rgba(255,255,255,0.1)'}`,
             }}
           >

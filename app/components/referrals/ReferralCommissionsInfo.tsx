@@ -20,19 +20,19 @@ export const ReferralCommissionsInfo: React.FC<ReferralCommissionsInfoProps> = (
       level: 1,
       percentage: porcentajeNivel1,
       title: intl.formatMessage({ id: 'components.referralCommissionsInfo.directAlliance' }),
-      color: '#13f187',
+      color: '#F5A524',
     },
     {
       level: 2,
       percentage: porcentajeNivel2,
       title: intl.formatMessage({ id: 'components.referralCommissionsInfo.extendedFleet' }),
-      color: '#00f5ff',
+      color: '#7C8AA0',
     },
     // {
     //   level: 3,
     //   percentage: porcentajeNivel3 || '1%',
     //   title: intl.formatMessage({ id: 'components.referralCommissionsInfo.deepFleet' }),
-    //   color: '#dc95e6',
+    //   color: '#E6E8EC',
     // },
   ];
 
@@ -43,7 +43,7 @@ export const ReferralCommissionsInfo: React.FC<ReferralCommissionsInfoProps> = (
         className="p-5 rounded-2xl"
         style={{
           background: 'rgba(0, 0, 0, 0.4)',
-          border: '1px solid rgba(19, 241, 135, 0.2)',
+          border: '1px solid rgba(245, 165, 36, 0.2)',
         }}
       >
         <div className="text-xs font-mono text-gray-500 uppercase tracking-wider mb-4">

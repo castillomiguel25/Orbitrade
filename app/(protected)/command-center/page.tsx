@@ -31,23 +31,23 @@ function CreatureCard({
   const getRarity = (monto: number) => {
     const amount = monto || 0;
     if (amount >= 150) return { 
-      main: '#c8ff00', 
-      glow: 'rgba(200, 255, 0, 0.6)', 
+      main: '#F5A524', 
+      glow: 'rgba(245, 165, 36, 0.6)', 
       label: intl.formatMessage({ id: 'pages.dashboard.card.rarity.legendary' })
     };
     if (amount >= 100) return { 
-      main: '#dc95e6', 
-      glow: 'rgba(220, 149, 230, 0.6)', 
+      main: '#E6E8EC', 
+      glow: 'rgba(230, 232, 236, 0.6)', 
       label: intl.formatMessage({ id: 'pages.dashboard.card.rarity.epic' })
     };
     if (amount >= 50) return { 
-      main: '#00f5ff', 
-      glow: 'rgba(0, 245, 255, 0.6)', 
+      main: '#7C8AA0', 
+      glow: 'rgba(124, 138, 160, 0.6)', 
       label: intl.formatMessage({ id: 'pages.dashboard.card.rarity.rare' })
     };
     return { 
-      main: '#13f187', 
-      glow: 'rgba(19, 241, 135, 0.6)', 
+      main: '#F5A524', 
+      glow: 'rgba(245, 165, 36, 0.6)', 
       label: intl.formatMessage({ id: 'pages.dashboard.card.rarity.common' })
     };
   };
@@ -89,9 +89,9 @@ function CreatureCard({
         style={{
           background: `linear-gradient(
             0deg,
-            rgba(0, 2, 1, 0.95) 0%,
-            rgba(0, 2, 1, 0.8) 25%,
-            rgba(10, 36, 25, 0.3) 50%,
+            rgba(14, 17, 22, 0.95) 0%,
+            rgba(14, 17, 22, 0.8) 25%,
+            rgba(22, 26, 33, 0.3) 50%,
             transparent 70%
           )`,
         }}
@@ -101,7 +101,7 @@ function CreatureCard({
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center top, transparent 40%, rgba(0, 2, 1, 0.5) 100%)',
+          background: 'radial-gradient(ellipse at center top, transparent 40%, rgba(14, 17, 22, 0.5) 100%)',
         }}
       />
 
@@ -157,7 +157,7 @@ function CreatureCard({
           <div
             className="flex-1 text-center py-2 rounded-lg"
             style={{
-              background: 'rgba(0, 2, 1, 0.7)',
+              background: 'rgba(14, 17, 22, 0.7)',
               border: `1px solid ${config.main}50`,
               backdropFilter: 'blur(4px)',
             }}
@@ -174,15 +174,15 @@ function CreatureCard({
           <div
             className="flex-1 text-center py-2 rounded-lg"
             style={{
-              background: 'rgba(0, 2, 1, 0.7)',
-              border: '1px solid rgba(19, 241, 135, 0.5)',
+              background: 'rgba(14, 17, 22, 0.7)',
+              border: '1px solid rgba(245, 165, 36, 0.5)',
               backdropFilter: 'blur(4px)',
             }}
           >
             <div className="text-[9px] font-mono text-gray-400 uppercase tracking-wider">
               {intl.formatMessage({ id: 'pages.dashboard.card.daily' })}
             </div>
-            <div className="font-mono text-base font-bold text-miner-green">
+            <div className="font-mono text-base font-bold text-amber-400">
               +{creature.rendimiento}%
             </div>
           </div>
@@ -288,14 +288,14 @@ export default function Dashboard() {
       ref={containerRef}
       className="min-h-screen text-white relative overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #000201 0%, #0a0a0f 50%, #0a2419 100%)',
+        background: 'linear-gradient(180deg, #0E1116 0%, #0a0a0f 50%, #0a2419 100%)',
       }}
     >
       {/* <Modal
         isOpen={isPromoOpen}
         onClose={() => setIsPromoOpen(false)}
         maxWidth="md"
-        variant="plasma"
+        variant="secondary"
       >
         <div className="p-6 sm:p-8 space-y-4 sm:space-y-6">
           <div className="space-y-2 text-center">
@@ -318,7 +318,7 @@ export default function Dashboard() {
             className="relative rounded-2xl border border-white/10 p-4 sm:p-5 space-y-3 sm:space-y-4 overflow-hidden"
             style={{
               background:
-                'linear-gradient(135deg, rgba(10, 10, 15, 0.94), rgba(10, 36, 25, 0.9))',
+                'linear-gradient(135deg, rgba(14, 17, 22, 0.94), rgba(22, 26, 33, 0.9))',
               boxShadow: '0 0 30px rgba(220,149,230,0.25)',
             }}
           >
@@ -378,14 +378,14 @@ export default function Dashboard() {
         <div
           className="absolute top-0 left-1/4 w-96 h-96 rounded-full opacity-20"
           style={{
-            background: 'radial-gradient(circle, rgba(19, 241, 135, 0.4), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(245, 165, 36, 0.4), transparent 70%)',
             filter: 'blur(80px)',
           }}
         />
         <div
           className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-15"
           style={{
-            background: 'radial-gradient(circle, rgba(220, 149, 230, 0.4), transparent 70%)',
+            background: 'radial-gradient(circle, rgba(230, 232, 236, 0.4), transparent 70%)',
             filter: 'blur(60px)',
           }}
         />
@@ -395,8 +395,8 @@ export default function Dashboard() {
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(19, 241, 135, 0.03) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(19, 241, 135, 0.03) 1px, transparent 1px)
+              linear-gradient(rgba(245, 165, 36, 0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(245, 165, 36, 0.03) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
           }}
@@ -410,8 +410,8 @@ export default function Dashboard() {
             style={{
               left: `${10 + (i * 4.5) % 80}%`,
               top: `${5 + (i * 7) % 90}%`,
-              backgroundColor: i % 3 === 0 ? '#13f187' : i % 3 === 1 ? '#dc95e6' : '#00f5ff',
-              boxShadow: `0 0 10px ${i % 3 === 0 ? '#13f187' : i % 3 === 1 ? '#dc95e6' : '#00f5ff'}`,
+              backgroundColor: i % 3 === 0 ? '#F5A524' : i % 3 === 1 ? '#E6E8EC' : '#7C8AA0',
+              boxShadow: `0 0 10px ${i % 3 === 0 ? '#F5A524' : i % 3 === 1 ? '#E6E8EC' : '#7C8AA0'}`,
               animationDelay: `${i * 0.3}s`,
               opacity: 0.6,
             }}
@@ -426,16 +426,16 @@ export default function Dashboard() {
           <div
             className="relative p-6 rounded-2xl overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(10, 36, 25, 0.8))',
-              border: '1px solid rgba(19, 241, 135, 0.2)',
-              boxShadow: '0 0 40px rgba(19, 241, 135, 0.1)',
+              background: 'linear-gradient(135deg, rgba(14, 17, 22, 0.9), rgba(22, 26, 33, 0.8))',
+              border: '1px solid rgba(245, 165, 36, 0.2)',
+              boxShadow: '0 0 40px rgba(245, 165, 36, 0.1)',
             }}
           >
             {/* Corner brackets */}
-            <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-miner-green rounded-tl" />
-            <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-miner-green rounded-tr" />
-            <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-miner-green rounded-bl" />
-            <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-miner-green rounded-br" />
+            <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-amber-500 rounded-tl" />
+            <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-amber-500 rounded-tr" />
+            <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-amber-500 rounded-bl" />
+            <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-amber-500 rounded-br" />
 
             <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
               {/* Title replaced with WhatsApp Button */}
@@ -467,16 +467,16 @@ export default function Dashboard() {
                 <div
                   className="px-4 py-2 rounded-xl flex items-center gap-3"
                   style={{
-                    background: 'rgba(19, 241, 135, 0.1)',
-                    border: '1px solid rgba(19, 241, 135, 0.3)',
+                    background: 'rgba(245, 165, 36, 0.1)',
+                    border: '1px solid rgba(245, 165, 36, 0.3)',
                   }}
                 >
                   <span className="text-xl">💻</span>
                   <div>
-                    <div className="text-[10px] font-mono text-cosmic-gray uppercase">
+                    <div className="text-[10px] font-mono text-[#7C8AA0] uppercase">
                       {intl.formatMessage({ id: 'pages.dashboard.header.operator' })}
                     </div>
-                    <div className="text-sm font-display font-bold text-miner-green tracking-wide">
+                    <div className="text-sm font-display font-bold text-amber-400 tracking-wide">
                       {profile.name || intl.formatMessage({ id: 'pages.dashboard.header.unknown' })}
                     </div>
                     {profile.referralcode && (
@@ -489,7 +489,7 @@ export default function Dashboard() {
                             navigator.clipboard.writeText(profile.referralcode || '');
                             toast.success("UID copiado");
                           }}
-                          className="text-[9px] font-bold text-miner-green hover:text-white hover:bg-miner-green/20 px-1.5 py-0.5 rounded transition-all cursor-pointer uppercase border border-miner-green/30 hover:border-miner-green"
+                          className="text-[9px] font-bold text-amber-400 hover:text-white hover:bg-amber-500/20 px-1.5 py-0.5 rounded transition-all cursor-pointer uppercase border border-amber-500/30 hover:border-amber-500"
                         >
                           Copiar UID
                         </button>
@@ -504,7 +504,7 @@ export default function Dashboard() {
             <div
               className="absolute bottom-0 left-0 right-0 h-[2px]"
               style={{
-                background: 'linear-gradient(90deg, transparent, #13f187, transparent)',
+                background: 'linear-gradient(90deg, transparent, #F5A524, transparent)',
                 animation: 'scanHorizontal 4s ease-in-out infinite',
               }}
             />
@@ -520,8 +520,8 @@ export default function Dashboard() {
               {intl.formatMessage({ id: 'pages.dashboard.stats.balance.label' })}
             </div>
             <div 
-              className="text-xl lg:text-xl font-display font-bold tracking-wide text-[#13f187]" 
-              style={{ textShadow: '0 0 30px rgba(19, 241, 135, 0.4)' }}
+              className="text-xl lg:text-xl font-display font-bold tracking-wide text-[#F5A524]" 
+              style={{ textShadow: '0 0 30px rgba(245, 165, 36, 0.4)' }}
             >
               ${(profile.trc20balance ?? 0).toLocaleString()}
             </div>
@@ -534,8 +534,8 @@ export default function Dashboard() {
               {intl.formatMessage({ id: 'pages.dashboard.stats.dailyEarnings.label' })}
             </div>
             <div 
-              className="text-xl lg:text-xl font-display font-bold tracking-wide text-[#dc95e6]" 
-              style={{ textShadow: '0 0 30px rgba(220, 149, 230, 0.4)' }}
+              className="text-xl lg:text-xl font-display font-bold tracking-wide text-[#E6E8EC]" 
+              style={{ textShadow: '0 0 30px rgba(230, 232, 236, 0.4)' }}
             >
               +{(profile.dailyearnings ?? 0).toFixed(2)}
             </div>
@@ -548,8 +548,8 @@ export default function Dashboard() {
               {intl.formatMessage({ id: 'pages.dashboard.stats.incubation.label' })}
             </div>
             <div 
-              className="text-xl lg:text-xl font-display font-bold tracking-wide text-[#00f5ff]" 
-              style={{ textShadow: '0 0 30px rgba(0, 245, 255, 0.4)' }}
+              className="text-xl lg:text-xl font-display font-bold tracking-wide text-[#7C8AA0]" 
+              style={{ textShadow: '0 0 30px rgba(124, 138, 160, 0.4)' }}
             >
               ${(profile.frozenbalance ?? 0).toLocaleString()}
             </div>
@@ -570,7 +570,7 @@ export default function Dashboard() {
               </Button>
             </Link>
             <Link href="/withdrawals" className="flex-1">
-              <Button variant="plasma" size="sm" fullWidth>
+              <Button variant="secondary" size="sm" fullWidth>
                 <span className="flex items-center gap-2">
                   <PixelIcon name="download" className="w-4 h-4" />
                   <span>
@@ -597,29 +597,29 @@ export default function Dashboard() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-xl font-display font-bold tracking-wider">
-                <span className="text-miner-green italic">{intl.formatMessage({ id: 'pages.dashboard.creatures.title.part1' })}</span>{' '}
-                <span className="text-stellar-white font-light">{intl.formatMessage({ id: 'pages.dashboard.creatures.title.part2' })}</span>
+                <span className="text-amber-400 italic">{intl.formatMessage({ id: 'pages.dashboard.creatures.title.part1' })}</span>{' '}
+                <span className="text-[#E6E8EC] font-light">{intl.formatMessage({ id: 'pages.dashboard.creatures.title.part2' })}</span>
               </h2>
-              <p className="text-sm font-mono text-cosmic-gray">
+              <p className="text-sm font-mono text-[#7C8AA0]">
                 {intl.formatMessage({ id: 'pages.dashboard.creatures.description' })}{' '}
-                <span className="italic text-plasma-pink">{intl.formatMessage({ id: 'pages.dashboard.creatures.description.incubate' })}</span>{' '}
+                <span className="italic text-[#E6E8EC]">{intl.formatMessage({ id: 'pages.dashboard.creatures.description.incubate' })}</span>{' '}
                 {intl.formatMessage({ id: 'pages.dashboard.creatures.description.and' })}{' '}
-                <span className="font-bold text-miner-green">{intl.formatMessage({ id: 'pages.dashboard.creatures.description.harvest' })}</span>{' '}
+                <span className="font-bold text-amber-400">{intl.formatMessage({ id: 'pages.dashboard.creatures.description.harvest' })}</span>{' '}
                 {intl.formatMessage({ id: 'pages.dashboard.creatures.description.plasma' })}
               </p>
             </div>
             <div
               className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono"
               style={{
-                background: 'rgba(19, 241, 135, 0.1)',
-                border: '1px solid rgba(19, 241, 135, 0.2)',
+                background: 'rgba(245, 165, 36, 0.1)',
+                border: '1px solid rgba(245, 165, 36, 0.2)',
               }}
             >
               <div
                 className="w-2 h-2 rounded-full animate-pulse"
-                style={{ backgroundColor: '#13f187', boxShadow: '0 0 8px #13f187' }}
+                style={{ backgroundColor: '#F5A524', boxShadow: '0 0 8px #F5A524' }}
               />
-              <span className="text-miner-green">{availablePlans.length} {intl.formatMessage({ id: 'pages.dashboard.creatures.available' })}</span>
+              <span className="text-amber-400">{availablePlans.length} {intl.formatMessage({ id: 'pages.dashboard.creatures.available' })}</span>
             </div>
           </div>
 

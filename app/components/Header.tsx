@@ -34,12 +34,12 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
       <header className="w-full flex items-center justify-between px-6 py-4 bg-transparent relative z-50">
         {/* Logo Skeleton */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-miner-green/10 animate-pulse" />
-          <div className="w-28 h-6 rounded bg-miner-green/10 animate-pulse hidden sm:block" />
+          <div className="w-10 h-10 rounded-lg bg-amber-500/10 animate-pulse" />
+          <div className="w-28 h-6 rounded bg-amber-500/10 animate-pulse hidden sm:block" />
         </div>
         {/* Actions Skeleton */}
         <div className="flex items-center gap-4">
-          <div className="w-24 h-10 rounded-lg bg-miner-green/10 animate-pulse" />
+          <div className="w-24 h-10 rounded-lg bg-amber-500/10 animate-pulse" />
         </div>
       </header>
     );
@@ -48,11 +48,11 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
   return (
     <header
       className={`w-full flex items-center justify-between px-4 sm:px-6 py-3 relative z-50 transition-all duration-500 ${
-        scrolled ? 'bg-void-black/80 backdrop-blur-xl' : 'bg-transparent'
+        scrolled ? 'bg-[#0E1116]/80 backdrop-blur-xl' : 'bg-transparent'
       }`}
       style={{
-        borderBottom: scrolled ? '1px solid rgba(19, 241, 135, 0.15)' : 'none',
-        boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(19, 241, 135, 0.05)' : 'none'
+        borderBottom: scrolled ? '1px solid rgba(245, 165, 36, 0.15)' : 'none',
+        boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.4), 0 0 40px rgba(245, 165, 36, 0.05)' : 'none'
       }}
     >
       {/* Logo & Branding */}
@@ -96,19 +96,19 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
             <div
               className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg"
               style={{
-                background: 'rgba(10, 10, 15, 0.6)',
-                border: '1px solid rgba(19, 241, 135, 0.3)',
+                background: 'rgba(14, 17, 22, 0.6)',
+                border: '1px solid rgba(245, 165, 36, 0.3)',
                 backdropFilter: 'blur(10px)'
               }}
             >
               <div
                 className="w-2 h-2 rounded-full animate-pulse"
                 style={{
-                  backgroundColor: '#13f187',
-                  boxShadow: '0 0 8px #13f187'
+                  backgroundColor: '#F5A524',
+                  boxShadow: '0 0 8px #F5A524'
                 }}
               />
-              <span className="text-xs font-mono font-semibold text-miner-green tracking-wider">
+              <span className="text-xs font-mono font-semibold text-amber-400 tracking-wider">
                 CONNECTED
               </span>
             </div>
@@ -156,7 +156,7 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
       <div
         className="absolute bottom-0 left-0 w-full h-[1px] pointer-events-none"
         style={{
-          background: 'linear-gradient(90deg, transparent, rgba(19, 241, 135, 0.5), transparent)',
+          background: 'linear-gradient(90deg, transparent, rgba(245, 165, 36, 0.5), transparent)',
           opacity: scrolled ? 0.8 : 0.3,
           animation: 'minerScanHorizontal 4s ease-in-out infinite'
         }}

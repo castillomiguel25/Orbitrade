@@ -152,7 +152,7 @@ export function DepositStep({ walletAddress, copiarWallet, glowEffect, amount = 
                 
                 <Button
                   onClick={copiarWallet}
-                  variant="cosmic"
+                  variant="primary"
                   className="px-4 py-2 font-mono text-sm tracking-wider"
                 >
                   <div className="flex items-center gap-2">

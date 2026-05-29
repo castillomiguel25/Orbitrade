@@ -352,7 +352,7 @@ export function PlanDetail({ plan, onClose }: MiningModuleDetailProps) {
           {/* Botón de Activación */}
           <Button
             onClick={() => handleInvest(plan)}
-            variant="cosmic"
+            variant="primary"
             disabled={isSubmitting}
             loading={isSubmitting}
             className="w-full flex items-center justify-center gap-3 py-4 font-bold text-base sm:text-lg"

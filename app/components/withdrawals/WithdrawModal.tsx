@@ -257,7 +257,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
           <Button
             onClick={solicitarRetiro}
             disabled={!montoRetiro || !wallet || !claveRetiro}
-            variant={!montoRetiro || !wallet || !claveRetiro ? 'outline' : 'cosmic'}
+            variant={!montoRetiro || !wallet || !claveRetiro ? 'outline' : 'primary'}
             className="flex-1 py-3 font-mono tracking-wider"
           >
             <div className="flex items-center justify-center gap-2">

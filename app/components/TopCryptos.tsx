@@ -49,7 +49,7 @@ export function TopCryptos() {
       <div className="flex items-center gap-3 mb-6">
         <h2 className="text-xl font-display font-bold tracking-wider">
           <span className="text-white">{intl.formatMessage({ id: 'components.topCryptos.market' })}</span>{' '}
-          <span className="text-cyber-cyan italic">{intl.formatMessage({ id: 'components.topCryptos.data' })}</span>
+          <span className="text-[#7C8AA0] italic">{intl.formatMessage({ id: 'components.topCryptos.data' })}</span>
         </h2>
         <div className="h-px flex-1 bg-gradient-to-r from-cyber-cyan/50 to-transparent" />
       </div>
@@ -65,13 +65,13 @@ export function TopCryptos() {
           : cryptos.map((crypto) => (
               <div
                 key={crypto.id}
-                className="group relative p-4 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-void-black/60 border border-cyber-cyan/10 hover:border-cyber-cyan/30"
+                className="group relative p-4 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-[#0E1116]/60 border border-cyber-cyan/10 hover:border-cyber-cyan/30"
               >
                 {/* Hover Glow */}
                 <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                      style={{
-                       background: 'radial-gradient(circle at center, rgba(0, 245, 255, 0.05) 0%, transparent 70%)',
-                       boxShadow: '0 0 20px rgba(0, 245, 255, 0.1)'
+                       background: 'radial-gradient(circle at center, rgba(124, 138, 160, 0.05) 0%, transparent 70%)',
+                       boxShadow: '0 0 20px rgba(124, 138, 160, 0.1)'
                      }}
                 />
 
@@ -92,13 +92,13 @@ export function TopCryptos() {
                         {crypto.name}
                       </span>
                       <span className={`text-[10px] font-mono ${
-                        crypto.price_change_percentage_24h >= 0 ? 'text-miner-green' : 'text-red-400'
+                        crypto.price_change_percentage_24h >= 0 ? 'text-amber-400' : 'text-red-400'
                       }`}>
                         {crypto.price_change_percentage_24h >= 0 ? '▲' : '▼'}
                         {Math.abs(crypto.price_change_percentage_24h).toFixed(1)}%
                       </span>
                     </div>
-                    <div className="font-mono text-sm text-cyber-cyan font-bold">
+                    <div className="font-mono text-sm text-[#7C8AA0] font-bold">
                       ${crypto.current_price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 })}
                     </div>
                   </div>

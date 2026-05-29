@@ -311,7 +311,7 @@ export function PlanCarousel({ plans, onSelectPlan }: MiningModuleCarouselProps)
               clipPath: "polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px)"
             }}
             onClick={handlePlanAction}
-            glowing
+           
           >
             <span className="cursor-pointer flex items-center gap-2">
               {isPlanActive ? 

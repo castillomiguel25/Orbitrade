@@ -51,7 +51,7 @@ export default function PlasmaCore() {
   };
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden bg-void-black">
+    <div className="min-h-screen text-white relative overflow-hidden bg-[#0E1116]">
       {/* Deep Space Background */}
       <div className="absolute inset-0">
         {/* Dark gradient base */}
@@ -84,7 +84,7 @@ export default function PlasmaCore() {
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] opacity-20"
           style={{
-            background: 'radial-gradient(circle, rgba(220, 149, 230, 0.3) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(230, 232, 236, 0.3) 0%, transparent 70%)',
             filter: 'blur(100px)',
           }}
         />
@@ -100,7 +100,7 @@ export default function PlasmaCore() {
                 <span className="text-white">{intl.formatMessage({ id: 'pages.plasmaCore.title' })}</span>{' '}
                 <span
                   style={{
-                    background: 'linear-gradient(135deg, #dc95e6, #00f5ff)',
+                    background: 'linear-gradient(135deg, #E6E8EC, #7C8AA0)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -117,20 +117,20 @@ export default function PlasmaCore() {
             <div
               className="hidden md:flex items-center gap-3 px-4 py-2 rounded-full"
               style={{
-                background: puedeReclamar ? 'rgba(19, 241, 135, 0.15)' : 'rgba(200, 255, 0, 0.1)',
-                border: `1px solid ${puedeReclamar ? '#13f187' : '#c8ff00'}50`,
+                background: puedeReclamar ? 'rgba(245, 165, 36, 0.15)' : 'rgba(245, 165, 36, 0.1)',
+                border: `1px solid ${puedeReclamar ? '#F5A524' : '#F5A524'}50`,
               }}
             >
               <div
                 className={`w-3 h-3 rounded-full ${puedeReclamar ? 'animate-pulse' : ''}`}
                 style={{
-                  backgroundColor: puedeReclamar ? '#13f187' : '#c8ff00',
-                  boxShadow: `0 0 15px ${puedeReclamar ? '#13f187' : '#c8ff00'}`,
+                  backgroundColor: puedeReclamar ? '#F5A524' : '#F5A524',
+                  boxShadow: `0 0 15px ${puedeReclamar ? '#F5A524' : '#F5A524'}`,
                 }}
               />
               <span
                 className="font-mono text-sm font-bold uppercase tracking-wider"
-                style={{ color: puedeReclamar ? '#13f187' : '#c8ff00' }}
+                style={{ color: puedeReclamar ? '#F5A524' : '#F5A524' }}
               >
                 {puedeReclamar ? intl.formatMessage({ id: 'pages.plasmaCore.readyToHarvest' }) : intl.formatMessage({ id: 'pages.plasmaCore.accumulating' })}
               </span>
@@ -146,7 +146,7 @@ export default function PlasmaCore() {
               className="relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-[16/10]"
               style={{
                 background: 'linear-gradient(180deg, rgba(10, 10, 21, 0.9) 0%, rgba(0, 0, 0, 0.95) 100%)',
-                border: '1px solid rgba(220, 149, 230, 0.2)',
+                border: '1px solid rgba(230, 232, 236, 0.2)',
               }}
             >
               {/* The Void - Central Element */}
@@ -155,21 +155,21 @@ export default function PlasmaCore() {
                 <div
                   className="absolute w-[90%] h-[90%] rounded-full"
                   style={{
-                    border: '1px solid rgba(220, 149, 230, 0.1)',
+                    border: '1px solid rgba(230, 232, 236, 0.1)',
                     transform: `rotate(${vortexIntensity}deg)`,
                   }}
                 />
                 <div
                   className="absolute w-[75%] h-[75%] rounded-full"
                   style={{
-                    border: '1px solid rgba(0, 245, 255, 0.15)',
+                    border: '1px solid rgba(124, 138, 160, 0.15)',
                     transform: `rotate(${-vortexIntensity * 1.5}deg)`,
                   }}
                 />
                 <div
                   className="absolute w-[60%] h-[60%] rounded-full"
                   style={{
-                    border: '1px solid rgba(19, 241, 135, 0.2)',
+                    border: '1px solid rgba(245, 165, 36, 0.2)',
                     transform: `rotate(${vortexIntensity * 2}deg)`,
                   }}
                 />
@@ -185,8 +185,8 @@ export default function PlasmaCore() {
                       style={{
                         left: `calc(50% + ${Math.cos(angle) * radius}%)`,
                         top: `calc(50% + ${Math.sin(angle) * radius}%)`,
-                        background: i % 3 === 0 ? '#13f187' : i % 3 === 1 ? '#dc95e6' : '#00f5ff',
-                        boxShadow: `0 0 15px ${i % 3 === 0 ? '#13f187' : i % 3 === 1 ? '#dc95e6' : '#00f5ff'}`,
+                        background: i % 3 === 0 ? '#F5A524' : i % 3 === 1 ? '#E6E8EC' : '#7C8AA0',
+                        boxShadow: `0 0 15px ${i % 3 === 0 ? '#F5A524' : i % 3 === 1 ? '#E6E8EC' : '#7C8AA0'}`,
                         opacity: 0.6 + Math.sin(vortexIntensity * 0.1 + i) * 0.4,
                       }}
                     />
@@ -199,11 +199,11 @@ export default function PlasmaCore() {
                   onClick={() => puedeReclamar && setIsModalOpen(true)}
                   style={{
                     background: puedeReclamar
-                      ? `conic-gradient(from ${vortexIntensity}deg, #13f187, #00f5ff, #dc95e6, #c8ff00, #13f187)`
+                      ? `conic-gradient(from ${vortexIntensity}deg, #F5A524, #7C8AA0, #E6E8EC, #F5A524, #F5A524)`
                       : `conic-gradient(from ${vortexIntensity}deg, #1a1a2e, #16213e, #0f3460, #1a1a2e)`,
                     padding: '4px',
                     boxShadow: puedeReclamar
-                      ? '0 0 80px rgba(19, 241, 135, 0.5), 0 0 120px rgba(220, 149, 230, 0.3)'
+                      ? '0 0 80px rgba(245, 165, 36, 0.5), 0 0 120px rgba(230, 232, 236, 0.3)'
                       : '0 0 40px rgba(0, 0, 0, 0.8)',
                   }}
                 >
@@ -217,7 +217,7 @@ export default function PlasmaCore() {
                     {puedeReclamar ? (
                       <div className="text-center">
                         <div className="text-5xl lg:text-6xl mb-2">⚡</div>
-                        <div className="font-mono text-miner-green text-lg font-bold">
+                        <div className="font-mono text-amber-400 text-lg font-bold">
                           {intl.formatMessage({ id: 'pages.plasmaCore.extract' })}
                         </div>
                         <div className="font-mono text-gray-400 text-xs mt-1">
@@ -245,7 +245,7 @@ export default function PlasmaCore() {
                   <div
                     className="absolute w-72 h-72 lg:w-96 lg:h-96 rounded-full pointer-events-none"
                     style={{
-                      background: `conic-gradient(from ${vortexIntensity * 3}deg, transparent, rgba(19, 241, 135, 0.3), transparent, rgba(220, 149, 230, 0.3), transparent)`,
+                      background: `conic-gradient(from ${vortexIntensity * 3}deg, transparent, rgba(245, 165, 36, 0.3), transparent, rgba(230, 232, 236, 0.3), transparent)`,
                       animation: 'pulse 2s ease-in-out infinite',
                     }}
                   />
@@ -258,7 +258,7 @@ export default function PlasmaCore() {
                   <span className="font-mono text-xs text-gray-500 uppercase tracking-wider">
                     {intl.formatMessage({ id: 'pages.plasmaCore.quantumProgress' })}
                   </span>
-                  <span className="font-mono text-sm font-bold" style={{ color: puedeReclamar ? '#13f187' : '#c8ff00' }}>
+                  <span className="font-mono text-sm font-bold" style={{ color: puedeReclamar ? '#F5A524' : '#F5A524' }}>
                     {progressPercent.toFixed(1)}%
                   </span>
                 </div>
@@ -271,8 +271,8 @@ export default function PlasmaCore() {
                     style={{
                       width: `${progressPercent}%`,
                       background: puedeReclamar
-                        ? 'linear-gradient(90deg, #13f187, #00f5ff, #dc95e6)'
-                        : 'linear-gradient(90deg, #c8ff00, #f59e0b)',
+                        ? 'linear-gradient(90deg, #F5A524, #7C8AA0, #E6E8EC)'
+                        : 'linear-gradient(90deg, #F5A524, #f59e0b)',
                     }}
                   />
                 </div>
@@ -281,11 +281,11 @@ export default function PlasmaCore() {
               {/* Corner data displays */}
               <div className="absolute top-4 left-4 font-mono text-xs">
                 <div className="text-gray-600">{intl.formatMessage({ id: 'pages.plasmaCore.sector' })}</div>
-                <div className="text-plasma-pink font-bold">{intl.formatMessage({ id: 'pages.plasmaCore.moduleX7' })}</div>
+                <div className="text-[#E6E8EC] font-bold">{intl.formatMessage({ id: 'pages.plasmaCore.moduleX7' })}</div>
               </div>
               <div className="absolute top-4 right-4 font-mono text-xs text-right">
                 <div className="text-gray-600">{intl.formatMessage({ id: 'pages.plasmaCore.status' })}</div>
-                <div style={{ color: puedeReclamar ? '#13f187' : '#c8ff00' }} className="font-bold">
+                <div style={{ color: puedeReclamar ? '#F5A524' : '#F5A524' }} className="font-bold">
                   {puedeReclamar ? intl.formatMessage({ id: 'pages.plasmaCore.harvestable' }) : intl.formatMessage({ id: 'pages.plasmaCore.generating' })}
                 </div>
               </div>
@@ -299,7 +299,7 @@ export default function PlasmaCore() {
               className="p-6 rounded-2xl"
               style={{
                 background: 'linear-gradient(135deg, rgba(10, 10, 21, 0.9), rgba(0, 0, 0, 0.95))',
-                border: '1px solid rgba(19, 241, 135, 0.2)',
+                border: '1px solid rgba(245, 165, 36, 0.2)',
               }}
             >
               <h3 className="font-mono text-xs text-gray-500 uppercase tracking-wider mb-2">
@@ -315,12 +315,12 @@ export default function PlasmaCore() {
               <div
                 className="p-4 rounded-xl text-center"
                 style={{
-                  background: 'rgba(200, 255, 0, 0.05)',
-                  border: '1px solid rgba(200, 255, 0, 0.2)',
+                  background: 'rgba(245, 165, 36, 0.05)',
+                  border: '1px solid rgba(245, 165, 36, 0.2)',
                 }}
               >
                 <div className="font-mono text-xs text-gray-500 uppercase mb-1">{intl.formatMessage({ id: 'pages.plasmaCore.nextHarvestIn' })}</div>
-                <div className="font-mono text-xl font-bold text-bio-yellow">
+                <div className="font-mono text-xl font-bold text-amber-400">
                   {tiempoRestante > 0 ? `${tiempo.horas}:${tiempo.minutos}:${tiempo.segundos}` : tiempoRestanteHumano}
                 </div>
               </div>
@@ -339,7 +339,7 @@ export default function PlasmaCore() {
           <div className="p-6 border-b border-white/10">
             <h3 className="font-display font-bold text-lg">
               <span className="text-white">{intl.formatMessage({ id: 'pages.plasmaCore.harvestHistory' })}</span>{' '}
-              <span className="text-plasma-pink">{intl.formatMessage({ id: 'pages.plasmaCore.history' })}</span>
+              <span className="text-[#E6E8EC]">{intl.formatMessage({ id: 'pages.plasmaCore.history' })}</span>
             </h3>
           </div>
           <div className="p-6">
@@ -362,7 +362,7 @@ export default function PlasmaCore() {
                 <div
                   className="absolute inset-0 rounded-full"
                   style={{
-                    background: 'conic-gradient(from 0deg, #13f187, #00f5ff, #dc95e6, #c8ff00, #13f187)',
+                    background: 'conic-gradient(from 0deg, #F5A524, #7C8AA0, #E6E8EC, #F5A524, #F5A524)',
                     animation: 'spin 1s linear infinite',
                   }}
                 />
@@ -373,14 +373,14 @@ export default function PlasmaCore() {
                   <span className="text-4xl">🌀</span>
                 </div>
               </div>
-              <div className="font-mono text-miner-green text-lg">
+              <div className="font-mono text-amber-400 text-lg">
                 {intl.formatMessage({ id: 'pages.plasmaCore.siphoning' })}
               </div>
             </div>
           ) : mostrarFelicitacion ? (
             <div className="py-8">
               <div className="text-6xl mb-4">⚡</div>
-              <div className="text-2xl font-display font-bold text-miner-green mb-2">
+              <div className="text-2xl font-display font-bold text-amber-400 mb-2">
                 {intl.formatMessage({ id: 'pages.plasmaCore.extractionComplete' })}
               </div>
               <div className="text-3xl font-mono font-black text-white">
@@ -395,7 +395,7 @@ export default function PlasmaCore() {
               <div className="text-6xl mb-6">🕳️</div>
               <h3 className="text-xl font-display font-bold mb-2">
                 <span className="text-white">{intl.formatMessage({ id: 'pages.plasmaCore.voidExtraction' }).split(' ')[0]}</span>{' '}
-                <span className="text-plasma-pink">{intl.formatMessage({ id: 'pages.plasmaCore.voidExtraction' }).split(' ')[1]}</span>
+                <span className="text-[#E6E8EC]">{intl.formatMessage({ id: 'pages.plasmaCore.voidExtraction' }).split(' ')[1]}</span>
               </h3>
               <p className="text-gray-400 font-mono text-sm mb-6">
                 {intl.formatMessage({ id: 'pages.plasmaCore.riftCharged' })}
@@ -425,7 +425,7 @@ export default function PlasmaCore() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
           <div className="text-center animate-pulse">
             <div className="text-8xl mb-4">⚡</div>
-            <div className="text-3xl font-display font-black text-miner-green mb-2">
+            <div className="text-3xl font-display font-black text-amber-400 mb-2">
               {intl.formatMessage({ id: 'pages.plasmaCore.voidHarvested' })}
             </div>
             <div className="text-5xl font-mono font-black text-white">

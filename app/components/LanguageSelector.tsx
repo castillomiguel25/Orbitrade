@@ -42,8 +42,8 @@ export function LanguageSelector({ compact = false }: LanguageSelectorProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1.5 px-2.5 rounded-lg transition-all duration-200"
         style={{
-          background: isOpen ? 'rgba(0, 245, 255, 0.15)' : 'rgba(255, 255, 255, 0.05)',
-          border: isOpen ? '1px solid rgba(0, 245, 255, 0.4)' : '1px solid rgba(255, 255, 255, 0.1)',
+          background: isOpen ? 'rgba(124, 138, 160, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+          border: isOpen ? '1px solid rgba(124, 138, 160, 0.4)' : '1px solid rgba(255, 255, 255, 0.1)',
         }}
       >
         <span className="text-base">{currentLanguage?.flag}</span>
@@ -65,9 +65,9 @@ export function LanguageSelector({ compact = false }: LanguageSelectorProps) {
         <div
           className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 rounded-xl overflow-hidden z-50"
           style={{
-            background: 'rgba(10, 10, 15, 0.95)',
-            border: '1px solid rgba(0, 245, 255, 0.3)',
-            boxShadow: '0 -10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 245, 255, 0.1)',
+            background: 'rgba(14, 17, 22, 0.95)',
+            border: '1px solid rgba(124, 138, 160, 0.3)',
+            boxShadow: '0 -10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(124, 138, 160, 0.1)',
             backdropFilter: 'blur(12px)',
           }}
         >
@@ -79,16 +79,16 @@ export function LanguageSelector({ compact = false }: LanguageSelectorProps) {
                 onClick={() => handleSelect(lang.code)}
                 className="w-full flex items-center gap-3 px-4 py-2.5 transition-all duration-150"
                 style={{
-                  background: isActive ? 'rgba(0, 245, 255, 0.15)' : 'transparent',
-                  borderLeft: isActive ? '2px solid #00f5ff' : '2px solid transparent',
+                  background: isActive ? 'rgba(124, 138, 160, 0.15)' : 'transparent',
+                  borderLeft: isActive ? '2px solid #7C8AA0' : '2px solid transparent',
                 }}
               >
                 <span className="text-lg">{lang.flag}</span>
-                <span className={`font-mono text-sm ${isActive ? 'text-cyber-cyan font-bold' : 'text-gray-300'}`}>
+                <span className={`font-mono text-sm ${isActive ? 'text-[#7C8AA0] font-bold' : 'text-gray-300'}`}>
                   {lang.name}
                 </span>
                 {isActive && (
-                  <svg className="w-4 h-4 text-cyber-cyan ml-auto" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 text-[#7C8AA0] ml-auto" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 )}

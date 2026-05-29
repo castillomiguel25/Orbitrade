@@ -75,7 +75,7 @@ export default function HivePage() {
   ];
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden bg-void-black">
+    <div className="min-h-screen text-white relative overflow-hidden bg-[#0E1116]">
       {/* Background */}
       <div className="absolute inset-0">
         <div
@@ -95,7 +95,7 @@ export default function HivePage() {
         <div
           className="absolute top-1/4 right-1/4 w-[500px] h-[500px] opacity-20"
           style={{
-            background: 'radial-gradient(circle, rgba(220, 149, 230, 0.2) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(230, 232, 236, 0.2) 0%, transparent 70%)',
             filter: 'blur(100px)',
           }}
         />
@@ -132,7 +132,7 @@ export default function HivePage() {
             className="mb-6 rounded-2xl px-4 py-3 flex items-center gap-3"
             style={{
               background: 'rgba(0, 0, 0, 0.6)',
-              border: '1px solid rgba(0, 245, 255, 0.2)',
+              border: '1px solid rgba(124, 138, 160, 0.2)',
             }}
           >
             <div className="w-4 h-4 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
@@ -148,7 +148,7 @@ export default function HivePage() {
                 <span className="text-white">{intl.formatMessage({ id: 'pages.hive.title' })}</span>{' '}
                 <span
                   style={{
-                    background: 'linear-gradient(135deg, #dc95e6, #00f5ff)',
+                    background: 'linear-gradient(135deg, #E6E8EC, #7C8AA0)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -166,22 +166,22 @@ export default function HivePage() {
               className="flex items-center gap-4 px-6 py-3 rounded-2xl"
               style={{
                 background: 'rgba(0, 0, 0, 0.6)',
-                border: '1px solid rgba(220, 149, 230, 0.3)',
+                border: '1px solid rgba(230, 232, 236, 0.3)',
               }}
             >
               <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase tracking-wider">{intl.formatMessage({ id: 'pages.hive.stats.members' })}</div>
-                <div className="text-xl font-mono font-bold text-plasma-pink">{referrals.length}</div>
+                <div className="text-xl font-mono font-bold text-[#E6E8EC]">{referrals.length}</div>
               </div>
               <div className="w-px h-10 bg-white/10" />
               <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase tracking-wider">{intl.formatMessage({ id: 'pages.hive.stats.collected' })}</div>
-                <div className="text-xl font-mono font-bold text-miner-green">${totalGanado.toFixed(2)}</div>
+                <div className="text-xl font-mono font-bold text-amber-400">${totalGanado.toFixed(2)}</div>
               </div>
               <div className="w-px h-10 bg-white/10" />
               <div className="text-center">
                 <div className="text-xs font-mono text-gray-500 uppercase tracking-wider">{intl.formatMessage({ id: 'pages.hive.stats.activated' })}</div>
-                <div className="text-xl font-mono font-bold text-cyber-cyan">${levels12TotalInvested.toFixed(0)}</div>
+                <div className="text-xl font-mono font-bold text-[#7C8AA0]">${levels12TotalInvested.toFixed(0)}</div>
               </div>
             </div>
           </div>
@@ -213,9 +213,9 @@ export default function HivePage() {
               onClick={() => setActiveSection(tab.id as typeof activeSection)}
               className="flex items-center gap-2 px-5 py-3 rounded-xl font-mono text-sm transition-all whitespace-nowrap"
               style={{
-                background: activeSection === tab.id ? 'rgba(220, 149, 230, 0.15)' : 'rgba(0, 0, 0, 0.4)',
-                border: activeSection === tab.id ? '1px solid rgba(220, 149, 230, 0.5)' : '1px solid rgba(255, 255, 255, 0.1)',
-                color: activeSection === tab.id ? '#dc95e6' : '#9ca3af',
+                background: activeSection === tab.id ? 'rgba(230, 232, 236, 0.15)' : 'rgba(0, 0, 0, 0.4)',
+                border: activeSection === tab.id ? '1px solid rgba(230, 232, 236, 0.5)' : '1px solid rgba(255, 255, 255, 0.1)',
+                color: activeSection === tab.id ? '#E6E8EC' : '#9ca3af',
               }}
             >
               <span>{tab.icon}</span>
@@ -249,22 +249,22 @@ export default function HivePage() {
               className="rounded-3xl overflow-hidden"
               style={{
                 background: 'linear-gradient(180deg, rgba(10, 15, 20, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)',
-                border: '1px solid rgba(0, 245, 255, 0.2)',
+                border: '1px solid rgba(124, 138, 160, 0.2)',
               }}
             >
               <div className="p-6 border-b border-white/10">
                 <h3 className="text-lg font-display font-bold">
                   <span className="text-white">{intl.formatMessage({ id: 'pages.hive.recentActivity' })}</span>{' '}
-                  <span className="text-cyber-cyan">{intl.formatMessage({ id: 'pages.hive.activity' })}</span>
+                  <span className="text-[#7C8AA0]">{intl.formatMessage({ id: 'pages.hive.activity' })}</span>
                 </h3>
               </div>
               <div className="p-6">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
-                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level1.count' }), value: newReferralCountLevel1, color: '#13f187' },
-                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level1.amount' }), value: `$${newDepositsTotalAmountLevel1.toFixed(2)}`, color: '#00f5ff' },
-                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level2.count' }), value: newReferralCountLevel2, color: '#dc95e6' },
-                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level2.amount' }), value: `$${newDepositsTotalAmountLevel2.toFixed(2)}`, color: '#c8ff00' },
+                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level1.count' }), value: newReferralCountLevel1, color: '#F5A524' },
+                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level1.amount' }), value: `$${newDepositsTotalAmountLevel1.toFixed(2)}`, color: '#7C8AA0' },
+                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level2.count' }), value: newReferralCountLevel2, color: '#E6E8EC' },
+                    { label: intl.formatMessage({ id: 'pages.referrals.newStats.level2.amount' }), value: `$${newDepositsTotalAmountLevel2.toFixed(2)}`, color: '#F5A524' },
                   ].map((item, i) => (
                     <div
                       key={i}
@@ -291,13 +291,13 @@ export default function HivePage() {
               className="rounded-3xl overflow-hidden"
               style={{
                 background: 'linear-gradient(180deg, rgba(10, 15, 20, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)',
-                border: '1px solid rgba(19, 241, 135, 0.2)',
+                border: '1px solid rgba(245, 165, 36, 0.2)',
               }}
             >
               <div className="p-6 border-b border-white/10">
                 <h3 className="text-lg font-display font-bold">
                   <span className="text-white">Monthly</span>{' '}
-                  <span className="text-miner-green">Bonuses</span>
+                  <span className="text-amber-400">Bonuses</span>
                 </h3>
                 <p className="text-gray-500 font-mono text-xs mt-1">
                   {intl.formatMessage({ id: 'pages.referrals.monthlyBonuses.note' })}
@@ -311,7 +311,7 @@ export default function HivePage() {
                       className="p-4 rounded-xl text-center"
                       style={{
                         background: 'rgba(0, 0, 0, 0.4)',
-                        border: '1px solid rgba(19, 241, 135, 0.2)',
+                        border: '1px solid rgba(245, 165, 36, 0.2)',
                       }}
                     >
                       <div className="text-2xl font-mono font-bold text-white mb-1">
@@ -319,7 +319,7 @@ export default function HivePage() {
                       </div>
                       <div className="text-[10px] font-mono text-gray-500 uppercase mb-2">refs</div>
                       <div className="text-xs font-mono text-gray-400 mb-1">${bonus.monto.toLocaleString()}</div>
-                      <div className="text-lg font-mono font-bold text-miner-green">
+                      <div className="text-lg font-mono font-bold text-amber-400">
                         ${bonus.salario}
                       </div>
                       <div className="text-[10px] font-mono text-gray-500 uppercase">monthly</div>
@@ -338,7 +338,7 @@ export default function HivePage() {
               className="rounded-3xl overflow-hidden"
               style={{
                 background: 'linear-gradient(180deg, rgba(10, 15, 20, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)',
-                border: '1px solid rgba(19, 241, 135, 0.2)',
+                border: '1px solid rgba(245, 165, 36, 0.2)',
               }}
             >
               <div className="p-6 border-b border-white/10">
@@ -351,41 +351,41 @@ export default function HivePage() {
                 {/* Table Header */}
                 <div
                   className="hidden md:grid grid-cols-4 gap-4 p-4 text-xs font-mono uppercase tracking-wider border-b"
-                  style={{ borderColor: 'rgba(19, 241, 135, 0.1)', background: 'rgba(10, 10, 15, 0.5)' }}
+                  style={{ borderColor: 'rgba(245, 165, 36, 0.1)', background: 'rgba(14, 17, 22, 0.5)' }}
                 >
-                  <div className="text-center text-bio-yellow">
+                  <div className="text-center text-amber-400">
                     {intl.formatMessage({ id: 'components.referralRewards.rank' })}
                   </div>
-                  <div className="text-center text-miner-green">
+                  <div className="text-center text-amber-400">
                     {intl.formatMessage({ id: 'components.referralRewards.referrals' })}
                   </div>
-                  <div className="text-center text-cyber-cyan">
+                  <div className="text-center text-[#7C8AA0]">
                     {intl.formatMessage({ id: 'components.referralRewards.amount' })}
                   </div>
-                  <div className="text-center text-plasma-pink">
+                  <div className="text-center text-[#E6E8EC]">
                     {intl.formatMessage({ id: 'components.referralRewards.salary' })}
                   </div>
                 </div>
 
                 {/* Table Body */}
-                <div className="divide-y" style={{ borderColor: 'rgba(19, 241, 135, 0.05)' }}>
+                <div className="divide-y" style={{ borderColor: 'rgba(245, 165, 36, 0.05)' }}>
                   {salaryRewards.map((reward, index) => (
                     <div
                       key={index}
-                      className="p-4 transition-all duration-300 hover:bg-miner-green/5"
+                      className="p-4 transition-all duration-300 hover:bg-amber-500/5"
                     >
                       {/* Desktop View */}
                       <div className="hidden md:grid grid-cols-4 gap-4 items-center">
-                        <div className="text-center font-mono text-sm text-stellar-white font-bold">
+                        <div className="text-center font-mono text-sm text-[#E6E8EC] font-bold">
                           {reward.rank}
                         </div>
-                        <div className="text-center font-mono text-sm text-stellar-white">
+                        <div className="text-center font-mono text-sm text-[#E6E8EC]">
                           {reward.referrals}
                         </div>
-                        <div className="text-center font-mono text-sm text-stellar-white">
+                        <div className="text-center font-mono text-sm text-[#E6E8EC]">
                           ${reward.amount.toLocaleString()}
                         </div>
-                        <div className="text-center font-mono text-sm text-plasma-pink font-bold">
+                        <div className="text-center font-mono text-sm text-[#E6E8EC] font-bold">
                           ${reward.salary.toLocaleString()}
                         </div>
                       </div>
@@ -393,10 +393,10 @@ export default function HivePage() {
                       {/* Mobile View */}
                       <div className="md:hidden space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-mono text-bio-yellow uppercase">
+                          <span className="text-xs font-mono text-amber-400 uppercase">
                             {intl.formatMessage({ id: 'components.referralRewards.rank' })} {reward.rank}
                           </span>
-                          <span className="text-sm font-mono text-plasma-pink font-bold">
+                          <span className="text-sm font-mono text-[#E6E8EC] font-bold">
                             ${reward.salary.toLocaleString()}
                           </span>
                         </div>
@@ -430,31 +430,31 @@ export default function HivePage() {
               className="rounded-3xl overflow-hidden"
               style={{
                 background: 'linear-gradient(180deg, rgba(10, 15, 20, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)',
-                border: '1px solid rgba(220, 149, 230, 0.2)',
+                border: '1px solid rgba(230, 232, 236, 0.2)',
               }}
             >
               <div className="p-6 border-b border-white/10">
                 <h3 className="text-lg font-display font-bold">
                   <span className="text-white">{intl.formatMessage({ id: 'pages.hive.yourProgress' })}</span>{' '}
-                  <span className="text-plasma-pink">{intl.formatMessage({ id: 'pages.hive.progress' })}</span>
+                  <span className="text-[#E6E8EC]">{intl.formatMessage({ id: 'pages.hive.progress' })}</span>
                 </h3>
               </div>
               <div className="p-6 space-y-6">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(19, 241, 135, 0.08)', border: '1px solid rgba(19, 241, 135, 0.2)' }}>
-                    <div className="text-3xl font-mono font-bold text-miner-green">{directActiveCount}</div>
+                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(245, 165, 36, 0.08)', border: '1px solid rgba(245, 165, 36, 0.2)' }}>
+                    <div className="text-3xl font-mono font-bold text-amber-400">{directActiveCount}</div>
                     <div className="text-[10px] font-mono text-gray-500 uppercase tracking-wider mt-1">{intl.formatMessage({ id: 'pages.hive.directActive' })}</div>
                   </div>
-                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(0, 245, 255, 0.08)', border: '1px solid rgba(0, 245, 255, 0.2)' }}>
-                    <div className="text-3xl font-mono font-bold text-cyber-cyan">{indirectActiveCount}</div>
+                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(124, 138, 160, 0.08)', border: '1px solid rgba(124, 138, 160, 0.2)' }}>
+                    <div className="text-3xl font-mono font-bold text-[#7C8AA0]">{indirectActiveCount}</div>
                     <div className="text-[10px] font-mono text-gray-500 uppercase tracking-wider mt-1">{intl.formatMessage({ id: 'pages.hive.indirectActive' })}</div>
                   </div>
-                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(19, 241, 135, 0.08)', border: '1px solid rgba(19, 241, 135, 0.2)' }}>
-                    <div className="text-2xl font-mono font-bold text-miner-green">${totalFrozenLevel1.toFixed(0)}</div>
+                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(245, 165, 36, 0.08)', border: '1px solid rgba(245, 165, 36, 0.2)' }}>
+                    <div className="text-2xl font-mono font-bold text-amber-400">${totalFrozenLevel1.toFixed(0)}</div>
                     <div className="text-[10px] font-mono text-gray-500 uppercase tracking-wider mt-1">Monto total Nivel 1</div>
                   </div>
-                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(0, 245, 255, 0.08)', border: '1px solid rgba(0, 245, 255, 0.2)' }}>
-                    <div className="text-2xl font-mono font-bold text-cyber-cyan">${totalFrozenLevel2.toFixed(0)}</div>
+                  <div className="p-4 rounded-xl text-center" style={{ background: 'rgba(124, 138, 160, 0.08)', border: '1px solid rgba(124, 138, 160, 0.2)' }}>
+                    <div className="text-2xl font-mono font-bold text-[#7C8AA0]">${totalFrozenLevel2.toFixed(0)}</div>
                     <div className="text-[10px] font-mono text-gray-500 uppercase tracking-wider mt-1">Monto total Nivel 2</div>
                   </div>
                 </div>
@@ -463,13 +463,13 @@ export default function HivePage() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">Primer nivel</span>
-                      <span className="text-[11px] font-mono text-miner-green">{directActive.length} usuarios</span>
+                      <span className="text-[11px] font-mono text-amber-400">{directActive.length} usuarios</span>
                     </div>
                     <div className="space-y-1 max-h-64 overflow-y-auto pr-1">
                       {directActive.map((ref) => (
                         <div key={ref.id} className="flex items-center justify-between text-[11px] font-mono text-gray-300">
                           <span className="truncate max-w-[180px]">{ref.email || ref.nombre}</span>
-                          <span className="text-miner-green">${parseFloat(ref.frozenbalanceAdjusted || ref.frozenbalance || '0').toFixed(2)}</span>
+                          <span className="text-amber-400">${parseFloat(ref.frozenbalanceAdjusted || ref.frozenbalance || '0').toFixed(2)}</span>
                         </div>
                       ))}
                       {directActive.length === 0 && (
@@ -480,13 +480,13 @@ export default function HivePage() {
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">Segundo nivel</span>
-                      <span className="text-[11px] font-mono text-cyber-cyan">{indirectActive.length} usuarios</span>
+                      <span className="text-[11px] font-mono text-[#7C8AA0]">{indirectActive.length} usuarios</span>
                     </div>
                     <div className="space-y-1 max-h-64 overflow-y-auto pr-1">
                       {indirectActive.map((ref) => (
                         <div key={ref.id} className="flex items-center justify-between text-[11px] font-mono text-gray-300">
                           <span className="truncate max-w-[180px]">{ref.email || ref.nombre}</span>
-                          <span className="text-cyber-cyan">${parseFloat(ref.frozenbalanceAdjusted || ref.frozenbalance || '0').toFixed(2)}</span>
+                          <span className="text-[#7C8AA0]">${parseFloat(ref.frozenbalanceAdjusted || ref.frozenbalance || '0').toFixed(2)}</span>
                         </div>
                       ))}
                       {indirectActive.length === 0 && (
@@ -505,13 +505,13 @@ export default function HivePage() {
             className="rounded-3xl overflow-hidden"
             style={{
               background: 'linear-gradient(180deg, rgba(10, 15, 20, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%)',
-              border: '1px solid rgba(19, 241, 135, 0.2)',
+              border: '1px solid rgba(245, 165, 36, 0.2)',
             }}
           >
             <div className="p-6 border-b border-white/10">
               <h3 className="text-lg font-display font-bold">
                 <span className="text-white">{intl.formatMessage({ id: 'pages.hive.myFriends' })}</span>{' '}
-                <span className="text-miner-green">{intl.formatMessage({ id: 'pages.hive.friends' })}</span>
+                <span className="text-amber-400">{intl.formatMessage({ id: 'pages.hive.friends' })}</span>
               </h3>
             </div>
             <div className="p-6">
