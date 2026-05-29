@@ -28,6 +28,9 @@ export function Header({ isLogged }: { isLogged?: boolean }) {
     router.refresh();
   };
 
+  // Never show public header when logged in
+  if (logged) return null;
+
   if (isLoading && typeof isLogged !== 'boolean') {
     return (
       <header className="w-full flex items-center justify-between px-6 py-4 bg-transparent relative z-50">

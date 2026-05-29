@@ -21,7 +21,7 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
           </h3>
           <div className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse" />
         </div>
-        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-60" />
+        <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-[#7C8AA0] to-transparent opacity-60" />
       </div>
 
       {/* Mining Modules Grid - Horizontal Layout */}
@@ -74,12 +74,12 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
                         ? 'bg-gradient-to-br from-green-500 to-cyan-500 animate-pulse' 
                         : 'bg-gradient-to-br from-slate-700 to-slate-600'
                     }`}>
-                      <span className="text-lg">🚀</span>
+                      
                     </div>
                     <div className="flex-1">
                       <h4 className={`font-bold font-mono tracking-wider transition-all duration-300 ${
                         isSelected 
-                          ? 'text-green-300 text-base' 
+                          ? 'text-amber-300 text-base' 
                           : 'text-white text-sm'
                       }`}>
                         {intl.formatMessage({ id: plan.titleKey, defaultMessage: plan.title })}
@@ -95,14 +95,14 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
                     {/* Efficiency */}
                     <div className={`text-center p-2 rounded-lg border transition-all duration-300 ${
                       isSelected 
-                        ? 'bg-green-500/10 border-green-500/30' 
-                        : 'bg-slate-800/50 border-slate-600/30'
+                        ? 'bg-[#7C8AA0]/10 border-green-500/30' 
+                        : 'bg-[#0E1116]/80 border-slate-600/30'
                     }`}>
-                      <div className="text-green-400 font-mono text-xs tracking-widest mb-1">
+                      <div className="text-amber-400 font-mono text-xs tracking-widest mb-1">
                         RATE
                       </div>
                       <div className={`font-bold font-mono transition-all duration-300 ${
-                        isSelected ? 'text-green-300 text-sm' : 'text-green-400 text-xs'
+                        isSelected ? 'text-amber-300 text-sm' : 'text-amber-400 text-xs'
                       }`}>
                         {plan.rendimiento}
                       </div>
@@ -111,14 +111,14 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
                     {/* Fuel Cost */}
                     <div className={`text-center p-2 rounded-lg border transition-all duration-300 ${
                       isSelected 
-                        ? 'bg-cyan-500/10 border-cyan-500/30' 
-                        : 'bg-slate-800/50 border-slate-600/30'
+                        ? 'bg-amber-500/10 border-cyan-500/30' 
+                        : 'bg-[#0E1116]/80 border-slate-600/30'
                     }`}>
-                      <div className="text-cyan-400 font-mono text-xs tracking-widest mb-1">
+                      <div className="text-[#7C8AA0] font-mono text-xs tracking-widest mb-1">
                         FUEL
                       </div>
                       <div className={`font-bold font-mono transition-all duration-300 ${
-                        isSelected ? 'text-cyan-300 text-sm' : 'text-cyan-400 text-xs'
+                        isSelected ? 'text-[#E6E8EC] text-sm' : 'text-[#7C8AA0] text-xs'
                       }`}>
                         {plan.minPrice ? `${plan.minPrice} - ${plan.maxPrice}` : plan.monto}
                       </div>
@@ -129,7 +129,7 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
                   <div className={`text-center p-2 rounded-lg border transition-all duration-300 ${
                     isSelected 
                       ? 'bg-red-500/10 border-red-500/30' 
-                      : 'bg-slate-800/50 border-slate-600/30'
+                      : 'bg-[#0E1116]/80 border-slate-600/30'
                   }`}>
                     <div className="text-red-400 font-mono text-xs tracking-widest mb-1">
                       DAILY YIELD
@@ -145,8 +145,8 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
                   <div className="mt-3 text-center">
                     <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold transition-all duration-300 ${
                       isSelected 
-                        ? 'bg-green-500/20 text-green-300 border border-green-500/40' 
-                        : 'bg-slate-700/50 text-slate-400 border border-slate-600/50'
+                        ? 'bg-amber-500/10 text-amber-300 border border-[#7C8AA0]/25' 
+                        : 'bg-[#161A21] text-slate-400 border border-[#7C8AA0]/20'
                     }`}>
                       <div className={`w-2 h-2 rounded-full transition-all duration-300 ${
                         isSelected ? 'bg-green-400 animate-pulse' : 'bg-slate-500'
@@ -159,7 +159,7 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
                 {/* Scanning Effect */}
                 {isSelected && (
                   <div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/20 to-transparent rounded-2xl pointer-events-none"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-[#7C8AA0]/20 to-transparent rounded-2xl pointer-events-none"
                     style={{
                       animation: 'quantumScanline 3s ease-in-out infinite'
                     }}
@@ -179,11 +179,11 @@ export function PlanSelector({ investmentPlans, planSeleccionado, seleccionarPla
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-green-300 font-mono text-sm tracking-wider font-bold">
+                <span className="text-amber-300 font-mono text-sm tracking-wider font-bold">
                   MODULE SELECTED
                 </span>
               </div>
-              <div className="text-green-400 font-mono text-sm">
+              <div className="text-amber-400 font-mono text-sm">
                 {investmentPlans.find(p => p.id === planSeleccionado)?.id.toUpperCase()}
               </div>
             </div>

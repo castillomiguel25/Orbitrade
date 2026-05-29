@@ -110,7 +110,7 @@ const WithdrawKeyModal: React.FC<WithdrawKeyModalProps> = ({
               <div className="relative bg-black rounded-2xl p-4 border border-white/10">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <span className="text-white font-mono text-sm">⚡</span>
+                    
                   </div>
                   <div>
                     <div className="text-gray-400 font-mono text-xs">

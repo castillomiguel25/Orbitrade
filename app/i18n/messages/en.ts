@@ -1594,34 +1594,34 @@ export const enMessages = {
   "components.creatureDetail.minimumAmount": "Minimum amount is {amount} USDT",
 
   // Metadata - Site
-  "metadata.site.title": "ORBITRADE - Miner NFT Collection",
-  "metadata.site.description": "ORBITRADE is a collectible NFT simulation game. Explore cosmic creatures in our metaverse. Not a financial product.",
-  "metadata.site.keywords": "NFT, Game, Simulation, Collectible, Miner, Collection, Breeding, Plasma, ORBITRADE, Metaverse, Blockchain",
+  "metadata.site.title": "Orbitrade — Yield Generation Platform",
+  "metadata.site.description": "Deposit USDT, acquire generation installations, and earn daily yield on the Tron (TRC20) network. Not a regulated financial product.",
+  "metadata.site.keywords": "yield generation, USDT, TRC20, Tron, passive income, crypto, Orbitrade, investment platform",
 
   // Metadata - Pages
-  "metadata.home.title": "ORBITRADE - Cosmic Miner NFT Collection",
-  "metadata.home.description": "Discover unique space miner NFTs. Start collecting, breeding and earning with ORBITRADE creatures in the cosmic metaverse.",
+  "metadata.home.title": "Orbitrade — Yield Generation Platform",
+  "metadata.home.description": "Deposit USDT, acquire generation installations, and earn daily yield on Tron (TRC20). Start generating today.",
 
-  "metadata.dashboard.title": "Command Center | ORBITRADE",
-  "metadata.dashboard.description": "Manage your miner collection, track earnings and control your cosmic empire.",
+  "metadata.dashboard.title": "Dashboard | Orbitrade",
+  "metadata.dashboard.description": "View your installed capacity, daily production, and available balance.",
 
-  "metadata.hangar.title": "Docking Bay | ORBITRADE",
-  "metadata.hangar.description": "Deposit and withdraw your USDT. Manage your plasma reserves in the docking bay.",
+  "metadata.hangar.title": "Deposits | Orbitrade",
+  "metadata.hangar.description": "Deposit USDT via Tron (TRC20) to fund your Orbitrade account.",
 
-  "metadata.plasmaCore.title": "Quantum Harvest | ORBITRADE",
-  "metadata.plasmaCore.description": "Claim your daily plasma resources and track your cosmic mining performance.",
+  "metadata.plasmaCore.title": "Production | Orbitrade",
+  "metadata.plasmaCore.description": "Track your active installations and claim daily earnings.",
 
-  "metadata.profile.title": "Pilot Profile | ORBITRADE",
-  "metadata.profile.description": "View and edit your commander profile. Track your rank and achievements.",
+  "metadata.profile.title": "Account | Orbitrade",
+  "metadata.profile.description": "Manage your Orbitrade account settings and security.",
 
-  "metadata.referrals.title": "Alliance Program | ORBITRADE",
-  "metadata.referrals.description": "Invite new commanders and earn referral rewards. Build your cosmic alliance.",
+  "metadata.referrals.title": "Partners | Orbitrade",
+  "metadata.referrals.description": "Invite partners and earn referral commissions across 3 levels.",
 
-  "metadata.login.title": "Commander Access | ORBITRADE",
-  "metadata.login.description": "Sign in to your ORBITRADE command center.",
+  "metadata.login.title": "Sign In | Orbitrade",
+  "metadata.login.description": "Sign in to your Orbitrade account.",
 
-  "metadata.register.title": "Join the Colony | ORBITRADE",
-  "metadata.register.description": "Create your commander account and start your cosmic journey.",
+  "metadata.register.title": "Create Account | Orbitrade",
+  "metadata.register.description": "Create your Orbitrade account and start generating yield.",
 
   // Form Validations
   "forms.validation.required": "This field is required",

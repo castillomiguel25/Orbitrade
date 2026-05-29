@@ -40,7 +40,7 @@ const WithdrawBanner: React.FC<WithdrawBannerProps> = ({
               boxShadow: '0 0 15px rgba(230, 232, 236, 0.2)',
             }}
           >
-            <span className="text-lg">⚡</span>
+            
           </div>
           <h2 className="font-display text-lg font-bold tracking-wider">
             <span
@@ -124,7 +124,7 @@ const WithdrawBanner: React.FC<WithdrawBannerProps> = ({
               border: '1px solid rgba(124, 138, 160, 0.4)',
             }}
           >
-            <span className="text-sm">🔋</span>
+            <span className="text-sm"></span>
           </div>
           <span className="font-mono text-xs text-[#7C8AA0] uppercase tracking-wider">
             {intl.formatMessage({ id: 'components.withdrawBanner.availableEnergyReserves' })}
@@ -236,7 +236,7 @@ const WithdrawBanner: React.FC<WithdrawBannerProps> = ({
                 : '1px solid rgba(239, 68, 68, 0.4)',
             }}
           >
-            <span className="text-sm">🔐</span>
+            
           </div>
           <span
             className={`font-mono text-xs uppercase tracking-wider ${
@@ -317,7 +317,7 @@ const WithdrawBanner: React.FC<WithdrawBannerProps> = ({
                 border: '1px solid rgba(245, 165, 36, 0.4)',
               }}
             >
-              <span className="text-sm">⚡</span>
+              
             </div>
             <span className="font-mono text-xs text-amber-400 uppercase tracking-wider">
               {intl.formatMessage({ id: 'components.withdrawBanner.extractionReady' })}
@@ -330,7 +330,7 @@ const WithdrawBanner: React.FC<WithdrawBannerProps> = ({
 
           <Button onClick={abrirModal} variant="primary" className="w-full py-3 font-mono tracking-wider">
             <div className="flex items-center justify-center gap-2">
-              <span>🚀</span>
+              
               <span className="font-bold">{intl.formatMessage({ id: 'components.withdrawBanner.initiateExtraction' })}</span>
             </div>
           </Button>

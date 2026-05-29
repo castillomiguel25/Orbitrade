@@ -25,13 +25,13 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Completado':
-        return 'bg-green-500/20 text-green-300 border-green-500/40';
+        return 'bg-amber-500/10 text-amber-300 border-[#7C8AA0]/25';
       case 'Pendiente':
         return 'bg-amber-500/20 text-amber-300 border-amber-500/40';
       case 'Procesando':
-        return 'bg-blue-500/20 text-blue-300 border-blue-500/40';
+        return 'bg-blue-500/20 text-[#E6E8EC] border-amber-500/25';
       default:
-        return 'bg-slate-500/20 text-slate-300 border-slate-500/40';
+        return 'bg-slate-500/20 text-[#7C8AA0] border-slate-500/40';
     }
   };
 
@@ -42,8 +42,8 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
         {/* Header */}
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-2 mb-2">
-            <span className="text-cyan-400 text-lg">📋</span>
-            <span className="text-cyan-300 font-mono text-lg tracking-wider">{intl.formatMessage({ id: 'components.depositHistory.missionArchive' })}</span>
+            <span className="text-[#7C8AA0] text-lg">📋</span>
+            <span className="text-[#E6E8EC] font-mono text-lg tracking-wider">{intl.formatMessage({ id: 'components.depositHistory.missionArchive' })}</span>
           </div>
           <div className="w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60"></div>
         </div>
@@ -64,7 +64,7 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
                 <tbody>
                   {historialDepositos.slice(0, 6).map((deposito, index) => (
                     <tr key={deposito.id} className={`border-b border-slate-700/30 hover:bg-slate-700/20 transition-all duration-300 ${index % 2 === 0 ? 'bg-slate-800/20' : ''}`}>
-                      <td className="py-3 px-2 text-slate-300 font-mono text-xs">{deposito.fecha.split(' ')[0]}</td>
+                      <td className="py-3 px-2 text-[#7C8AA0] font-mono text-xs">{deposito.fecha.split(' ')[0]}</td>
                       <td className="py-3 px-2">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
@@ -73,7 +73,7 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
                       </td>
                       <td className="py-3 px-2">
                         <div className="flex items-center gap-1">
-                          <span className="text-blue-300 font-mono text-xs font-bold">{deposito.monto}</span>
+                          <span className="text-[#E6E8EC] font-mono text-xs font-bold">{deposito.monto}</span>
                           <span className="text-slate-400 font-mono text-xs">USDT</span>
                         </div>
                       </td>
@@ -92,7 +92,7 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
             {/* Mobile Cards */}
             <div className="md:hidden space-y-3 overflow-auto max-h-[280px]">
               {historialDepositos.slice(0, 4).map((deposito) => (
-                <div key={deposito.id} className="bg-slate-800/50 rounded-xl p-3 border border-slate-700/50">
+                <div key={deposito.id} className="bg-[#0E1116]/80 rounded-xl p-3 border border-slate-700/50">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
@@ -108,13 +108,13 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
                     <div>
                       <div className="text-slate-400 font-mono text-xs mb-1">{intl.formatMessage({ id: 'components.depositHistory.fuel' })}</div>
                       <div className="flex items-center gap-1">
-                        <span className="text-blue-300 font-mono text-xs font-bold">{deposito.monto}</span>
+                        <span className="text-[#E6E8EC] font-mono text-xs font-bold">{deposito.monto}</span>
                         <span className="text-slate-400 font-mono text-xs">USDT</span>
                       </div>
                     </div>
                     <div>
                       <div className="text-slate-400 font-mono text-xs mb-1">{intl.formatMessage({ id: 'components.depositHistory.date' })}</div>
-                      <div className="text-slate-300 font-mono text-xs">{deposito.fecha.split(' ')[0]}</div>
+                      <div className="text-[#7C8AA0] font-mono text-xs">{deposito.fecha.split(' ')[0]}</div>
                     </div>
                   </div>
                 </div>
@@ -123,13 +123,13 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
 
             {/* Mission Stats */}
             <div className="grid grid-cols-3 gap-2 mt-auto">
-              <div className="text-center p-3 bg-green-500/10 rounded-xl border border-green-500/20">
-                <div className="text-green-400 font-mono text-xs tracking-widest mb-1">{intl.formatMessage({ id: 'components.depositHistory.total' })}</div>
-                <div className="text-green-300 font-mono text-lg font-bold">{historialDepositos.length}</div>
+              <div className="text-center p-3 bg-[#7C8AA0]/10 rounded-xl border border-green-500/20">
+                <div className="text-amber-400 font-mono text-xs tracking-widest mb-1">{intl.formatMessage({ id: 'components.depositHistory.total' })}</div>
+                <div className="text-amber-300 font-mono text-lg font-bold">{historialDepositos.length}</div>
               </div>
               <div className="text-center p-3 bg-blue-500/10 rounded-xl border border-blue-500/20">
-                <div className="text-blue-400 font-mono text-xs tracking-widest mb-1">{intl.formatMessage({ id: 'components.depositHistory.active' })}</div>
-                <div className="text-blue-300 font-mono text-lg font-bold">
+                <div className="text-amber-400 font-mono text-xs tracking-widest mb-1">{intl.formatMessage({ id: 'components.depositHistory.active' })}</div>
+                <div className="text-[#E6E8EC] font-mono text-lg font-bold">
                   {historialDepositos.filter(d => d.estado === 'Completado').length}
                 </div>
               </div>
@@ -152,16 +152,16 @@ export function DepositHistory({ historialDepositos }: DepositHistoryProps) {
             
             <div className="space-y-3">
               <div>
-                <h3 className="text-slate-300 font-mono text-lg font-bold tracking-wider">{intl.formatMessage({ id: 'components.depositHistory.noMissionsFound' })}</h3>
+                <h3 className="text-[#7C8AA0] font-mono text-lg font-bold tracking-wider">{intl.formatMessage({ id: 'components.depositHistory.noMissionsFound' })}</h3>
                 <p className="text-slate-400 font-mono text-sm">{intl.formatMessage({ id: 'components.depositHistory.missionArchiveEmpty' })}</p>
               </div>
               
-              <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700/50 max-w-sm mx-auto">
+              <div className="bg-[#0E1116]/80 rounded-xl p-4 border border-slate-700/50 max-w-sm mx-auto">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-cyan-400 text-lg">🚀</span>
-                  <span className="text-cyan-300 font-mono text-sm tracking-wider">{intl.formatMessage({ id: 'components.depositHistory.initiateFirstMission' })}</span>
+                  
+                  <span className="text-[#E6E8EC] font-mono text-sm tracking-wider">{intl.formatMessage({ id: 'components.depositHistory.initiateFirstMission' })}</span>
                 </div>
-                <p className="text-slate-300 font-mono text-xs leading-relaxed">
+                <p className="text-[#7C8AA0] font-mono text-xs leading-relaxed">
                   {intl.formatMessage({ id: 'components.depositHistory.beginMiningJourney' })}
                 </p>
               </div>

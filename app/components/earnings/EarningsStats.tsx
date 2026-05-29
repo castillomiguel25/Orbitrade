@@ -38,7 +38,7 @@ export const EarningsStats: React.FC<EarningsStatsProps> = ({ totalGanado, total
                   border: '1px solid rgba(245, 165, 36, 0.4)',
                 }}
               >
-                <span className="text-sm">⚡</span>
+                
               </div>
               <div>
                 <h3 className="text-xs font-display font-bold text-amber-400 uppercase tracking-wider">
@@ -203,7 +203,7 @@ export const EarningsStats: React.FC<EarningsStatsProps> = ({ totalGanado, total
                   border: '1px solid rgba(230, 232, 236, 0.4)',
                 }}
               >
-                <span className="text-sm">🔮</span>
+                
               </div>
               <div>
                 <h3 className="text-xs font-display font-bold text-[#E6E8EC] uppercase tracking-wider">
