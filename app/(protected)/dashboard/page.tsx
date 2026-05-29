@@ -89,28 +89,27 @@ export default function DashboardPage() {
 
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-8">
-      {/* Balance bar */}
+      {/* KPI grid */}
       <div
-        className="rounded-xl p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
+        className="rounded-xl p-5"
         style={{ background: "#161A21", border: "1px solid rgba(124,138,160,0.12)" }}
       >
-        <div className="flex gap-6">
-          <div>
-            <div className="text-[10px] font-mono text-steel-gray uppercase tracking-widest mb-0.5">
-              Saldo disponible
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+          {[
+            { label: intl.formatMessage({ id: "pages.dashboard.kpi.available" }), value: profile?.trc20balance ?? 0, accent: "#F5A524" },
+            { label: intl.formatMessage({ id: "pages.dashboard.kpi.capacity" }), value: profile?.frozenbalance ?? 0, accent: "#7C8AA0" },
+            { label: intl.formatMessage({ id: "pages.dashboard.kpi.todayProduction" }), value: profile?.dailyearnings ?? 0, accent: "#22c55e" },
+            { label: intl.formatMessage({ id: "pages.dashboard.kpi.accumulated" }), value: profile?.totalgenerated ?? 0, accent: "#7C8AA0" },
+          ].map(({ label, value, accent }) => (
+            <div key={label}>
+              <div className="text-[10px] font-mono uppercase tracking-widest mb-0.5" style={{ color: "#7C8AA0" }}>
+                {label}
+              </div>
+              <div className="text-xl font-bold" style={{ color: accent }}>
+                ${(value as number).toFixed(2)}
+              </div>
             </div>
-            <div className="text-xl font-bold text-bone-white">
-              ${(profile?.trc20balance ?? 0).toFixed(2)}
-            </div>
-          </div>
-          <div>
-            <div className="text-[10px] font-mono text-steel-gray uppercase tracking-widest mb-0.5">
-              Capital instalado
-            </div>
-            <div className="text-xl font-bold text-bone-white">
-              ${(profile?.frozenbalance ?? 0).toFixed(2)}
-            </div>
-          </div>
+          ))}
         </div>
         <div className="flex gap-2">
           <Link
@@ -126,6 +125,13 @@ export default function DashboardPage() {
             style={{ background: "rgba(124,138,160,0.1)", color: "#7C8AA0", border: "1px solid rgba(124,138,160,0.2)" }}
           >
             Retirar
+          </Link>
+          <Link
+            href="/production"
+            className="px-4 py-2 rounded-lg text-xs font-mono font-semibold uppercase tracking-wider transition-colors"
+            style={{ background: "rgba(34,197,94,0.08)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.2)" }}
+          >
+            Producción →
           </Link>
         </div>
       </div>
