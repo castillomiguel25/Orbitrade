@@ -32,8 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const localeMap: Record<Locale, string> = {
           en: 'en-US',
           es: 'es-ES',
-          pt: 'pt-BR',
-          it: 'it-IT',
         };
         alternates.languages[localeMap[altLocale]] = `${baseUrl}/${altLocale}${route}`;
       });

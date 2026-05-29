@@ -8,7 +8,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const LOCALES = ['en', 'es', 'pt', 'it'];
+const LOCALES = ['en', 'es'];
 const MESSAGES_DIR = path.join(__dirname, '../app/i18n/messages');
 
 // ANSI color codes

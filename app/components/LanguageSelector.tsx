@@ -15,8 +15,6 @@ export function LanguageSelector({ compact = false }: LanguageSelectorProps) {
   const languages: Array<{ code: Locale; name: string; flag: string; short: string }> = [
     { code: 'en', name: 'English', flag: '🇺🇸', short: 'EN' },
     { code: 'es', name: 'Español', flag: '🇪🇸', short: 'ES' },
-    { code: 'pt', name: 'Português', flag: '🇧🇷', short: 'PT' },
-    { code: 'it', name: 'Italiano', flag: '🇮🇹', short: 'IT' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === locale);
