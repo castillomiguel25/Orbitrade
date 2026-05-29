@@ -23,6 +23,7 @@ export const enMessages = {
   "components.navBar.movements": "Movements",
   "components.navBar.profile": "Profile",
   "components.navBar.referrals": "Referrals",
+  "components.navBar.account": "Account",
   "components.navBar.title.deposits": "Dep/Withdraw",
   "components.navBar.title.earnings": "ENERGY CORES",
   "components.navBar.title.home": "COMMAND CENTER",

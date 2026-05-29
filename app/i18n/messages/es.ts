@@ -153,6 +153,7 @@ export const esMessages = {
   "components.navBar.movements": "Movimientos",
   "components.navBar.profile": "Perfil",
   "components.navBar.referrals": "Referidos",
+  "components.navBar.account": "Cuenta",
   "components.navBar.title.deposits": "Dep/Retiro",
   "components.navBar.title.earnings": "NÚCLEOS ENERGÉTICOS",
   "components.navBar.title.home": "CENTRO DE COMANDO",

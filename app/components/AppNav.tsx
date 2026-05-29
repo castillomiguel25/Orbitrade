@@ -4,32 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useUserStore } from "@/app/store/useUserStore";
 import { LanguageSelector } from "./LanguageSelector";
-
-interface NavItem {
-  href: string;
-  icon: string; // SVG icon name from /public/icons/
-  label: string;
-  labelEs: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-  { href: "/dashboard",    icon: "home",        label: "Dashboard",   labelEs: "Dashboard"  },
-  { href: "/production",   icon: "trending-up", label: "Production",  labelEs: "Producción" },
-  { href: "/deposits",     icon: "download",    label: "Deposits",    labelEs: "Depósitos"  },
-  { href: "/withdrawals",  icon: "arrow-up",    label: "Withdrawals", labelEs: "Retiros"    },
-  { href: "/history",      icon: "clock",       label: "History",     labelEs: "Historial"  },
-  { href: "/partners",     icon: "users",       label: "Partners",    labelEs: "Partners"   },
-  { href: "/account",      icon: "user",        label: "Account",     labelEs: "Cuenta"     },
-];
-
-// Bottom-tab items for mobile (5 primary routes)
-const MOBILE_ITEMS = [
-  NAV_ITEMS[0], // dashboard
-  NAV_ITEMS[1], // production
-  NAV_ITEMS[2], // deposits
-  NAV_ITEMS[3], // withdrawals
-  NAV_ITEMS[6], // account
-];
+import { useIntl } from "react-intl";
 
 function NavIcon({ name, className }: { name: string; className?: string }) {
   return (
@@ -64,6 +39,27 @@ export function AppNav() {
   const pathname = usePathname();
   const router = useRouter();
   const { clearUser } = useUserStore();
+  const intl = useIntl();
+
+  const t = (id: string) => intl.formatMessage({ id });
+
+  const NAV_ITEMS = [
+    { href: "/dashboard",   icon: "home",        label: t("components.navBar.home")        },
+    { href: "/production",  icon: "trending-up", label: t("components.navBar.earnings")    },
+    { href: "/deposits",    icon: "download",    label: t("components.navBar.deposits")    },
+    { href: "/withdrawals", icon: "arrow-up",    label: t("components.navBar.withdrawals") },
+    { href: "/history",     icon: "image",       label: t("components.navBar.movements")   },
+    { href: "/partners",    icon: "users",       label: t("components.navBar.referrals")   },
+    { href: "/account",     icon: "user",        label: t("components.navBar.account")     },
+  ];
+
+  const MOBILE_ITEMS = [
+    NAV_ITEMS[0],
+    NAV_ITEMS[1],
+    NAV_ITEMS[2],
+    NAV_ITEMS[3],
+    NAV_ITEMS[6],
+  ];
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
@@ -87,14 +83,8 @@ export function AppNav() {
         }}
       >
         {/* Brand */}
-        <Link
-          href="/dashboard"
-          className="mr-6 flex items-center gap-2 flex-shrink-0"
-        >
-          <span
-            className="text-base font-bold tracking-wider"
-            style={{ color: "#F5A524" }}
-          >
+        <Link href="/dashboard" className="mr-6 flex items-center gap-2 flex-shrink-0">
+          <span className="text-base font-bold tracking-wider" style={{ color: "#F5A524" }}>
             ORBITRADE
           </span>
         </Link>
@@ -110,9 +100,7 @@ export function AppNav() {
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors duration-150"
                 style={{
                   color: active ? "#F5A524" : "#7C8AA0",
-                  background: active
-                    ? "rgba(245, 165, 36, 0.08)"
-                    : "transparent",
+                  background: active ? "rgba(245, 165, 36, 0.08)" : "transparent",
                 }}
               >
                 {active ? (
@@ -128,19 +116,15 @@ export function AppNav() {
 
         {/* Right: language + logout */}
         <div className="flex items-center gap-3 flex-shrink-0">
-          <LanguageSelector />
+          <LanguageSelector dropDirection="down" />
           <button
             onClick={handleLogout}
             className="text-xs font-medium px-3 py-1.5 rounded-md transition-colors duration-150"
             style={{ color: "#7C8AA0" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.color = "#E6E8EC")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.color = "#7C8AA0")
-            }
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#E6E8EC")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#7C8AA0")}
           >
-            Sign out
+            {t("header.logout")}
           </button>
         </div>
       </nav>
@@ -168,10 +152,8 @@ export function AppNav() {
               ) : (
                 <NavIcon name={item.icon} className="w-5 h-5" />
               )}
-              <span
-                className="text-[10px] font-medium leading-none tracking-wide"
-              >
-                {item.labelEs}
+              <span className="text-[10px] font-medium leading-none tracking-wide">
+                {item.label}
               </span>
             </Link>
           );

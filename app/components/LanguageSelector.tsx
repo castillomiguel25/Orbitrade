@@ -5,9 +5,10 @@ import { type Locale } from '../i18n/utils';
 
 interface LanguageSelectorProps {
   compact?: boolean;
+  dropDirection?: 'up' | 'down';
 }
 
-export function LanguageSelector({ compact = false }: LanguageSelectorProps) {
+export function LanguageSelector({ compact = false, dropDirection = 'up' }: LanguageSelectorProps) {
   const { locale, setLocale } = useIntl();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -63,7 +64,7 @@ export function LanguageSelector({ compact = false }: LanguageSelectorProps) {
       {/* Dropdown */}
       {isOpen && (
         <div
-          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 rounded-xl overflow-hidden z-50"
+          className={`absolute ${dropDirection === 'down' ? 'top-full mt-2' : 'bottom-full mb-2'} left-1/2 -translate-x-1/2 rounded-xl overflow-hidden z-50`}
           style={{
             background: 'rgba(14, 17, 22, 0.95)',
             border: '1px solid rgba(124, 138, 160, 0.3)',
