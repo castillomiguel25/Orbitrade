@@ -148,7 +148,7 @@ export const esMessages = {
   "components.investmentPlan.ready": "LISTO",
   "components.investmentPlan.viewDetails": "Ver detalles",
   "components.navBar.deposits": "Depósitos",
-  "components.navBar.earnings": "Recursos",
+  "components.navBar.earnings": "Producción",
   "components.navBar.home": "Inicio",
   "components.navBar.movements": "Movimientos",
   "components.navBar.profile": "Perfil",

@@ -24,9 +24,9 @@ const PLANS: readonly Plan[] = [
     tier: 'entry',
     titleKey: 'plans.entry.title',
     descriptionKey: 'plans.entry.description',
-    rendimiento: 1.2,   // TBD
-    minPrice: 20,       // TBD
-    maxPrice: 499,      // TBD
+    rendimiento: 3,   // TBD
+    minPrice: 30,       // TBD
+    maxPrice: 599,      // TBD
     duracionDias: 365,
     imagePath: '/orbitrade-plan-entry.png',
   },
@@ -35,9 +35,9 @@ const PLANS: readonly Plan[] = [
     tier: 'industrial',
     titleKey: 'plans.industrial.title',
     descriptionKey: 'plans.industrial.description',
-    rendimiento: 2.0,   // TBD
-    minPrice: 500,      // TBD
-    maxPrice: 5000,     // TBD
+    rendimiento: 5,   // TBD
+    minPrice: 600,      // TBD
+    maxPrice: 3000,     // TBD
     duracionDias: 365,
     imagePath: '/orbitrade-plan-industrial.png',
   },

@@ -53,13 +53,7 @@ export function AppNav() {
     { href: "/account",     icon: "user",        label: t("components.navBar.account")     },
   ];
 
-  const MOBILE_ITEMS = [
-    NAV_ITEMS[0],
-    NAV_ITEMS[1],
-    NAV_ITEMS[2],
-    NAV_ITEMS[3],
-    NAV_ITEMS[6],
-  ];
+  const MOBILE_ITEMS = NAV_ITEMS;
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
@@ -144,7 +138,7 @@ export function AppNav() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex-1 flex flex-col items-center justify-center gap-0.5 py-2 transition-colors duration-150"
+              className="flex-1 min-w-0 flex flex-col items-center justify-center gap-0.5 px-1 py-2 transition-colors duration-150"
               style={{ color: active ? "#F5A524" : "#7C8AA0" }}
             >
               {active ? (
@@ -152,7 +146,7 @@ export function AppNav() {
               ) : (
                 <NavIcon name={item.icon} className="w-5 h-5" />
               )}
-              <span className="text-[10px] font-medium leading-none tracking-wide">
+              <span className="truncate text-[9px] font-medium leading-none tracking-wide">
                 {item.label}
               </span>
             </Link>
