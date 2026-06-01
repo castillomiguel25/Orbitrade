@@ -41,32 +41,32 @@ describe('validateWithdrawal', () => {
 });
 
 describe('computeFeePercent', () => {
-  it('returns 10% for first withdrawal of the week (count=0)', () => {
+  it('returns fixed 10% for first withdrawal', () => {
     expect(computeFeePercent(0, false)).toBe(10);
   });
 
-  it('returns 15% for second withdrawal of the week (count=1)', () => {
-    expect(computeFeePercent(1, false)).toBe(15);
+  it('keeps 10% for second withdrawal', () => {
+    expect(computeFeePercent(1, false)).toBe(10);
   });
 
-  it('returns 20% for third+ withdrawal (count=2)', () => {
-    expect(computeFeePercent(2, false)).toBe(20);
+  it('keeps 10% for third or later withdrawal', () => {
+    expect(computeFeePercent(2, false)).toBe(10);
   });
 
-  it('returns 20% for count=5', () => {
-    expect(computeFeePercent(5, false)).toBe(20);
+  it('keeps 10% for high withdrawal counts', () => {
+    expect(computeFeePercent(5, false)).toBe(10);
   });
 
-  it('adds 20% penalty when hasFlow is true (count=0)', () => {
-    expect(computeFeePercent(0, true)).toBe(30);
+  it('ignores flow and keeps 10% when hasFlow is true (count=0)', () => {
+    expect(computeFeePercent(0, true)).toBe(10);
   });
 
-  it('adds 20% penalty when hasFlow is true (count=1)', () => {
-    expect(computeFeePercent(1, true)).toBe(35);
+  it('ignores flow and keeps 10% when hasFlow is true (count=1)', () => {
+    expect(computeFeePercent(1, true)).toBe(10);
   });
 
-  it('adds 20% penalty when hasFlow is true (count=2)', () => {
-    expect(computeFeePercent(2, true)).toBe(40);
+  it('ignores flow and keeps 10% when hasFlow is true (count=2)', () => {
+    expect(computeFeePercent(2, true)).toBe(10);
   });
 });
 
@@ -78,15 +78,15 @@ describe('computeFinalAmount', () => {
   });
 
   it('rounds to 2 decimal places', () => {
-    const result = computeFinalAmount(33.33, 15);
-    expect(result.fee).toBe(5.00);
-    expect(result.finalAmount).toBe(28.33);
+    const result = computeFinalAmount(33.33, 10);
+    expect(result.fee).toBe(3.33);
+    expect(result.finalAmount).toBe(30.00);
   });
 
-  it('handles 20% fee', () => {
-    const result = computeFinalAmount(500, 20);
-    expect(result.fee).toBe(100);
-    expect(result.finalAmount).toBe(400);
+  it('handles fixed 10% fee on larger amounts', () => {
+    const result = computeFinalAmount(500, 10);
+    expect(result.fee).toBe(50);
+    expect(result.finalAmount).toBe(450);
   });
 });
 

@@ -62,8 +62,9 @@ export function useReferrals() {
   const totalGanado = referrals.reduce((acc, ref) => {
     const num = parseFloat(ref.totalGanado);
     if (isNaN(num)) return acc;
-    if (ref.nivel === 1) return acc + num * 0.06;
+    if (ref.nivel === 1) return acc + num * 0.1;
     if (ref.nivel === 2) return acc + num * 0.03;
+    if (ref.nivel === 3) return acc + num * 0.01;
     return acc;
   }, 0);
 

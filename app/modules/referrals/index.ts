@@ -1,4 +1,4 @@
-const RATES: [number, number, number] = [0.06, 0.03, 0.01];
+const RATES: [number, number, number] = [0.1, 0.03, 0.01];
 
 export interface ReferralPayout {
   userId: string;

@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useProfileStore } from '@/app/store/useProfileStore';
 import { Referral } from '@/app/types/referral';
 
-const LEVEL_RATES: Record<number, number> = { 1: 6, 2: 3, 3: 1 };
+const LEVEL_RATES: Record<number, number> = { 1: 10, 2: 3, 3: 1 };
 
 export default function PartnersPage() {
   const intl = useIntl();

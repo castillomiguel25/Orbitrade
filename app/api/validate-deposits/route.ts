@@ -170,6 +170,17 @@ export async function POST(req: Request) {
             secondReferrer = sRef || null;
           }
 
+          // Nivel 3
+          let thirdReferrer: any = null;
+          if (secondReferrer?.referredby) {
+            const { data: tRef } = await getSupabaseAdmin()
+              .from("profiles")
+              .select("id, referralcode, referredby, trc20balance, flujo")
+              .eq("referralcode", secondReferrer.referredby)
+              .single();
+            thirdReferrer = tRef || null;
+          }
+
           const creditReferral = async (referrer: any, level: number, percent: number) => {
             const reward = +(baseAmount * percent).toFixed(2);
             if (!referrer || reward <= 0) return;
@@ -209,8 +220,9 @@ export async function POST(req: Request) {
               });
           };
 
-          await creditReferral(firstReferrer, 1, 0.06); // 6% Nivel 1
+          await creditReferral(firstReferrer, 1, 0.1); // 10% Nivel 1
           await creditReferral(secondReferrer, 2, 0.03); // 3% Nivel 2
+          await creditReferral(thirdReferrer, 3, 0.01); // 1% Nivel 3
 
           await supabase
             .from("profiles")

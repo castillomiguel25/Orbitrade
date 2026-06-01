@@ -280,8 +280,9 @@ export const ReferralTable: React.FC<ReferralTableProps> = ({ referrals }) => {
                           {(() => {
                             const num = parseFloat(referido.totalGanado);
                             if (isNaN(num) || num === 0) return '0.00';
-                            if (referido.nivel === 1) return (num * 0.06).toFixed(2);
+                            if (referido.nivel === 1) return (num * 0.1).toFixed(2);
                             if (referido.nivel === 2) return (num * 0.03).toFixed(2);
+                            if (referido.nivel === 3) return (num * 0.01).toFixed(2);
                             return '0.00';
                           })()}
                         </div>
@@ -342,8 +343,9 @@ export const ReferralTable: React.FC<ReferralTableProps> = ({ referrals }) => {
                                 {(() => {
                                   const num = parseFloat(referido.totalGanado);
                                   if (isNaN(num) || num === 0) return '0.00';
-                                  if (referido.nivel === 1) return (num * 0.06).toFixed(2);
+                                  if (referido.nivel === 1) return (num * 0.1).toFixed(2);
                                   if (referido.nivel === 2) return (num * 0.03).toFixed(2);
+                                  if (referido.nivel === 3) return (num * 0.01).toFixed(2);
                                   return '0.00';
                                 })()}{' '}
                                 USDT

@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 interface ReferralCommissionsInfoProps {
   porcentajeNivel1: string;
   porcentajeNivel2: string;
+  porcentajeNivel3?: string;
   totalGanado: number;
   totalReferidos: number;
 }
@@ -10,6 +11,7 @@ interface ReferralCommissionsInfoProps {
 export const ReferralCommissionsInfo: React.FC<ReferralCommissionsInfoProps> = ({
   porcentajeNivel1,
   porcentajeNivel2,
+  porcentajeNivel3 = '1%',
   totalGanado,
   totalReferidos,
 }) => {
@@ -28,12 +30,12 @@ export const ReferralCommissionsInfo: React.FC<ReferralCommissionsInfoProps> = (
       title: intl.formatMessage({ id: 'components.referralCommissionsInfo.extendedFleet' }),
       color: '#7C8AA0',
     },
-    // {
-    //   level: 3,
-    //   percentage: porcentajeNivel3 || '1%',
-    //   title: intl.formatMessage({ id: 'components.referralCommissionsInfo.deepFleet' }),
-    //   color: '#E6E8EC',
-    // },
+    {
+      level: 3,
+      percentage: porcentajeNivel3,
+      title: intl.formatMessage({ id: 'components.referralCommissionsInfo.deepFleet' }),
+      color: '#E6E8EC',
+    },
   ];
 
   return (

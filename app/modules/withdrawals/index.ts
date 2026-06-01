@@ -1,3 +1,5 @@
+import { WITHDRAWAL_FEE_PERCENT } from "@/app/constants/withdrawal";
+
 export type WithdrawalValidation = { ok: boolean; error?: string };
 
 export function validateWithdrawal(
@@ -12,10 +14,9 @@ export function validateWithdrawal(
 }
 
 export function computeFeePercent(weeklyCount: number, hasFlow: boolean): number {
-  let base = 10;
-  if (weeklyCount === 1) base = 15;
-  else if (weeklyCount >= 2) base = 20;
-  return hasFlow ? base + 20 : base;
+  void weeklyCount;
+  void hasFlow;
+  return WITHDRAWAL_FEE_PERCENT;
 }
 
 export function computeFinalAmount(

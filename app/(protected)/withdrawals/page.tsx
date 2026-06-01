@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import { useProfileStore } from '@/app/store/useProfileStore';
 import { showToast } from '@/app/utils/toast';
 import { computeFeePercent, computeFinalAmount } from '@/app/modules/withdrawals';
+import { WITHDRAWAL_FEE_PERCENT, WITHDRAWAL_NETWORK } from '@/app/constants/withdrawal';
 
 type WithdrawalRecord = {
   id: string;
@@ -28,13 +29,11 @@ export default function WithdrawalsPage() {
 
   const [amount, setAmount] = useState('');
   const [wallet, setWallet] = useState('');
-  const [network, setNetwork] = useState('BEP20');
+  const [network] = useState(WITHDRAWAL_NETWORK);
   const [key, setKey] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
   const [history, setHistory] = useState<WithdrawalRecord[]>([]);
-  const [weeklyCount, setWeeklyCount] = useState(0);
-  const [feePercent, setFeePercent] = useState(10);
   const [historyLoading, setHistoryLoading] = useState(false);
 
   useEffect(() => {
@@ -49,19 +48,16 @@ export default function WithdrawalsPage() {
       if (!res.ok) return;
       const data: WithdrawalData = await res.json();
       setHistory(data.withdrawals ?? []);
-      setWeeklyCount(data.currentWeekCount ?? 0);
-      setFeePercent(data.nextFeePercent ?? 10);
     } finally {
       setHistoryLoading(false);
     }
   }
 
   const available = profile?.trc20balance ?? 0;
-  const hasFlow = (profile?.flujo ?? 0) > 0;
   const minAmount = 15;
 
   const numericAmount = parseFloat(amount) || 0;
-  const activeFeePercent = computeFeePercent(weeklyCount, hasFlow);
+  const activeFeePercent = computeFeePercent(0, false);
   const { fee, finalAmount } = numericAmount > 0
     ? computeFinalAmount(numericAmount, activeFeePercent)
     : { fee: 0, finalAmount: 0 };
@@ -128,7 +124,12 @@ export default function WithdrawalsPage() {
     return new Date(ts).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
   }
 
-  const canSubmit = numericAmount >= minAmount && numericAmount <= available && wallet.trim() && key.trim() && !submitting;
+  const canSubmit =
+    numericAmount >= minAmount &&
+    numericAmount <= available &&
+    wallet.trim() &&
+    key.trim() &&
+    !submitting;
 
   return (
     <div className="min-h-screen bg-[#0E1116] text-[#E6E8EC]">
@@ -197,26 +198,13 @@ export default function WithdrawalsPage() {
             </div>
           )}
 
-          {/* Network selector */}
+          {/* Fixed network */}
           <div>
             <label className="block text-xs font-medium text-[#7C8AA0] mb-1.5">
               {intl.formatMessage({ id: 'pages.withdrawals.networkLabel' })}
             </label>
-            <div className="flex gap-2">
-              {['BEP20', 'TRC20', 'Arbitrum One'].map(n => (
-                <button
-                  key={n}
-                  type="button"
-                  onClick={() => setNetwork(n)}
-                  className={`flex-1 py-2 rounded-lg text-xs font-mono font-medium border transition-colors ${
-                    network === n
-                      ? 'bg-[#F5A524] text-[#0E1116] border-[#F5A524]'
-                      : 'bg-[#161A21] text-[#7C8AA0] border-[#2A2F3A] hover:border-[#F5A524]/50'
-                  }`}
-                >
-                  {n}
-                </button>
-              ))}
+            <div className="w-full bg-[#161A21] border border-[#2A2F3A] rounded-xl px-4 py-3 text-[#E6E8EC] font-mono text-sm">
+              {network}
             </div>
           </div>
 

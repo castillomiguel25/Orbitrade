@@ -4,7 +4,7 @@ import { createClient } from "../../utils/supabase/server";
 import { v4 as uuidv4 } from "uuid";
 import { WITHDRAWAL_MIN_AMOUNT, WITHDRAWAL_FEE_PERCENT } from "@/app/constants/withdrawal";
 import { checkRateLimit, RATE_LIMITS } from "../../utils/rateLimit";
-import { verifyWithdrawalKey } from "@/app/modules/withdrawals";
+import { computeFeePercent, verifyWithdrawalKey } from "@/app/modules/withdrawals";
 
 export const runtime = "nodejs";
 
@@ -54,10 +54,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: `Monto mínimo de retiro: ${minAmount} USDT` }, { status: 400 });
   }
 
-  // Obtener el balance actual del usuario, flujo y clave de retiro
+  // Obtener el balance actual del usuario y clave de retiro
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
-    .select("trc20balance, flujo, withdrawalkey")
+    .select("trc20balance, withdrawalkey")
     .eq("id", userId)
     .single();
 
@@ -71,51 +71,18 @@ export async function POST(request: Request) {
   }
 
   const currentBalance = parseFloat(profile.trc20balance);
-  const flowAmount = parseFloat(profile.flujo || "0");
   if (numericAmount > currentBalance) {
     return NextResponse.json({ error: "Fondos insuficientes" }, { status: 400 });
   }
 
-  // --- Lógica de Comisión Dinámica ---
-  // Calcular inicio de la semana actual (Lunes 00:00:00)
-  const day = now.getDay(); // 0 (Dom) a 6 (Sab)
-  const diff = now.getDate() - day + (day === 0 ? -6 : 1); // Ajustar para que sea Lunes
-  const monday = new Date(now.setDate(diff));
-  monday.setHours(0, 0, 0, 0);
-
-  // Contar retiros realizados desde el lunes
-  const { count: weeklyCount, error: countError } = await supabase
-    .from("withdrawals")
-    .select("*", { count: 'exact', head: true })
-    .eq("uid", userId)
-    .gte("timestamp", monday.toISOString());
-
-  if (countError) {
-    console.error("Error contando retiros semanales:", countError);
-  }
-
-  const currentCount = weeklyCount || 0;
-  let feePercent = 10; // Default 1ra vez
-
-  if (currentCount === 1) {
-    feePercent = 15; // 2da vez
-  } else if (currentCount >= 2) {
-    feePercent = 20; // 3ra vez o más
-  }
-
-  // Si el flujo es mayor a 0, sumar 20% adicional
-  if (flowAmount > 0) {
-    feePercent += 20;
-  }
-  // --- Fin Lógica de Comisión ---
+  const feePercent = computeFeePercent(0, false);
 
   const fee = parseFloat((numericAmount * (feePercent / 100)).toFixed(2));
   const finalamount = parseFloat((numericAmount - fee).toFixed(2));
 
-  // Validar red seleccionada y normalizar
-  const allowedNetworks = new Set(["TRC20", "APTOS", "ARBITRUM ONE"]);
-  const requestedNetwork = typeof network === 'string' ? network.toUpperCase() : 'TRC20';
-  const bankDetails = allowedNetworks.has(requestedNetwork) ? requestedNetwork : 'TRC20';
+  // Normalizar la red de retiro a BEP20
+  const requestedNetwork = typeof network === 'string' ? network.toUpperCase() : 'BEP20';
+  const bankDetails = requestedNetwork === 'BEP20' ? 'BEP20' : 'BEP20';
 
   // Insertar el retiro
   const { error: insertError } = await supabase.from("withdrawals").insert({
@@ -179,43 +146,10 @@ export async function GET(request: Request) {
 
   const userId = user.id;
 
-  // 1. Obtener perfil para el flujo
-  const { data: profile, error: profileError } = await supabase
-    .from("profiles")
-    .select("flujo")
-    .eq("id", userId)
-    .single();
+  const currentCount = 0;
+  const nextFeePercent = computeFeePercent(0, false);
 
-  const flowAmount = parseFloat(profile?.flujo || "0");
-
-  // 2. Calcular inicio de la semana actual (Lunes)
-  const now = new Date();
-  const day = now.getDay();
-  const diff = now.getDate() - day + (day === 0 ? -6 : 1);
-  const monday = new Date(now.setDate(diff));
-  monday.setHours(0, 0, 0, 0);
-
-  // 3. Contar retiros semanales
-  const { count: weeklyCount } = await supabase
-    .from("withdrawals")
-    .select("*", { count: 'exact', head: true })
-    .eq("uid", userId)
-    .gte("timestamp", monday.toISOString());
-
-  const currentCount = weeklyCount || 0;
-  let nextFeePercent = 10;
-
-  if (currentCount === 1) {
-    nextFeePercent = 15;
-  } else if (currentCount >= 2) {
-    nextFeePercent = 20;
-  }
-
-  if (flowAmount > 0) {
-    nextFeePercent += 20;
-  }
-
-  // 4. Obtener retiros individuales
+  // Obtener retiros individuales
   const { data: withdrawals, error: fetchError } = await supabase
     .from("withdrawals")
     .select("*")
