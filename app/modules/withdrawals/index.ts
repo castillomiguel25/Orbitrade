@@ -1,4 +1,4 @@
-import { WITHDRAWAL_FEE_PERCENT } from "@/app/constants/withdrawal";
+import { getWeeklyWithdrawalFeePercent } from "@/app/constants/withdrawal";
 
 export type WithdrawalValidation = { ok: boolean; error?: string };
 
@@ -14,9 +14,8 @@ export function validateWithdrawal(
 }
 
 export function computeFeePercent(weeklyCount: number, hasFlow: boolean): number {
-  void weeklyCount;
   void hasFlow;
-  return WITHDRAWAL_FEE_PERCENT;
+  return getWeeklyWithdrawalFeePercent(weeklyCount);
 }
 
 export function computeFinalAmount(

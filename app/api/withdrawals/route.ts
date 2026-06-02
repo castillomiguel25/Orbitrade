@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import { createClient } from "../../utils/supabase/server";
 import { v4 as uuidv4 } from "uuid";
-import { WITHDRAWAL_MIN_AMOUNT, WITHDRAWAL_FEE_PERCENT } from "@/app/constants/withdrawal";
+import { WITHDRAWAL_MIN_AMOUNT } from "@/app/constants/withdrawal";
 import { checkRateLimit, RATE_LIMITS } from "../../utils/rateLimit";
 import { computeFeePercent, verifyWithdrawalKey } from "@/app/modules/withdrawals";
 
@@ -75,7 +75,24 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Fondos insuficientes" }, { status: 400 });
   }
 
-  const feePercent = computeFeePercent(0, false);
+  const day = now.getDay(); // 0 (Dom) a 6 (Sab)
+  const diff = now.getDate() - day + (day === 0 ? -6 : 1);
+  const monday = new Date(now);
+  monday.setDate(diff);
+  monday.setHours(0, 0, 0, 0);
+
+  const { count: weeklyCount, error: countError } = await supabase
+    .from("withdrawals")
+    .select("*", { count: 'exact', head: true })
+    .eq("uid", userId)
+    .gte("timestamp", monday.toISOString());
+
+  if (countError) {
+    console.error("Error contando retiros semanales:", countError);
+    return NextResponse.json({ error: "Error al calcular la comisión de retiro" }, { status: 500 });
+  }
+
+  const feePercent = computeFeePercent(weeklyCount || 0, false);
 
   const fee = parseFloat((numericAmount * (feePercent / 100)).toFixed(2));
   const finalamount = parseFloat((numericAmount - fee).toFixed(2));
@@ -146,8 +163,26 @@ export async function GET(request: Request) {
 
   const userId = user.id;
 
-  const currentCount = 0;
-  const nextFeePercent = computeFeePercent(0, false);
+  const now = new Date();
+  const day = now.getDay();
+  const diff = now.getDate() - day + (day === 0 ? -6 : 1);
+  const monday = new Date(now);
+  monday.setDate(diff);
+  monday.setHours(0, 0, 0, 0);
+
+  const { count: weeklyCount, error: countError } = await supabase
+    .from("withdrawals")
+    .select("*", { count: 'exact', head: true })
+    .eq("uid", userId)
+    .gte("timestamp", monday.toISOString());
+
+  if (countError) {
+    console.error("❌ Error contando retiros semanales:", countError);
+    return NextResponse.json({ error: "Error al calcular la comisión de retiro" }, { status: 500 });
+  }
+
+  const currentCount = weeklyCount || 0;
+  const nextFeePercent = computeFeePercent(currentCount, false);
 
   // Obtener retiros individuales
   const { data: withdrawals, error: fetchError } = await supabase

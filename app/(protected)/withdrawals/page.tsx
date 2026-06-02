@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useProfileStore } from '@/app/store/useProfileStore';
 import { showToast } from '@/app/utils/toast';
 import { computeFeePercent, computeFinalAmount } from '@/app/modules/withdrawals';
-import { WITHDRAWAL_FEE_PERCENT, WITHDRAWAL_NETWORK } from '@/app/constants/withdrawal';
+import { WITHDRAWAL_NETWORK } from '@/app/constants/withdrawal';
 
 type WithdrawalRecord = {
   id: string;
@@ -34,6 +34,8 @@ export default function WithdrawalsPage() {
   const [submitting, setSubmitting] = useState(false);
 
   const [history, setHistory] = useState<WithdrawalRecord[]>([]);
+  const [weeklyCount, setWeeklyCount] = useState(0);
+  const [nextFeePercent, setNextFeePercent] = useState(10);
   const [historyLoading, setHistoryLoading] = useState(false);
 
   useEffect(() => {
@@ -48,6 +50,8 @@ export default function WithdrawalsPage() {
       if (!res.ok) return;
       const data: WithdrawalData = await res.json();
       setHistory(data.withdrawals ?? []);
+      setWeeklyCount(data.currentWeekCount ?? 0);
+      setNextFeePercent(data.nextFeePercent ?? 10);
     } finally {
       setHistoryLoading(false);
     }
@@ -57,7 +61,7 @@ export default function WithdrawalsPage() {
   const minAmount = 15;
 
   const numericAmount = parseFloat(amount) || 0;
-  const activeFeePercent = computeFeePercent(0, false);
+  const activeFeePercent = computeFeePercent(weeklyCount, false);
   const { fee, finalAmount } = numericAmount > 0
     ? computeFinalAmount(numericAmount, activeFeePercent)
     : { fee: 0, finalAmount: 0 };
@@ -153,6 +157,24 @@ export default function WithdrawalsPage() {
           <span className="ml-auto text-sm font-bold text-[#E6E8EC] font-mono">
             {available.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT
           </span>
+        </div>
+
+        {/* Weekly fee info */}
+        <div className="mb-5 rounded-xl bg-[#161A21] border border-[#2A2F3A] p-4 space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-medium text-[#7C8AA0]">
+              {intl.formatMessage({ id: 'pages.withdrawals.weeklyFeeStructure' })}
+            </span>
+            <span className="text-sm font-bold text-[#F5A524] font-mono">
+              {nextFeePercent}%
+            </span>
+          </div>
+          <p className="text-xs text-[#7C8AA0]">
+            {intl.formatMessage({ id: 'pages.withdrawals.feeRates' })}
+          </p>
+          <p className="text-[11px] text-[#AAB3C2]">
+            {intl.formatMessage({ id: 'pages.withdrawals.warning.flowPenalty' }, { count: weeklyCount })}
+          </p>
         </div>
 
         {/* Withdrawal form */}
