@@ -264,7 +264,7 @@ export default function DepositsPage() {
           >
             {intl.formatMessage({ id: 'pages.deposits.tabTxid' })}
           </button>
-          <button
+          {/* <button
             onClick={() => setTab('proof')}
             className={`flex-1 py-2 text-xs font-bold rounded-lg transition-colors ${
               tab === 'proof'
@@ -273,7 +273,7 @@ export default function DepositsPage() {
             }`}
           >
             {intl.formatMessage({ id: 'pages.deposits.tabProof' })}
-          </button>
+          </button> */}
         </div>
 
         {/* TXID method */}
@@ -331,9 +331,9 @@ export default function DepositsPage() {
           <form onSubmit={handleProofSubmit} className="bg-[#161A21] border border-white/10 rounded-xl p-4 space-y-4">
             {/* File upload */}
             <div>
-              <label className="block text-[10px] text-[#7C8AA0] uppercase tracking-widest mb-1.5">
+              {/* <label className="block text-[10px] text-[#7C8AA0] uppercase tracking-widest mb-1.5">
                 {intl.formatMessage({ id: 'pages.deposits.tabProof' })}
-              </label>
+              </label> */}
               <label className="flex flex-col items-center justify-center gap-2 w-full bg-[#0E1116] border border-dashed border-white/20 rounded-xl px-4 py-6 cursor-pointer hover:border-[#F5A524]/50 transition-colors">
                 <span className="text-2xl">📎</span>
                 <span className="text-xs font-bold text-[#E6E8EC]">
