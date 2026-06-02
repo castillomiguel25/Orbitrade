@@ -34,6 +34,10 @@ export async function POST(request: Request) {
     typeof requestedAmount === "number" && !isNaN(requestedAmount)
       ? requestedAmount
       : plan.minPrice;
+  const paymentSource =
+    body.paymentSource === "con-deposito" || body.paymentSource === "sin-deposito"
+      ? body.paymentSource
+      : "con-deposito";
 
   const validation = validatePurchase(plan, monto);
   if (!validation.ok) {
@@ -117,6 +121,7 @@ export async function POST(request: Request) {
   const fechaFin = new Date(now.getTime() + plan.duracionDias * 24 * 60 * 60 * 1000).toISOString();
 
   const { error: insertError } = await supabase.from("deposits").insert({
+    id: crypto.randomUUID(),
     user_id: userId,
     amount: monto,
     rendimiento: plan.rendimiento,
@@ -125,10 +130,20 @@ export async function POST(request: Request) {
     fecha_fin: fechaFin,
     last_claimed: fechaInicio,
     ganancia_diaria: gananciaDiaria,
-    payment_source: "trc20balance",
   });
 
   if (insertError) {
+    console.error("Error inserting deposit installation:", {
+      message: insertError.message,
+      details: insertError.details,
+      hint: insertError.hint,
+      code: insertError.code,
+      userId,
+      planId: plan.id,
+      amount: monto,
+      paymentSource,
+    });
+
     // Revert profile update on insert failure
     await supabase
       .from("profiles")
