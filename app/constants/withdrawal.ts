@@ -1,7 +1,7 @@
 export const WITHDRAWAL_MIN_AMOUNT = 15;
 export const WITHDRAWAL_FEE_PERCENT = 10;
 export const WITHDRAWAL_NETWORK = 'BEP20';
-export const WITHDRAWAL_ESTIMATED_TIME = '0-48 horas';
+export const WITHDRAWAL_ESTIMATED_TIME = '0-48 horas'; 
 export const WITHDRAWAL_WEEKLY_TIERS = [10, 20, 30, 30, 30];
 
 export function getWeeklyWithdrawalFeePercent(withdrawalsThisWeek: number): number {
